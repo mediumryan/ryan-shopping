@@ -2,11 +2,13 @@ import { useEffect, useRef, useState } from 'react';
 import { styled } from 'styled-components';
 import { useRecoilValue } from 'recoil';
 // import state data
-import { mans } from '../data/mans';
+import { mans_data, outer_data } from '../data/data';
 // import components
 import Dots from '../Components/Home/Dots';
+import { Link } from 'react-router-dom';
 
 const HomeOuter = styled.div`
+    position: relative;
     margin: 0;
     overflow-y: hidden;
 `;
@@ -21,6 +23,7 @@ const HomeInner = styled.div`
 `;
 
 const Sections = styled.section`
+    position: relative;
     height: 100vh;
     display: flex;
     flex-wrap: wrap;
@@ -29,16 +32,29 @@ const Sections = styled.section`
     img {
         width: 25%;
         height: 50%;
+        border: 2px solid aliceblue;
+        border-radius: 4px;
     }
-    /* &.section1 {
-        background-color: red;
+`;
+
+const SectionsTitle = styled(Link)`
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.85);
+    color: #fff;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+    font-style: italic;
+    text-decoration: none;
+    transition: 300ms background-color;
+    cursor: pointer;
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.5);
     }
-    &.section2 {
-        background-color: green;
-    }
-    &.section3 {
-        background-color: blue;
-    } */
 `;
 
 const Divider = styled.div`
@@ -58,13 +74,10 @@ export default function Home() {
             const { scrollTop } = outerDivRef.current; // 스크롤 위쪽 끝부분 위치
             const pageHeight = window.innerHeight; // 화면 세로길이, 100vh와 같습니다.
 
-            console.log(outerDivRef.current);
-
             if (deltaY > 0) {
                 // 스크롤 내릴 때
                 if (scrollTop >= 0 && scrollTop < pageHeight) {
                     //현재 1페이지
-                    console.log('현재 1페이지, down');
                     outerDivRef.current.scrollTo({
                         top: pageHeight + DIVIDER_HEIGHT,
                         left: 0,
@@ -76,7 +89,6 @@ export default function Home() {
                     scrollTop < pageHeight * 2
                 ) {
                     //현재 2페이지
-                    console.log('현재 2페이지, down');
                     outerDivRef.current.scrollTo({
                         top: pageHeight * 2 + DIVIDER_HEIGHT * 2,
                         left: 0,
@@ -85,7 +97,6 @@ export default function Home() {
                     setCurrentPage(3);
                 } else {
                     // 현재 3페이지
-                    console.log('현재 3페이지, down');
                     outerDivRef.current.scrollTo({
                         top: pageHeight * 2 + DIVIDER_HEIGHT * 2,
                         left: 0,
@@ -96,7 +107,6 @@ export default function Home() {
                 // 스크롤 올릴 때
                 if (scrollTop >= 0 && scrollTop < pageHeight) {
                     //현재 1페이지
-                    console.log('현재 1페이지, up');
                     outerDivRef.current.scrollTo({
                         top: 0,
                         left: 0,
@@ -107,7 +117,6 @@ export default function Home() {
                     scrollTop < pageHeight * 2
                 ) {
                     //현재 2페이지
-                    console.log('현재 2페이지, up');
                     outerDivRef.current.scrollTo({
                         top: 0,
                         left: 0,
@@ -116,7 +125,6 @@ export default function Home() {
                     setCurrentPage(1);
                 } else {
                     // 현재 3페이지
-                    console.log('현재 3페이지, up');
                     outerDivRef.current.scrollTo({
                         top: pageHeight + DIVIDER_HEIGHT,
                         left: 0,
@@ -134,7 +142,8 @@ export default function Home() {
     }, []);
 
     // data
-    const man = useRecoilValue(mans);
+    const man = useRecoilValue(mans_data);
+    const outer = useRecoilValue(outer_data);
 
     return (
         <HomeOuter>
@@ -150,11 +159,34 @@ export default function Home() {
                             />
                         );
                     })}
+                    <SectionsTitle to="/mans">남성의류</SectionsTitle>
                 </Sections>
                 <Divider className="divider"></Divider>
-                <Sections className="section2">2</Sections>
+                <Sections className="section2">
+                    {outer.slice(0, 8).map((outer_item) => {
+                        return (
+                            <img
+                                key={outer_item.id}
+                                src={outer_item.image_path}
+                                alt={outer_item.name}
+                            />
+                        );
+                    })}
+                    <SectionsTitle to="/outer">아우터</SectionsTitle>
+                </Sections>
                 <Divider className="divider"></Divider>
-                <Sections className="section3">3</Sections>
+                <Sections className="section3">
+                    {outer.slice(0, 8).map((outer_item) => {
+                        return (
+                            <img
+                                key={outer_item.id}
+                                src={outer_item.image_path}
+                                alt={outer_item.name}
+                            />
+                        );
+                    })}
+                    <SectionsTitle to="/top">탑</SectionsTitle>
+                </Sections>
             </HomeInner>
         </HomeOuter>
     );

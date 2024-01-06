@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 import { Route, Routes } from 'react-router-dom';
 // import css
-import './CSS/test.css';
+import './CSS/index.css';
 // import components
 import Header from './Components/Header/Header';
 import Footer from './Components/Footer/Footer';

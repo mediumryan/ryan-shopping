@@ -48,7 +48,7 @@ export const data = atom({
             name: '산티아 맨투맨',
             price: 42000,
             discounted: null,
-            category: ['man'],
+            category: ['man', 'top'],
             sold_out: false,
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202203/3e8b109c9943d6bce941225ef484a560.gif',
@@ -108,7 +108,7 @@ export const data = atom({
             name: '하켐 단가라 니트 반집업',
             price: 52000,
             discounted: 0.33,
-            category: ['man'],
+            category: ['man', 'top'],
             sold_out: false,
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202204/fd048566e7c63a751df3c5969be6ee5d.gif',
@@ -128,7 +128,7 @@ export const data = atom({
             name: '봄봄 오버핏 후드 체크 셔츠',
             price: 59000,
             discounted: null,
-            category: ['man'],
+            category: ['man', 'top'],
             sold_out: false,
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202202/060fd5565a356803539639d6b7e26136.gif',
@@ -158,7 +158,7 @@ export const data = atom({
             name: '피그윙 니트 스웨터',
             price: 55000,
             discounted: 0.24,
-            category: ['man'],
+            category: ['man', 'top'],
             sold_out: false,
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202204/1d33e9ba576e271767d71809abf1f3ee.png',
@@ -168,7 +168,7 @@ export const data = atom({
             name: '로스트 오버핏 니트 후드',
             price: 52000,
             discounted: null,
-            category: ['man'],
+            category: ['man', 'top'],
             sold_out: false,
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202202/bb3ae1263796e52a57a28196a24ea80a.jpg',
@@ -178,7 +178,7 @@ export const data = atom({
             name: '무빙 레이어드 PK 카라티',
             price: 38000,
             discounted: null,
-            category: ['man'],
+            category: ['man', 'top'],
             sold_out: false,
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202202/76b19da2cbadc2bfab89b7a923cf6673.png',
@@ -188,7 +188,7 @@ export const data = atom({
             name: '기모쭈리 무지 후드',
             price: 55000,
             discounted: null,
-            category: ['man'],
+            category: ['man', 'top'],
             sold_out: false,
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202201/6f24efc4d6f168780282fe23e3fa67b7.webp',
@@ -208,7 +208,7 @@ export const data = atom({
             name: '버블 기모 무지 맨투맨',
             price: 42000,
             discounted: null,
-            category: ['man'],
+            category: ['man', 'top'],
             sold_out: false,
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202201/dc49ca400930b5bbcc89d8b301286d18.gif',
@@ -218,7 +218,7 @@ export const data = atom({
             name: '리오 반집업 맨투맨',
             price: 36000,
             discounted: 0.22,
-            category: ['man'],
+            category: ['man', 'top'],
             sold_out: false,
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202204/1f44695705d12b43730d4bf7a33b7e69.png',
@@ -228,7 +228,7 @@ export const data = atom({
             name: '몽샤 하이넥 멀티 폴라 집업',
             price: 38000,
             discounted: null,
-            category: ['man'],
+            category: ['man', 'top'],
             sold_out: false,
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202201/6505f55728e45175c71e82c8103e5bee.webp',
@@ -452,6 +452,146 @@ export const data = atom({
             sold_out: false,
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202107/bc3ef6b79cedd2723f411e843ae4ccf8.gif',
+        },
+        {
+            id: 46,
+            name: '울니트 반 집업 카라 맨투맨',
+            price: 46000,
+            discounted: null,
+            category: ['top'],
+            sold_out: false,
+            image_path:
+                'https://m.darles.co.kr/web/product/medium/202201/5fcd00b2ad3b546a2e684635db71e40d.png',
+        },
+        {
+            id: 47,
+            name: '컷팅 곰돌이 맨투맨',
+            price: 49000,
+            discounted: 0.23,
+            category: ['top'],
+            sold_out: false,
+            image_path:
+                'https://m.darles.co.kr/web/product/medium/202204/4876f8bf2fd45f937fde7600efcdad55.gif',
+        },
+        {
+            id: 48,
+            name: '남녀공용 캠퍼스 후드',
+            price: 39000,
+            discounted: null,
+            category: ['top'],
+            sold_out: false,
+            image_path:
+                'https://m.darles.co.kr/web/product/medium/202112/27378cf39b6c0f0e3a2c97bac8b9a9a3.gif',
+        },
+        {
+            id: 49,
+            name: '카라포인트 기모 맨투맨',
+            price: 43000,
+            discounted: null,
+            category: ['top'],
+            sold_out: false,
+            image_path:
+                'https://m.darles.co.kr/web/product/medium/202112/511e7829a5eb3d2c13d3c3493e2749b7.png',
+        },
+        {
+            id: 50,
+            name: '남녀공용 나그랑 니트',
+            price: 35000,
+            discounted: null,
+            category: ['top'],
+            sold_out: false,
+            image_path:
+                'https://m.darles.co.kr/web/product/medium/202111/041ea0c6a31eeee063edb0de021904fa.jpg',
+        },
+        {
+            id: 51,
+            name: '캐롯케익 꽈배기 니트',
+            price: 41000,
+            discounted: null,
+            category: ['top'],
+            sold_out: false,
+            image_path:
+                'https://m.darles.co.kr/web/product/medium/202110/493714bd5ec25a66dddfc0f630b07f76.png',
+        },
+        {
+            id: 52,
+            name: '남녀공용 캐쥬얼 펜뎁 후드',
+            price: 54000,
+            discounted: null,
+            category: ['top'],
+            sold_out: false,
+            image_path:
+                'https://m.darles.co.kr/web/product/medium/202110/7248d0652d871ad98527da5b95581de6.png',
+        },
+        {
+            id: 53,
+            name: '루즈핏 박시 언발 크롭 후드',
+            price: 33000,
+            discounted: null,
+            category: ['top'],
+            sold_out: false,
+            image_path:
+                'https://m.darles.co.kr/web/product/medium/202110/dcea6307470625ca741b6980b8499a07.jpg',
+        },
+        {
+            id: 54,
+            name: '헤비쭈리 비드후드',
+            price: 58900,
+            discounted: null,
+            category: ['top'],
+            sold_out: false,
+            image_path:
+                'https://m.darles.co.kr/web/product/medium/202109/c600f8b2a43a282d298690aad07966b2.jpg',
+        },
+        {
+            id: 55,
+            name: '캐시미어 반팔 니트',
+            price: 45800,
+            discounted: null,
+            category: ['top'],
+            sold_out: false,
+            image_path:
+                'https://m.darles.co.kr/web/product/medium/202109/bb8e71972de5645a04464d974dc0b25c.jpg',
+        },
+        {
+            id: 56,
+            name: '베베셔츠 + 나시 세트',
+            price: 33000,
+            discounted: null,
+            category: ['top'],
+            sold_out: false,
+            image_path:
+                'https://m.darles.co.kr/web/product/medium/202109/471428c710eccee679e01e8a7034933c.jpg',
+        },
+        {
+            id: 57,
+            name: '빅사이즈 와이드 골지 니트',
+            price: 36500,
+            discounted: null,
+            category: ['top'],
+            sold_out: false,
+            image_path:
+                'https://m.darles.co.kr/web/product/medium/202109/5a2f9e3dccfac03b189c7b0f78281740.gif',
+        },
+        {
+            id: 58,
+            name: '스퀘어 크롭 티',
+            price: 26000,
+            discounted: null,
+            category: ['top'],
+            sold_out: false,
+            image_path:
+                'https://m.darles.co.kr/web/product/medium/202109/82839562162f53587396e9c89085a10f.png',
+        },
+        {
+            id: 59,
+            name: '비커밍 니트 조끼',
+            price: 29000,
+            discounted: null,
+            category: ['top'],
+            sold_out: false,
+            image_path:
+                'https://m.darles.co.kr/web/product/medium/202108/d7d939fbf5ef6ba2b3856f3697e9d6a8.jpg',
         },
     ],
 });

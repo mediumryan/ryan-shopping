@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { styled } from 'styled-components';
 import { useRecoilValue } from 'recoil';
 // import state data
-import { mans_data, outer_data } from '../data/data';
+import { mans_data, outer_data, top_data } from '../data/data';
 // import components
 import Dots from '../Components/Home/Dots';
 import { Link } from 'react-router-dom';
@@ -144,6 +144,7 @@ export default function Home() {
     // data
     const man = useRecoilValue(mans_data);
     const outer = useRecoilValue(outer_data);
+    const top = useRecoilValue(top_data);
 
     return (
         <HomeOuter>
@@ -176,12 +177,12 @@ export default function Home() {
                 </Sections>
                 <Divider className="divider"></Divider>
                 <Sections className="section3">
-                    {outer.slice(0, 8).map((outer_item) => {
+                    {top.slice(0, 8).map((top_item) => {
                         return (
                             <img
-                                key={outer_item.id}
-                                src={outer_item.image_path}
-                                alt={outer_item.name}
+                                key={top_item.id}
+                                src={top_item.image_path}
+                                alt={top_item.name}
                             />
                         );
                     })}

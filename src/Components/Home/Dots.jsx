@@ -1,44 +1,43 @@
-const Dot = ({ num, currentPage }) => {
-    return (
-        <div
-            style={{
-                width: 10,
-                height: 10,
-                border: '1px solid black',
-                borderRadius: 999,
-                backgroundColor: currentPage === num ? 'black' : 'transparent',
-                transitionDuration: 1000,
-                transition: 'background-color 0.5s',
-            }}
-        ></div>
-    );
-};
+import { styled } from 'styled-components';
+
+const DotsOuter = styled.div`
+    position: absolute;
+    top: 50%;
+    right: 100px;
+    transform: translateY(-50%);
+    z-index: 3;
+`;
+
+const DitsInner = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 20px;
+    height: 100px;
+`;
+
+const Dot = styled.div`
+    width: 10px;
+    height: 10px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    background-color: ${(props) =>
+        props.currentPage === props.num ? '#fff' : 'transparent'};
+    transition-duration: 1000ms;
+    transition: background-color 0.5s;
+`;
 
 const Dots = ({ currentPage }) => {
     return (
-        <div style={{ position: 'fixed', top: '50%', right: 100 }}>
-            <div
-                style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                    width: 20,
-                    height: 100,
-                }}
-            >
+        <DotsOuter>
+            <DitsInner>
                 <Dot num={1} currentPage={currentPage}></Dot>
                 <Dot num={2} currentPage={currentPage}></Dot>
                 <Dot num={3} currentPage={currentPage}></Dot>
-            </div>
-        </div>
+            </DitsInner>
+        </DotsOuter>
     );
 };
 
 export default Dots;
-
-window.ReactionButtonType = 'reaction';
-window.ReactionApiUrl = '//codingbroker.tistory.com/reaction';
-window.ReactionReqBody = {
-    entryId: 128,
-};

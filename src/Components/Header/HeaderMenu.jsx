@@ -3,7 +3,6 @@ import { styled } from 'styled-components';
 
 const HeaderMenuWrapper = styled.ul`
     width: 100%;
-    display: flex;
     align-items: center;
     justify-content: center;
     padding: 1rem 0;
@@ -13,13 +12,17 @@ const HeaderMenuWrapper = styled.ul`
             color: grey;
             padding: 0.5rem 1rem;
             margin: 0.5rem;
+            font-size: 0.8rem;
+            &:hover {
+                color: green;
+            }
         }
     }
 `;
 
-export default function HeaderMenu() {
+export default function HeaderMenu({ scrollY }) {
     return (
-        <HeaderMenuWrapper>
+        <HeaderMenuWrapper style={{ display: scrollY > 50 ? 'none' : 'flex' }}>
             <li>
                 <Link>로그인</Link>
             </li>

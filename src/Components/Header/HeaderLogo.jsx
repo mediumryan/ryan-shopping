@@ -8,6 +8,7 @@ const HeaderLogoWrapper = styled.div`
     width: 100%;
     padding: 1rem 0;
     color: grey;
+    top: 0;
 `;
 
 const ToggleBtn = styled.div``;
@@ -18,7 +19,7 @@ const Logo = styled.div`
 
 const FindBtn = styled.div``;
 
-export default function HeaderLogo() {
+export default function HeaderLogo({ scrollY }) {
     return (
         <HeaderLogoWrapper>
             <ToggleBtn>

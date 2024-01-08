@@ -8,7 +8,7 @@ const HeaderCategoryWrapper = styled.div`
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 1rem 0;
+    padding: 0 0 1rem 0;
     color: grey;
 `;
 
@@ -21,7 +21,10 @@ const Menu = styled.ul`
             text-decoration: none;
             color: grey;
             padding: 0.5rem 0.75rem;
-            font-size: 0.85rem;
+            font-size: 0.65rem;
+            &:hover {
+                color: green;
+            }
         }
     }
 `;

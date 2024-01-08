@@ -22,8 +22,6 @@ const Dot = styled.div`
     height: 10px;
     border: 1px solid #fff;
     border-radius: 50%;
-    background-color: ${(props) =>
-        props.currentPage === props.num ? '#fff' : 'transparent'};
     transition-duration: 1000ms;
     transition: background-color 0.5s;
 `;
@@ -32,9 +30,19 @@ const Dots = ({ currentPage }) => {
     return (
         <DotsOuter>
             <DitsInner>
-                <Dot num={1} currentPage={currentPage}></Dot>
-                <Dot num={2} currentPage={currentPage}></Dot>
-                <Dot num={3} currentPage={currentPage}></Dot>
+                {[1, 2, 3].map((item, index) => {
+                    return (
+                        <Dot
+                            key={index}
+                            style={{
+                                backgroundColor:
+                                    currentPage === item
+                                        ? '#fff'
+                                        : 'transparent',
+                            }}
+                        />
+                    );
+                })}
             </DitsInner>
         </DotsOuter>
     );

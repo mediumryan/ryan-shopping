@@ -10,7 +10,20 @@ const CardWrapper = styled.div`
     }
 `;
 
-const CardImg = styled.div``;
+const CardImg = styled.div`
+    img {
+        position: relative;
+    }
+    span {
+        position: absolute;
+        top: 0.5%;
+        right: 0.5%;
+        background-color: rgba(0, 0, 0, 0.85);
+        color: #fff;
+        padding: 0.5rem;
+        border-radius: 4px;
+    }
+`;
 
 const CardDescription = styled.div`
     display: flex;
@@ -34,6 +47,9 @@ export default function ItemCard({ item }) {
         <CardWrapper>
             <CardImg>
                 <img src={item.image_path} alt={item.name} />
+                {item.discounted !== null && (
+                    <span>{item.discounted * 100}%</span>
+                )}
             </CardImg>
             <CardDescription>
                 <p style={{ fontWeight: 700 }}>{item.name}</p>

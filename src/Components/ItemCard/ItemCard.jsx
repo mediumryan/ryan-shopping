@@ -36,7 +36,7 @@ export default function ItemCard({ item }) {
                 <img src={item.image_path} alt={item.name} />
             </CardImg>
             <CardDescription>
-                <p>{item.name}</p>
+                <p style={{ fontWeight: 700 }}>{item.name}</p>
                 <p
                     style={{
                         textDecoration:

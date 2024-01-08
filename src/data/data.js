@@ -28,7 +28,7 @@ export const data = atom({
             name: '맨하탄 와이드 조거팬츠',
             price: 25800,
             discounted: null,
-            category: ['man'],
+            category: ['man', 'bottom'],
             sold_out: false,
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202203/18e0adcf85edbb1aea4a24fdcb1cf769.gif',
@@ -58,7 +58,7 @@ export const data = atom({
             name: '슈가 투턱 와이드 조거팬츠',
             price: 39600,
             discounted: null,
-            category: ['man'],
+            category: ['man', 'bottom'],
             sold_out: false,
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202203/fa41d34119eb055fe485d1253aad33c6.png',
@@ -68,7 +68,7 @@ export const data = atom({
             name: '반전 배색 와이드 트레이싱 팬츠',
             price: 48400,
             discounted: null,
-            category: ['man'],
+            category: ['man', 'bottom'],
             sold_out: false,
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202203/7d88ca8211023733a0ae9c56aabbd0ab.png',
@@ -78,7 +78,7 @@ export const data = atom({
             name: '절개라인 와이드 밴딩 팬츠',
             price: 42500,
             discounted: null,
-            category: ['man'],
+            category: ['man', 'bottom'],
             sold_out: false,
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202203/07c0520fcff8ab6b72ef0c26bc5339cf.png',
@@ -98,7 +98,7 @@ export const data = atom({
             name: '이브닝 오버벌룬핏 데님 밴딩팬츠',
             price: 42000,
             discounted: null,
-            category: ['man'],
+            category: ['man', 'bottom'],
             sold_out: false,
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202203/c098da3e145e6c54b62473837046977d.png',
@@ -593,6 +593,512 @@ export const data = atom({
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202108/d7d939fbf5ef6ba2b3856f3697e9d6a8.jpg',
         },
+        {
+            id: 60,
+            name: '꽃보라 유니크 패턴 원피스',
+            price: 69000,
+            discounted: 0.5,
+            category: ['dress'],
+            sold_out: false,
+            image_path:
+                'https://m.darles.co.kr/web/product/medium/202204/3938073a6490c4f67e72cb9ee4cee749.gif',
+        },
+        {
+            id: 61,
+            name: '도티도티 셔링주름 도트 원피스',
+            price: 49800,
+            discounted: 0.3,
+            category: ['dress'],
+            sold_out: false,
+            image_path:
+                'https://m.darles.co.kr/web/product/medium/202204/93e4a6ca118f9e4e6e363664c2f7829a.gif',
+        },
+        {
+            id: 62,
+            name: '카라 스프라이트 트임 원피스',
+            price: 24900,
+            discounted: null,
+            category: ['dress'],
+            sold_out: false,
+            image_path:
+                'https://m.darles.co.kr/web/product/medium/202108/266d8a6805c1ac92bc16cff6d007776f.jpg',
+        },
+        {
+            id: 63,
+            name: '라떼 롱 원피스',
+            price: 27000,
+            discounted: null,
+            category: ['dress'],
+            sold_out: false,
+            image_path:
+                'https://m.darles.co.kr/web/product/medium/202107/af5473efbf98f6bc7bb91b676d4e7ff4.jpg',
+        },
+        {
+            id: 64,
+            name: '미꽃 민소매 원피스',
+            price: 54000,
+            discounted: null,
+            category: ['dress'],
+            sold_out: false,
+            image_path:
+                'https://m.darles.co.kr/web/product/medium/202107/c0bef39d9fafdaad3319f55c35f6947b.png',
+        },
+        {
+            id: 65,
+            name: '압도적인 여신핏 세이렌 원피스',
+            price: 59000,
+            discounted: null,
+            category: ['dress'],
+            sold_out: false,
+            image_path:
+                'https://m.darles.co.kr/web/product/medium/202106/641a58c71ffea3928d1c46fd290e658f.gif',
+        },
+        {
+            id: 66,
+            name: '마리 플라워 원피스',
+            price: 79000,
+            discounted: 0.37,
+            category: ['dress'],
+            sold_out: false,
+            image_path:
+                'https://m.darles.co.kr/web/product/medium/202206/6ef30f88271b868c83c6e322f1191fc3.png',
+        },
+        {
+            id: 67,
+            name: '쿨 데이지 롱 원피스',
+            price: 69000,
+            discounted: null,
+            category: ['dress'],
+            sold_out: false,
+            image_path:
+                'https://m.darles.co.kr/web/product/medium/202106/f2c3e584fa7451c83bec945bb45a548a.gif',
+        },
+        {
+            id: 68,
+            name: '블루 데이지 원피스',
+            price: 70900,
+            discounted: null,
+            category: ['dress'],
+            sold_out: false,
+            image_path:
+                'https://m.darles.co.kr/web/product/medium/202106/566684e5809c8055b70fd1c6cfd4795b.jpg',
+        },
+        {
+            id: 69,
+            name: '마가레뜨 플라워 맥시 원피스',
+            price: 72000,
+            discounted: null,
+            category: ['dress'],
+            sold_out: false,
+            image_path:
+                'https://m.darles.co.kr/web/product/medium/202106/25bb0843c6bedac0101ec0a33aa9cb27.png',
+        },
+        {
+            id: 70,
+            name: '네이프리본 스판 원피스',
+            price: 55000,
+            discounted: null,
+            category: ['dress'],
+            sold_out: false,
+            image_path:
+                'https://m.darles.co.kr/web/product/medium/202106/998ba5562ae84861226a6e575de283b4.jpg',
+        },
+        {
+            id: 71,
+            name: '에이드 컬러체크 플레어 롱원피스',
+            price: 64000,
+            discounted: null,
+            category: ['dress'],
+            sold_out: false,
+            image_path:
+                'https://m.darles.co.kr/web/product/medium/202107/2cb072dd4b4aa96d183d62f254733c3b.webp',
+        },
+        {
+            id: 72,
+            name: '오드리 핀턱 카라 린넨 원피스',
+            price: 42000,
+            discounted: null,
+            category: ['dress'],
+            sold_out: false,
+            image_path:
+                'https://m.darles.co.kr/web/product/medium/202106/518dbcaf11d95a769c99f5534178d3ee.webp',
+        },
+        {
+            id: 73,
+            name: '꽃더하기꽃 미니원피스',
+            price: 58000,
+            discounted: null,
+            category: ['dress'],
+            sold_out: false,
+            image_path:
+                'https://m.darles.co.kr/web/product/medium/202106/4189c4b4852b2ee924722018a11e6906.webp',
+        },
+        {
+            id: 74,
+            name: '여신강림 반팔 레이스 원피스',
+            price: 64000,
+            discounted: null,
+            category: ['dress'],
+            sold_out: false,
+            image_path:
+                'https://m.darles.co.kr/web/product/medium/202105/b72c439b0ff5281d4592e6287f471a1c.png',
+        },
+        {
+            id: 75,
+            name: '로코 점프수트 여성 숏 점프수트',
+            price: 92000,
+            discounted: null,
+            category: ['dress'],
+            sold_out: false,
+            image_path:
+                'https://m.darles.co.kr/web/product/medium/202105/0fefd76f88734164516b36aa42915bbb.gif',
+        },
+        {
+            id: 76,
+            name: '올리비아 스퀘어 린넨 원피스',
+            price: 36000,
+            discounted: null,
+            category: ['dress'],
+            sold_out: false,
+            image_path:
+                'https://m.darles.co.kr/web/product/medium/202105/e9b57ce23c7e4a97f07a6f1176cf5c30.gif',
+        },
+        {
+            id: 77,
+            name: '쥬르 캐쥬얼 배색 홀원피스 반팔원피스 루즈핏 XL',
+            price: 16000,
+            discounted: null,
+            category: ['dress'],
+            sold_out: false,
+            image_path:
+                'https://m.darles.co.kr/web/product/medium/202105/8b1a48260de7a52f8b3ef4c642a65b0b.webp',
+        },
+        {
+            id: 78,
+            name: '도티도티 셔링주름 도트 원피스',
+            price: 49800,
+            discounted: null,
+            category: ['dress'],
+            sold_out: false,
+            image_path:
+                'https://m.darles.co.kr/web/product/medium/202104/5bab414acd7d0ccfc6b41d1cbbcf830b.webp',
+        },
+        {
+            id: 79,
+            name: '가르니에 플라워 미니 원피스',
+            price: 89000,
+            discounted: 0.33,
+            category: ['dress'],
+            sold_out: false,
+            image_path:
+                'https://m.darles.co.kr/web/product/medium/202206/13a4c6dace644db170227f7c02531e56.gif',
+        },
+        {
+            id: 80,
+            name: '샤이닝 미니원피스 데이트 하객룩',
+            price: 42000,
+            discounted: null,
+            category: ['dress'],
+            sold_out: false,
+            image_path:
+                'https://m.darles.co.kr/web/product/medium/202104/48a9bdf39cffc396731d83cb8931b42c.webp',
+        },
+        {
+            id: 81,
+            name: '반전뒤태! 등트임 네츄럴 롱 원피스 허리밴딩라인',
+            price: 44000,
+            discounted: null,
+            category: ['dress'],
+            sold_out: false,
+            image_path:
+                'https://m.darles.co.kr/web/product/medium/202104/46b1e50b0d8fe8cc60ed7cb38ed474aa.webp',
+        },
+        {
+            id: 82,
+            name: '하이드레지아 핀턱 롱 원피스',
+            price: 89000,
+            discounted: 0.33,
+            category: ['dress'],
+            sold_out: false,
+            image_path:
+                'https://m.darles.co.kr/web/product/medium/202204/cc817f98cbcbab7780d6b8658143890c.png',
+        },
+        {
+            id: 83,
+            name: '벨루아 트위드 미니 원피스 완벽하객룩',
+            price: 108000,
+            discounted: null,
+            category: ['dress'],
+            sold_out: false,
+            image_path:
+                'https://m.darles.co.kr/web/product/medium/202104/8bcf5678c3f424a5c092c6a723103e55.webp',
+        },
+        {
+            id: 84,
+            name: '심플 이지 밴딩체크팬츠',
+            price: 32000,
+            discounted: null,
+            category: ['bottom'],
+            sold_out: false,
+            image_path:
+                'https://m.darles.co.kr/web/product/medium/202201/5b4a72f8f820a12c582b6062c3ccd103.png',
+        },
+        {
+            id: 85,
+            name: '노르딕 체크 밴딩 팬츠',
+            price: 36000,
+            discounted: null,
+            category: ['bottom'],
+            sold_out: false,
+            image_path:
+                'https://m.darles.co.kr/web/product/medium/202112/78511269ab53dfdeda3e03c0c88fb385.png',
+        },
+        {
+            id: 86,
+            name: '레더 숏 팬츠',
+            price: 29800,
+            discounted: null,
+            category: ['bottom'],
+            sold_out: false,
+            image_path:
+                'https://m.darles.co.kr/web/product/medium/202110/852c89590b06add44aa0287bd70e6da1.png',
+        },
+        {
+            id: 87,
+            name: '블랙생지데님팬츠 난스판/이염NO',
+            price: 42900,
+            discounted: null,
+            category: ['bottom'],
+            sold_out: false,
+            image_path:
+                'https://m.darles.co.kr/web/product/medium/202109/6cbf7e4f3f1300324e12945d979df1c0.webp',
+        },
+        {
+            id: 88,
+            name: '헤이즐 와이드 핀턱 뒷밴딩 슬랙스',
+            price: 43500,
+            discounted: null,
+            category: ['bottom'],
+            sold_out: false,
+            image_path:
+                'https://m.darles.co.kr/web/product/medium/202109/4eda4730243cffb22a76dd55e70d0328.jpg',
+        },
+        {
+            id: 89,
+            name: 'H라인 쫀쫀 슬릿 스커트',
+            price: 39900,
+            discounted: null,
+            category: ['bottom'],
+            sold_out: false,
+            image_path:
+                'https://m.darles.co.kr/web/product/medium/202108/91d591e797573c325b39d75cc599d146.jpg',
+        },
+        {
+            id: 90,
+            name: '핀턱 팬츠 정장 투피스 세트',
+            price: 58000,
+            discounted: null,
+            category: ['bottom'],
+            sold_out: false,
+            image_path:
+                'https://m.darles.co.kr/web/product/medium/202108/5896525a4b837841057642dd28832870.jpg',
+        },
+        {
+            id: 91,
+            name: '카고 트레이닝 하프팬츠 (S~5XL)',
+            price: 20800,
+            discounted: null,
+            category: ['bottom'],
+            sold_out: false,
+            image_path:
+                'https://m.darles.co.kr/web/product/medium/202107/5b827619a9b340019b5103b645e2aa24.webp',
+        },
+        {
+            id: 92,
+            name: '스티키 데님 오버롤 팬츠',
+            price: 0,
+            discounted: null,
+            category: ['bottom'],
+            sold_out: false,
+            image_path:
+                'https://m.darles.co.kr/web/product/medium/202107/f89330228f94d1ae5a7bfd0149b235f4.gif',
+        },
+        {
+            id: 93,
+            name: '[1+1] 트레이닝하프팬츠 S~5XL',
+            price: 14900,
+            discounted: null,
+            category: ['bottom'],
+            sold_out: false,
+            image_path:
+                'https://m.darles.co.kr/web/product/medium/202107/c98dd2d2cbbc7e269f2bc4395b2e27b8.gif',
+        },
+        {
+            id: 94,
+            name: '사선단추 데님 팬츠',
+            price: 37900,
+            discounted: null,
+            category: ['bottom'],
+            sold_out: false,
+            image_path:
+                'https://m.darles.co.kr/web/product/medium/202106/f8bbbebf5398a93e5020f04d01a82981.gif',
+        },
+        {
+            id: 95,
+            name: '고방 체크 앞트임 롱 스커트',
+            price: 49000,
+            discounted: null,
+            category: ['bottom'],
+            sold_out: false,
+            image_path:
+                'https://m.darles.co.kr/web/product/medium/202105/0d5b834195bbeccda89381c92306a4ce.png',
+        },
+        {
+            id: 96,
+            name: '데미지 데님 연청일자팬츠',
+            price: 58000,
+            discounted: null,
+            category: ['bottom'],
+            sold_out: false,
+            image_path:
+                'https://m.darles.co.kr/web/product/medium/202105/12f37cd181efb5de8480b668c241b5be.png',
+        },
+        {
+            id: 97,
+            name: '이터널럽 이지 스커트 세트',
+            price: 49800,
+            discounted: null,
+            category: ['bottom'],
+            sold_out: false,
+            image_path:
+                'https://m.darles.co.kr/web/product/medium/202105/263017e2ea9db604ae3b65070d316c08.jpg',
+        },
+        {
+            id: 98,
+            name: '쿼드하이 버튼 팬츠 구제 워싱 데님 반바지',
+            price: 25000,
+            discounted: null,
+            category: ['bottom'],
+            sold_out: false,
+            image_path:
+                'https://m.darles.co.kr/web/product/medium/202105/d72c79ce02be14a9d8469fd0b67f73b4.png',
+        },
+        {
+            id: 99,
+            name: '베이글 체크핀턱팬츠',
+            price: 49000,
+            discounted: null,
+            category: ['bottom'],
+            sold_out: false,
+            image_path:
+                'https://m.darles.co.kr/web/product/medium/202105/d3360e485da0d9694a794a51a6a04c33.gif',
+        },
+        {
+            id: 100,
+            name: '마들렌 체크 롱 스커트',
+            price: 19800,
+            discounted: null,
+            category: ['bottom'],
+            sold_out: false,
+            image_path:
+                'https://m.darles.co.kr/web/product/medium/202104/7cbdc9a3b53956f85f93e19ed9a66436.webp',
+        },
+        {
+            id: 101,
+            name: '오레오 맨투맨 세트. 반바지 셋업구성',
+            price: 29500,
+            discounted: null,
+            category: ['bottom'],
+            sold_out: false,
+            image_path:
+                'https://m.darles.co.kr/web/product/medium/202104/cec7f3bf128254597bc1f67111508168.webp',
+        },
+        {
+            id: 102,
+            name: '차르르 플레어 랩 스커트',
+            price: 47000,
+            discounted: null,
+            category: ['bottom'],
+            sold_out: false,
+            image_path:
+                'https://m.darles.co.kr/web/product/medium/202104/43ae1acb3d8ba6ba4aaf83c434baa49c.gif',
+        },
+        {
+            id: 103,
+            name: 'MADE. 마스 귀걸이',
+            price: 22000,
+            discounted: null,
+            category: ['accessory'],
+            sold_out: false,
+            image_path:
+                'https://m.darles.co.kr/web/product/medium/202112/819fe64cb56b3c4c9ac17a28201adfc5.png',
+        },
+        {
+            id: 104,
+            name: 'MADE. 티.어.드.롭 귀걸이',
+            price: 22000,
+            discounted: null,
+            category: ['accessory'],
+            sold_out: false,
+            image_path:
+                'https://m.darles.co.kr/web/product/medium/202112/89821ad5047e1539c356edb781e0823c.png',
+        },
+        {
+            id: 105,
+            name: '천연가죽 니트 사계절 워커 (블랙 250)',
+            price: 49800,
+            discounted: 0.34,
+            category: ['accessory'],
+            sold_out: false,
+            image_path:
+                'https://m.darles.co.kr/web/product/medium/202204/b1eaedd146ffe751e290b7a032c15378.png',
+        },
+        {
+            id: 106,
+            name: '칠하트 실핀 세트',
+            price: 9800,
+            discounted: null,
+            category: ['accessory'],
+            sold_out: false,
+            image_path:
+                'https://m.darles.co.kr/web/product/medium/202108/397eed6e0bba98c8598514033514df0c.jpg',
+        },
+        {
+            id: 107,
+            name: '',
+            price: 0,
+            discounted: null,
+            category: ['bottom'],
+            sold_out: false,
+            image_path: '',
+        },
+        {
+            id: 108,
+            name: '',
+            price: 0,
+            discounted: null,
+            category: ['bottom'],
+            sold_out: false,
+            image_path: '',
+        },
+        {
+            id: 109,
+            name: '',
+            price: 0,
+            discounted: null,
+            category: ['bottom'],
+            sold_out: false,
+            image_path: '',
+        },
+        {
+            id: 110,
+            name: '',
+            price: 0,
+            discounted: null,
+            category: ['bottom'],
+            sold_out: false,
+            image_path: '',
+        },
     ],
 });
 
@@ -617,5 +1123,29 @@ export const top_data = selector({
     get: ({ get }) => {
         const all_item = get(data);
         return all_item.filter((a) => a.category.includes('top'));
+    },
+});
+
+export const dress_data = selector({
+    key: 'dress_data',
+    get: ({ get }) => {
+        const all_item = get(data);
+        return all_item.filter((a) => a.category.includes('dress'));
+    },
+});
+
+export const bottom_data = selector({
+    key: 'bottom_data',
+    get: ({ get }) => {
+        const all_item = get(data);
+        return all_item.filter((a) => a.category.includes('bottom'));
+    },
+});
+
+export const accessory_data = selector({
+    key: 'accessory_data',
+    get: ({ get }) => {
+        const all_item = get(data);
+        return all_item.filter((a) => a.category.includes('accessory'));
     },
 });

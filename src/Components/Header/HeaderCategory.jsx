@@ -47,6 +47,9 @@ export default function HeaderCategory() {
                     <Link to="/dress">드레스</Link>
                 </li>
                 <li>
+                    <Link to="/bottom">바텀</Link>
+                </li>
+                <li>
                     <Link to="/accessory">악세사리</Link>
                 </li>
             </Menu>

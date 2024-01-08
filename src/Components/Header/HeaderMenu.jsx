@@ -24,16 +24,16 @@ export default function HeaderMenu({ scrollY }) {
     return (
         <HeaderMenuWrapper style={{ display: scrollY > 50 ? 'none' : 'flex' }}>
             <li>
-                <Link>로그인</Link>
+                <Link to="/sign-in">로그인</Link>
             </li>
             <li>
-                <Link>회원가입</Link>
+                <Link to="/sign-up">회원가입</Link>
             </li>
             <li>
-                <Link>카트</Link>
+                <Link to="/my-cart">카트</Link>
             </li>
             <li>
-                <Link>주문조회</Link>
+                <Link to="/history">주문조회</Link>
             </li>
         </HeaderMenuWrapper>
     );

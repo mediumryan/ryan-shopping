@@ -8,7 +8,6 @@ const HeaderCategoryWrapper = styled.div`
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 0 0 1rem 0;
     color: grey;
 `;
 
@@ -36,19 +35,19 @@ export default function HeaderCategory() {
         <HeaderCategoryWrapper>
             <Menu>
                 <li>
-                    <Link>남성의류</Link>
+                    <Link to="/mans">남성의류</Link>
                 </li>
                 <li>
-                    <Link>아우터</Link>
+                    <Link to="/outer">아우터</Link>
                 </li>
                 <li>
-                    <Link>탑</Link>
+                    <Link to="/top">탑</Link>
                 </li>
                 <li>
-                    <Link>드레스</Link>
+                    <Link to="/dress">드레스</Link>
                 </li>
                 <li>
-                    <Link>악세사리</Link>
+                    <Link to="/accessory">악세사리</Link>
                 </li>
             </Menu>
             <CategoryToggle>

@@ -35,10 +35,11 @@ export default function Header() {
         };
     }, []);
 
-    console.log(scrollY);
-
     return (
-        <HeaderWrapper scrollY={scrollY}>
+        <HeaderWrapper
+            scrollY={scrollY}
+            style={{ paddingBottom: scrollY > 50 ? '1rem' : '0' }}
+        >
             <HeaderMenu scrollY={scrollY} />
             <HeaderLogo scrollY={scrollY} />
             <HeaderCategory scrollY={scrollY} />

@@ -1,4 +1,5 @@
 import { styled } from 'styled-components';
+import { Link } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 // import state data
 import {
@@ -9,9 +10,6 @@ import {
     outer_data,
     top_data,
 } from '../data/data';
-// import components
-import Dots from '../Components/Home/Dots';
-import { Link } from 'react-router-dom';
 
 const HomeOuter = styled.div`
     position: relative;
@@ -78,7 +76,6 @@ export default function Home() {
     return (
         <HomeOuter>
             <HomeInner>
-                <Dots />
                 <Sections className="section1">
                     {man.slice(0, 8).map((mans_item) => {
                         return (

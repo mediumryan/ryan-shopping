@@ -1,7 +1,14 @@
 import { styled } from 'styled-components';
 import { useRecoilValue } from 'recoil';
 // import state data
-import { mans_data, outer_data, top_data } from '../data/data';
+import {
+    accessory_data,
+    bottom_data,
+    dress_data,
+    mans_data,
+    outer_data,
+    top_data,
+} from '../data/data';
 // import components
 import Dots from '../Components/Home/Dots';
 import { Link } from 'react-router-dom';
@@ -64,6 +71,9 @@ export default function Home() {
     const man = useRecoilValue(mans_data);
     const outer = useRecoilValue(outer_data);
     const top = useRecoilValue(top_data);
+    const dress = useRecoilValue(dress_data);
+    const bottom = useRecoilValue(bottom_data);
+    const accessory = useRecoilValue(accessory_data);
 
     return (
         <HomeOuter>
@@ -106,6 +116,42 @@ export default function Home() {
                         );
                     })}
                     <SectionsTitle to="/top">탑</SectionsTitle>
+                </Sections>
+                <Sections className="section4">
+                    {dress.slice(0, 8).map((dress_item) => {
+                        return (
+                            <img
+                                key={dress_item.id}
+                                src={dress_item.image_path}
+                                alt={dress_item.name}
+                            />
+                        );
+                    })}
+                    <SectionsTitle to="/dress">드레스</SectionsTitle>
+                </Sections>
+                <Sections className="section5">
+                    {bottom.slice(0, 8).map((bottom_item) => {
+                        return (
+                            <img
+                                key={bottom_item.id}
+                                src={bottom_item.image_path}
+                                alt={bottom_item.name}
+                            />
+                        );
+                    })}
+                    <SectionsTitle to="/bottom">바텀</SectionsTitle>
+                </Sections>
+                <Sections className="section6">
+                    {accessory.slice(0, 8).map((accessory_item) => {
+                        return (
+                            <img
+                                key={accessory_item.id}
+                                src={accessory_item.image_path}
+                                alt={accessory_item.name}
+                            />
+                        );
+                    })}
+                    <SectionsTitle to="/accessory">악세사리</SectionsTitle>
                 </Sections>
             </HomeInner>
         </HomeOuter>

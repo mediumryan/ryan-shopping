@@ -9,6 +9,7 @@ const HeaderCategoryWrapper = styled.div`
     align-items: center;
     width: 100%;
     color: grey;
+    padding-bottom: ${(props) => (props.scrollY > 50 ? 0 : '1rem')};
 `;
 
 const Menu = styled.ul`
@@ -30,9 +31,9 @@ const Menu = styled.ul`
 
 const CategoryToggle = styled.div``;
 
-export default function HeaderCategory() {
+export default function HeaderCategory({ scrollY }) {
     return (
-        <HeaderCategoryWrapper>
+        <HeaderCategoryWrapper scrollY={scrollY}>
             <Menu>
                 <li>
                     <Link to="/mans">남성의류</Link>

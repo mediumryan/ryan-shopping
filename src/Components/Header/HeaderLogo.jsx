@@ -2,6 +2,8 @@ import { styled } from 'styled-components';
 // import icons
 import { FaGripLines, FaSearch } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { useRecoilState } from 'recoil';
+import { isMenuModal } from '../../data/atom';
 
 const HeaderLogoWrapper = styled.div`
     display: flex;
@@ -22,11 +24,19 @@ const Logo = styled.div`
 `;
 
 export default function HeaderLogo({ scrollY }) {
+    const [isModal, setIsModal] = useRecoilState(isMenuModal);
+
+    const toggleModal = () => {
+        setIsModal((prev) => {
+            return !prev;
+        });
+    };
+
     return (
         <HeaderLogoWrapper
             style={{ paddingBottom: scrollY > 50 ? '0' : '1rem' }}
         >
-            <FaGripLines />
+            <FaGripLines onClick={toggleModal} />
             <Logo>
                 <Link to="/">Ryan Mall</Link>
             </Logo>

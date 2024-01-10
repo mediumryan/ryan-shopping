@@ -18,6 +18,9 @@ const HeaderWrapper = styled.header`
     top: 0;
     padding: 0 10rem;
     z-index: 999;
+    @media only screen and (min-width: 320px) and (max-width: 768px) {
+        padding: 0 1.5rem;
+    }
 `;
 
 export default function Header() {

@@ -11,6 +11,9 @@ const HeaderCategoryWrapper = styled.div`
     width: 100%;
     color: grey;
     padding-bottom: ${(props) => (props.scrollY > 50 ? 0 : '1rem')};
+    @media only screen and (min-width: 320px) and (max-width: 768px) {
+        display: none;
+    }
 `;
 
 const Menu = styled.ul`
@@ -19,6 +22,7 @@ const Menu = styled.ul`
     li {
         position: relative;
         margin: 0.5rem;
+
         a {
             text-decoration: none;
             color: grey;

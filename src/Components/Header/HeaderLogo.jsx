@@ -8,9 +8,9 @@ const HeaderLogoWrapper = styled.div`
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 1rem 0;
     color: grey;
     top: 0;
+    margin-top: 1rem;
 `;
 
 const Logo = styled.div`

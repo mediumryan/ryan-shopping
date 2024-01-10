@@ -1,12 +1,12 @@
 import { styled } from 'styled-components';
 // import components
-import HeaderMenu from './HeaderMenu';
 import HeaderLogo from './HeaderLogo';
 import HeaderCategory from './HeaderCategory';
 import { useEffect, useState } from 'react';
 
 const HeaderWrapper = styled.header`
     width: ${(props) => (props.scrollY > 50 ? '100%' : '85%')};
+    height: 125px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -17,9 +17,10 @@ const HeaderWrapper = styled.header`
     position: ${(props) => (props.scrollY > 50 ? 'fixed' : 'relative')};
     top: 0;
     padding: 0 10rem;
-    z-index: 999;
+    z-index: 10;
     @media only screen and (min-width: 320px) and (max-width: 768px) {
         padding: 0 1.5rem;
+        height: 100px;
     }
 `;
 
@@ -43,7 +44,6 @@ export default function Header() {
             scrollY={scrollY}
             style={{ paddingBottom: scrollY > 50 ? '1rem' : '0' }}
         >
-            <HeaderMenu scrollY={scrollY} />
             <HeaderLogo scrollY={scrollY} />
             <HeaderCategory scrollY={scrollY} />
         </HeaderWrapper>

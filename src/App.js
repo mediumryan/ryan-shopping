@@ -14,6 +14,7 @@ import Dress from './Pages/Dress';
 import Bottom from './Pages/Bottom';
 import Accessory from './Pages/Accessory';
 import NotFound from './Pages/NotFound';
+import MenuModal from './Components/Header/MenuModal';
 
 const MainWrapper = styled.main`
     position: relative;
@@ -24,6 +25,7 @@ function App() {
     return (
         <MainWrapper>
             <Header />
+            <MenuModal />
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/mans" element={<Mans />} />

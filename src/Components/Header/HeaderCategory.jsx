@@ -10,10 +10,7 @@ const HeaderCategoryWrapper = styled.div`
     align-items: center;
     width: 100%;
     color: grey;
-    padding-bottom: ${(props) => (props.scrollY > 50 ? 0 : '1rem')};
-    @media only screen and (min-width: 320px) and (max-width: 768px) {
-        display: none;
-    }
+    padding-top: 0.5rem;
 `;
 
 const Menu = styled.ul`
@@ -22,7 +19,9 @@ const Menu = styled.ul`
     li {
         position: relative;
         margin: 0.5rem;
-
+        @media only screen and (min-width: 320px) and (max-width: 768px) {
+            margin: 0.25rem;
+        }
         a {
             text-decoration: none;
             color: grey;
@@ -30,6 +29,9 @@ const Menu = styled.ul`
             font-size: 0.65rem;
             &:hover {
                 color: green;
+            }
+            @media only screen and (min-width: 320px) and (max-width: 768px) {
+                padding: 0.5rem;
             }
         }
         div {

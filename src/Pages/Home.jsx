@@ -16,7 +16,7 @@ const HomeOuter = styled.div`
 `;
 
 const HomeInner = styled.div`
-    height: 100vh;
+    height: 100%;
     /* hide scrollbar */
     &::-webkit-scrollbar {
         display: none;

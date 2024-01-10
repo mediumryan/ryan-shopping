@@ -11,8 +11,8 @@ const CardWrapper = styled.div`
 `;
 
 const CardImg = styled.div`
+    position: relative;
     img {
-        position: relative;
     }
     span {
         position: absolute;

@@ -15,7 +15,10 @@ import Bottom from './Pages/Bottom';
 import Accessory from './Pages/Accessory';
 import NotFound from './Pages/NotFound';
 
-const MainWrapper = styled.main``;
+const MainWrapper = styled.main`
+    position: relative;
+    height: 100%;
+`;
 
 function App() {
     return (

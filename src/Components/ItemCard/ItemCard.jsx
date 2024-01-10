@@ -8,6 +8,9 @@ const CardWrapper = styled.div`
     &:hover {
         transform: scale(1.05);
     }
+    @media only screen and (min-width: 320px) and (max-width: 768px) {
+        margin-bottom: 2rem;
+    }
 `;
 
 const CardImg = styled.div`
@@ -16,30 +19,49 @@ const CardImg = styled.div`
     }
     span {
         position: absolute;
-        top: 0.5%;
-        right: 0.5%;
+        top: 1%;
+        right: 1%;
+        font-size: 1.5rem;
         background-color: rgba(0, 0, 0, 0.85);
         color: #fff;
-        padding: 0.5rem;
+        padding: 1.5rem;
         border-radius: 4px;
     }
 `;
 
 const CardDescription = styled.div`
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     color: grey;
     text-align: center;
-    padding: 1rem;
     border: 0.5px solid grey;
     border-top: none;
     border-radius: 0 0 10px 10px;
-    height: 120px;
+    height: 150px;
     p {
         margin-bottom: 0.5rem;
+        font-size: 1.15rem;
+        @media only screen and (min-width: 320px) and (max-width: 768px) {
+            font-size: 1.25rem;
+        }
     }
+    @media only screen and (min-width: 320px) and (max-width: 768px) {
+        height: 100px;
+    }
+`;
+
+const SaleTag = styled.div`
+    position: absolute;
+    top: 1%;
+    left: 1%;
+    background-color: red;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+    border-radius: 0 0 10px 0;
 `;
 
 export default function ItemCard({ item }) {
@@ -68,6 +90,7 @@ export default function ItemCard({ item }) {
                 {item.discounted !== null && (
                     <p>{item.price * item.discounted.toLocaleString()} KRW</p>
                 )}
+                {item.discounted !== null && <SaleTag>Sale</SaleTag>}
             </CardDescription>
         </CardWrapper>
     );

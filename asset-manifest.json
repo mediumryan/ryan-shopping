@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/ryan-shopping/static/css/main.a78bbb30.css",
-    "main.js": "/ryan-shopping/static/js/main.827d064a.js",
+    "main.js": "/ryan-shopping/static/js/main.815c3e66.js",
     "index.html": "/ryan-shopping/index.html",
     "main.a78bbb30.css.map": "/ryan-shopping/static/css/main.a78bbb30.css.map",
-    "main.827d064a.js.map": "/ryan-shopping/static/js/main.827d064a.js.map"
+    "main.815c3e66.js.map": "/ryan-shopping/static/js/main.815c3e66.js.map"
   },
   "entrypoints": [
     "static/css/main.a78bbb30.css",
-    "static/js/main.827d064a.js"
+    "static/js/main.815c3e66.js"
   ]
 }

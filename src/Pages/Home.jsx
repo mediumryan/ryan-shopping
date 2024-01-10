@@ -13,6 +13,7 @@ import {
 
 const HomeOuter = styled.div`
     position: relative;
+    padding-bottom: 2rem;
 `;
 
 const HomeInner = styled.div`
@@ -20,6 +21,12 @@ const HomeInner = styled.div`
     /* hide scrollbar */
     &::-webkit-scrollbar {
         display: none;
+    }
+    @media only screen and (min-width: 320px) and (max-width: 768px) {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
     }
 `;
 
@@ -30,11 +37,23 @@ const Sections = styled.section`
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    margin-bottom: 5px;
     img {
         width: 25%;
         height: 50%;
         border: 2px solid aliceblue;
         border-radius: 4px;
+        @media only screen and (min-width: 320px) and (max-width: 768px) {
+            width: 50%;
+            height: 50%;
+        }
+    }
+    @media only screen and (min-width: 320px) and (max-width: 768px) {
+        height: 50vh;
+        width: 45%;
+        margin: 5px;
+        border-radius: 5px;
+        overflow: hidden;
     }
 `;
 
@@ -56,12 +75,13 @@ const SectionsTitle = styled(Link)`
     &:hover {
         background-color: rgba(0, 0, 0, 0.5);
     }
-`;
-
-const Divider = styled.div`
-    width: 100%;
-    height: 5px;
-    background-color: transparent;
+    @media only screen and (min-width: 320px) and (max-width: 768px) {
+        height: 50vh;
+        font-size: 36px;
+        padding: 0 2rem;
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
 `;
 
 export default function Home() {
@@ -88,7 +108,6 @@ export default function Home() {
                     })}
                     <SectionsTitle to="/mans">남성의류</SectionsTitle>
                 </Sections>
-                <Divider className="divider"></Divider>
                 <Sections className="section2">
                     {outer.slice(0, 8).map((outer_item) => {
                         return (
@@ -101,7 +120,6 @@ export default function Home() {
                     })}
                     <SectionsTitle to="/outer">아우터</SectionsTitle>
                 </Sections>
-                <Divider className="divider"></Divider>
                 <Sections className="section3">
                     {top.slice(0, 8).map((top_item) => {
                         return (

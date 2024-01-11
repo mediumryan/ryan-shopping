@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import { styled } from 'styled-components';
 
 const CardWrapper = styled.div`
@@ -65,8 +66,14 @@ const SaleTag = styled.div`
 `;
 
 export default function ItemCard({ item }) {
+    const navigate = useNavigate();
+
     return (
-        <CardWrapper>
+        <CardWrapper
+            onClick={() => {
+                navigate(`/detail/${item.name}`);
+            }}
+        >
             <CardImg>
                 <img src={item.image_path} alt={item.name} />
                 {item.discounted !== null && (

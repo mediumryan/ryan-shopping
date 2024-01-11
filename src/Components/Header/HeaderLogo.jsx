@@ -36,7 +36,14 @@ export default function HeaderLogo({ scrollY }) {
         <HeaderLogoWrapper
             style={{ paddingBottom: scrollY > 50 ? '0' : '1rem' }}
         >
-            <FaGripLines onClick={toggleModal} />
+            <FaGripLines
+                onClick={toggleModal}
+                style={{
+                    cursor: 'pointer',
+                    color: isModal ? 'green' : 'grey',
+                    transition: '300ms',
+                }}
+            />
             <Logo>
                 <Link to="/">Ryan Mall</Link>
             </Logo>

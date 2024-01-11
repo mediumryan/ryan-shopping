@@ -5,6 +5,7 @@ import './CSS/index.css';
 // import components
 import Header from './Components/Header/Header';
 import Footer from './Components/Footer/Footer';
+import MenuModal from './Components/Header/MenuModal';
 // import pages
 import Home from './Pages/Home';
 import Mans from './Pages/Mans';
@@ -14,7 +15,7 @@ import Dress from './Pages/Dress';
 import Bottom from './Pages/Bottom';
 import Accessory from './Pages/Accessory';
 import NotFound from './Pages/NotFound';
-import MenuModal from './Components/Header/MenuModal';
+import Detail from './Pages/Detail';
 
 const MainWrapper = styled.main`
     position: relative;
@@ -34,6 +35,7 @@ function App() {
                 <Route path="/dress" element={<Dress />} />
                 <Route path="/bottom" element={<Bottom />} />
                 <Route path="/accessory" element={<Accessory />} />
+                <Route path="/detail/:id" element={<Detail />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
             <Footer />

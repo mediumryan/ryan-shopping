@@ -1,30 +1,20 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
-import { data } from '../data/data';
 import { styled } from 'styled-components';
-import DetailDescription from '../Components/Detail/DetailDescription';
+// import state data
+import { data } from '../data/data';
+// import components
+import DetailMain from '../Components/Detail/DetailMain';
+import DetailSub from '../Components/Detail/DetailSub/DetailSub';
 
 const DetailWrapper = styled.div`
-    height: 100vh;
+    height: 100%;
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 2rem 5rem;
-`;
-
-const DetailMain = styled.div`
-    display: flex;
-    justify-content: space-between;
-    width: 85%;
-    margin: 0 auto;
-`;
-
-const DetailImg = styled.div`
-    flex-basis: 45%;
-    border-radius: 10px;
-    overflow: hidden;
 `;
 
 const DetailLoading = styled.div`
@@ -48,15 +38,10 @@ export default function Detail() {
     return (
         <DetailWrapper>
             {detailItem ? (
-                <DetailMain>
-                    <DetailImg>
-                        <img
-                            src={detailItem.image_path}
-                            alt={detailItem.name}
-                        />
-                    </DetailImg>
-                    <DetailDescription item={detailItem} />
-                </DetailMain>
+                <>
+                    <DetailMain detailItem={detailItem} />
+                    <DetailSub detailItem={detailItem} />
+                </>
             ) : (
                 <DetailLoading>Loading...</DetailLoading>
             )}

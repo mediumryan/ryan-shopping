@@ -5,6 +5,7 @@ const CardWrapper = styled.div`
     margin: 0.5rem;
     border-radius: 10px;
     overflow: hidden;
+    cursor: pointer;
     transition: 500ms transform;
     &:hover {
         transform: scale(1.05);

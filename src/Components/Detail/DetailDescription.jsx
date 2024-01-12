@@ -53,7 +53,7 @@ const Color = styled.div`
             button {
                 background-color: #eee;
                 color: #bbb;
-                padding: 0.5rem 1rem;
+                padding: 0.25rem 0.75rem;
                 border: none;
                 border-radius: 4px;
                 cursor: pointer;
@@ -65,6 +65,10 @@ const Color = styled.div`
 const Minimum = styled.div`
     border-top: 2px solid #eee;
     border-bottom: 2px solid #eee;
+    .detail_min {
+        color: grey;
+        font-size: 0.75rem;
+    }
 `;
 
 const Total = styled.div`
@@ -133,7 +137,11 @@ export default function DetailDescription({ item }) {
                             : item.price.toLocaleString()}
                         KRW
                     </span>
-                    <div className="discount">{item.discounted * 100}%OFF</div>
+                    {item.discounted && (
+                        <div className="discount">
+                            {item.discounted * 100}%OFF
+                        </div>
+                    )}
                 </div>
             </Price>
             <Color className="detail_item">
@@ -151,7 +159,7 @@ export default function DetailDescription({ item }) {
                 </ul>
             </Color>
             <Minimum className="detail_item">
-                <div className="detail_subtitle">최소주문수량 1개 이상</div>
+                <div className="detail_min">최소주문수량 1개 이상</div>
             </Minimum>
             <Total className="detail_item">
                 <span className="detail_total">Total : 0KRW (0개)</span>

@@ -28,7 +28,7 @@ const CardImg = styled.div`
         font-size: 1.5rem;
         background-color: rgba(0, 0, 0, 0.85);
         color: #fff;
-        padding: 1.5rem;
+        padding: 0.75rem 1rem;
         border-radius: 4px;
     }
 `;

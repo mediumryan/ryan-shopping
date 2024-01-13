@@ -18,7 +18,7 @@ export default function DetailSub({ detailItem }) {
         <DetailSubWrapper>
             <SubMenuBar />
             {sub_menu[0].isActive ? (
-                <SubRelated />
+                <SubRelated detailItem={detailItem} />
             ) : sub_menu[1].isActive ? (
                 <SubDetail />
             ) : sub_menu[2].isActive ? (

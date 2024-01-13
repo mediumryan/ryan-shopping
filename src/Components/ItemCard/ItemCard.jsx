@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { styled } from 'styled-components';
 
 const CardWrapper = styled.div`
-    margin: 0.5rem;
+    margin: 1rem;
     border-radius: 10px;
     overflow: hidden;
     cursor: pointer;
@@ -18,6 +18,8 @@ const CardWrapper = styled.div`
 const CardImg = styled.div`
     position: relative;
     img {
+        width: 500px;
+        height: 500px;
     }
     span {
         position: absolute;
@@ -69,6 +71,9 @@ const SaleTag = styled.div`
 export default function ItemCard({ item }) {
     const navigate = useNavigate();
 
+    const discount = (1 - item.discounted).toFixed(2);
+    const discountedPrice = Math.round((item.price * discount) / 1000) * 1000;
+
     return (
         <CardWrapper
             onClick={() => {
@@ -96,7 +101,10 @@ export default function ItemCard({ item }) {
                     {item.price.toLocaleString()} KRW
                 </p>
                 {item.discounted !== null && (
-                    <p>{item.price * item.discounted.toLocaleString()} KRW</p>
+                    <p>
+                        {discountedPrice.toLocaleString()}
+                        KRW
+                    </p>
                 )}
                 {item.discounted !== null && <SaleTag>Sale</SaleTag>}
             </CardDescription>

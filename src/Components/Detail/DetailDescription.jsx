@@ -109,6 +109,9 @@ const Buttons = styled.div`
 `;
 
 export default function DetailDescription({ item }) {
+    const discount = (1 - item.discounted).toFixed(2);
+    const discountedPrice = Math.round((item.price * discount) / 1000) * 1000;
+
     return (
         <DetailDescriptionWrapper>
             <Name className="detail_item">
@@ -133,7 +136,7 @@ export default function DetailDescription({ item }) {
                     <div className="detail_subtitle">판매가</div>
                     <span className="detail_price">
                         {item.discounted
-                            ? (item.price * item.discounted).toLocaleString()
+                            ? discountedPrice.toLocaleString()
                             : item.price.toLocaleString()}
                         KRW
                     </span>

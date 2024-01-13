@@ -1,11 +1,10 @@
 // import components
-import { SubItemWrapper } from './SubRelated';
-import SubMenuBar from './SubMenuBar';
+import { SubItemTitle, SubItemWrapper } from './SubRelated';
 
 export default function SubReview() {
     return (
-        <SubItemWrapper className="sub_review" index={3}>
-            <SubMenuBar />
+        <SubItemWrapper className="sub_review">
+            <SubItemTitle>리뷰</SubItemTitle>
         </SubItemWrapper>
     );
 }

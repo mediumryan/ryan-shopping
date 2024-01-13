@@ -1,11 +1,10 @@
 // import components
-import { SubItemWrapper } from './SubRelated';
-import SubMenuBar from './SubMenuBar';
+import { SubItemTitle, SubItemWrapper } from './SubRelated';
 
 export default function SubGuide() {
     return (
-        <SubItemWrapper className="sub_guide" index={2}>
-            <SubMenuBar />
+        <SubItemWrapper className="sub_guide">
+            <SubItemTitle>관련상품</SubItemTitle>
         </SubItemWrapper>
     );
 }

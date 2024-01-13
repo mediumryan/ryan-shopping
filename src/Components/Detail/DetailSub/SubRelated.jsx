@@ -1,19 +1,22 @@
 import { styled } from 'styled-components';
 // import components
-import SubMenuBar from './SubMenuBar';
 
-export const SubItemWrapper = styled.div``;
+export const SubItemWrapper = styled.div`
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+`;
 
-const RelatedMenuBar = styled(SubMenuBar)`
-    a:nth-child(1) {
-        color: red;
-    }
+export const SubItemTitle = styled.p`
+    font-size: 1.25rem;
+    margin: 2rem 0;
+    cursor: default;
 `;
 
 export default function SubRelated() {
     return (
-        <SubItemWrapper className="sub_related" index={0}>
-            <RelatedMenuBar />
+        <SubItemWrapper className="sub_related">
+            <SubItemTitle>관련상품</SubItemTitle>
         </SubItemWrapper>
     );
 }

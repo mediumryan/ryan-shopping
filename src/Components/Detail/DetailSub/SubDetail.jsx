@@ -1,11 +1,10 @@
 // import components
-import { SubItemWrapper } from './SubRelated';
-import SubMenuBar from './SubMenuBar';
+import { SubItemTitle, SubItemWrapper } from './SubRelated';
 
 export default function SubDetail() {
     return (
-        <SubItemWrapper className="sub_detail" index={1}>
-            <SubMenuBar />
+        <SubItemWrapper className="sub_detail">
+            <SubItemTitle>디테일</SubItemTitle>
         </SubItemWrapper>
     );
 }

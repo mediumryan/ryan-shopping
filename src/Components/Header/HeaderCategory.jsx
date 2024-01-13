@@ -39,7 +39,7 @@ const Menu = styled.ul`
             width: 7.5px;
             height: 7.5px;
             border-radius: 50%;
-            background-color: yellowgreen;
+            background-color: green;
             bottom: -15px;
             left: 50%;
             transform: translateY(-50%);

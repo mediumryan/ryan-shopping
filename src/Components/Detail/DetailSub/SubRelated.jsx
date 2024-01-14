@@ -13,7 +13,7 @@ export const SubItemWrapper = styled.div`
 
 export const SubItemTitle = styled.p`
     font-size: 1.25rem;
-    margin: 2rem 0;
+    margin: 10rem 0 2rem 0;
     cursor: default;
 `;
 

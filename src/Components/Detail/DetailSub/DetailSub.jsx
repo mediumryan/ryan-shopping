@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 // import components
 import SubRelated from './SubRelated';
-import SubDetail from './SubDetail';
+import SubDetail from './SubDetail/SubDetail';
 import SubGuide from './SubGuide';
 import SubReview from './SubReview';
 import SubQna from './SubQna';

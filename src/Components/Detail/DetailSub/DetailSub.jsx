@@ -28,6 +28,7 @@ export default function DetailSub({ detailItem }) {
             ) : (
                 sub_menu[4].isActive && <SubQna />
             )}
+            <SubMenuBar />
         </DetailSubWrapper>
     );
 }

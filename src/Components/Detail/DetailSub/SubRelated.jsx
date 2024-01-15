@@ -20,7 +20,7 @@ export const SubItemTitle = styled.p`
 const RelatedItemList = styled.div`
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
 `;
 
 const RelatedItem = styled(Link)`

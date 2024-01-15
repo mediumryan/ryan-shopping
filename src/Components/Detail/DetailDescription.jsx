@@ -1,4 +1,6 @@
+import { useRecoilState } from 'recoil';
 import { styled } from 'styled-components';
+import { data } from '../../data/data';
 
 const DetailDescriptionWrapper = styled.div`
     flex-basis: 45%;
@@ -62,12 +64,31 @@ const Color = styled.div`
     }
 `;
 
-const Minimum = styled.div`
+const Count = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     border-top: 2px solid #eee;
     border-bottom: 2px solid #eee;
-    .detail_min {
+    .detail_count {
         color: grey;
         font-size: 0.75rem;
+    }
+    & > form {
+        display: flex;
+        align-items: center;
+        font-size: 0.75rem;
+        label {
+            color: #000;
+            margin-right: 0.5rem;
+        }
+        input {
+            width: 50px;
+            text-align: center;
+            font-weight: 700;
+            border: none;
+            padding: 0.25rem;
+        }
     }
 `;
 
@@ -109,8 +130,21 @@ const Buttons = styled.div`
 `;
 
 export default function DetailDescription({ item }) {
+    const [allItem, setAllItem] = useRecoilState(data);
     const discount = (1 - item.discounted).toFixed(2);
     const discountedPrice = Math.round((item.price * discount) / 1000) * 1000;
+
+    const handleItemCount = (e) => {
+        const copy = [...allItem];
+        const itemIndex = copy.findIndex((a) => a.id === item.id);
+
+        if (item[itemIndex].count > -1) {
+            const updatedItem = { ...copy[itemIndex], count: e.target.value };
+            copy[itemIndex] = updatedItem;
+            setAllItem(copy);
+        }
+        console.log(copy);
+    };
 
     return (
         <DetailDescriptionWrapper>
@@ -161,9 +195,19 @@ export default function DetailDescription({ item }) {
                     </li>
                 </ul>
             </Color>
-            <Minimum className="detail_item">
-                <div className="detail_min">최소주문수량 1개 이상</div>
-            </Minimum>
+            <Count className="detail_item">
+                <div className="detail_count">최소주문수량 1개 이상</div>
+                <form>
+                    <label>개수</label>
+                    <div>
+                        <input
+                            type="number"
+                            value={item.count}
+                            onChange={handleItemCount}
+                        />
+                    </div>
+                </form>
+            </Count>
             <Total className="detail_item">
                 <span className="detail_total">Total : 0KRW (0개)</span>
             </Total>

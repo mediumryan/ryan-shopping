@@ -5,13 +5,14 @@ import { subMenu } from '../../../data/atom';
 
 const SubMenuBarWrapper = styled.div`
     padding: 1rem 0;
+    margin: 1rem 0;
     display: flex;
     justify-content: center;
     ul {
         display: flex;
         li {
             margin: 0 0.5rem;
-            button {
+            a {
                 color: grey;
                 font-size: 0.75rem;
                 text-decoration: none;
@@ -36,12 +37,13 @@ export default function SubMenuBar() {
     };
 
     return (
-        <SubMenuBarWrapper>
+        <SubMenuBarWrapper id="detail_menu_bar">
             <ul>
                 {menu.map((menu_item, menu_index) => {
                     return (
                         <li key={menu_item.id}>
-                            <button
+                            <a
+                                href="#detail_menu_bar"
                                 onClick={() => {
                                     changeSubMenu(menu_index);
                                 }}
@@ -58,7 +60,7 @@ export default function SubMenuBar() {
                                 {menu_item.count && (
                                     <span>{menu_item.count}</span>
                                 )}
-                            </button>
+                            </a>
                         </li>
                     );
                 })}

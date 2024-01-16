@@ -8,7 +8,6 @@ const SubDetailSizeWrapper = styled.div`
     flex-direction: column;
     align-items: center;
     margin-top: 5rem;
-
     * {
         margin-bottom: 2rem;
     }
@@ -18,14 +17,27 @@ const SubDetailSizeWrapper = styled.div`
     .size_graph1 {
         width: 75%;
         height: 300px;
+        @media only screen and (min-width: 320px) and (max-width: 768px) {
+            width: 350px;
+        }
     }
     .size_graph2 {
         width: 75%;
         height: 500px;
+        @media only screen and (min-width: 320px) and (max-width: 768px) {
+            width: 350px;
+        }
     }
     .size_graph3 {
         width: 75%;
         height: 300px;
+        @media only screen and (min-width: 320px) and (max-width: 768px) {
+            width: 350px;
+        }
+    }
+
+    @media only screen and (min-width: 320px) and (max-width: 768px) {
+        align-items: center;
     }
 `;
 

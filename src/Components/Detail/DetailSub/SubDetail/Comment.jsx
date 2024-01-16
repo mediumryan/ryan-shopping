@@ -3,8 +3,17 @@ import { styled } from 'styled-components';
 const DetailCommentWrapper = styled.div`
     display: flex;
     flex-direction: column;
+    align-items: center;
     img {
         margin: 1rem 0;
+        @media only screen and (min-width: 320px) and (max-width: 768px) {
+            margin: 2rem 0;
+        }
+    }
+    img:nth-child(4) {
+        @media only screen and (min-width: 320px) and (max-width: 768px) {
+            width: 40%;
+        }
     }
 `;
 

@@ -6,6 +6,12 @@ const SubDetailInfoWrapper = styled.div`
     margin-top: 5rem;
     img {
         margin: 2.5rem 0;
+        @media only screen and (min-width: 320px) and (max-width: 768px) {
+            width: 350px;
+        }
+    }
+    @media only screen and (min-width: 320px) and (max-width: 768px) {
+        align-items: center;
     }
 `;
 

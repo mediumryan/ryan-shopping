@@ -4,7 +4,14 @@ const SubDetailImagesWrapper = styled.div`
     display: flex;
     flex-direction: column;
     img {
-        margin: 5rem 0;
+        margin: 2.5rem 0;
+        @media only screen and (min-width: 320px) and (max-width: 768px) {
+            width: 350px;
+        }
+    }
+    @media only screen and (min-width: 320px) and (max-width: 768px) {
+        padding: 0 2rem;
+        align-items: center;
     }
 `;
 

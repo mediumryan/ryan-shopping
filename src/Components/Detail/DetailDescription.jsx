@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { styled } from 'styled-components';
 
@@ -102,14 +103,18 @@ const Count = styled.div`
     }
 `;
 
-const Total = styled.div`
+const Total = styled(motion.div)`
     display: flex;
     justify-content: end;
+    letter-spacing: -0.5px;
+    margin-top: 2rem;
+    transform-origin: left center;
 `;
 
 const Buttons = styled.div`
     display: flex;
     justify-content: space-between;
+    margin-top: 2rem;
     & > button {
         padding: 0.5rem 0;
         font-size: 0.85rem;
@@ -221,9 +226,21 @@ export default function DetailDescription({ item }) {
                     </div>
                 </form>
             </Count>
-            <Total className="detail_item">
-                <span className="detail_total">Total : 0KRW (0개)</span>
-            </Total>
+            {itemCount !== 0 && (
+                <Total
+                    className="detail_item"
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{
+                        duration: 0.75,
+                    }}
+                >
+                    <span className="detail_total">
+                        Total : {(discountedPrice * itemCount).toLocaleString()}
+                        KRW ({itemCount}개)
+                    </span>
+                </Total>
+            )}
             <Buttons>
                 <button className="detail_buy">장바구니에 추가</button>
                 <button className="detail_bookmark">관심상품</button>

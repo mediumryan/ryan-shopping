@@ -7,6 +7,10 @@ const GuideInner = styled.div`
     margin: 0 5rem;
     border: 1px solid #999;
     border-radius: 10px;
+    @media only screen and (min-width: 320px) and (max-width: 768px) {
+        padding: 2rem;
+        margin: 0 1rem;
+    }
 `;
 
 const GuideItem = styled.div`
@@ -32,7 +36,7 @@ const GuideItemTitle = styled.h5`
 export default function SubGuide() {
     return (
         <SubItemWrapper className="sub_guide">
-            <SubItemTitle>가이드</SubItemTitle>
+            <SubItemTitle>구매가이드</SubItemTitle>
             <GuideInner>
                 <GuideItem>
                     <GuideItemTitle>상품 결제정보</GuideItemTitle>
@@ -63,10 +67,7 @@ export default function SubGuide() {
                     <GuideItemTitle>교환 및 반품안내</GuideItemTitle>
                     <div>
                         <p className="guide_sub_title">교환 및 반품 주소</p>
-                        <p>
-                            - [10557] 경기도 고양시 덕양구 세솔로 122-12
-                            (삼송동) 1층 다를
-                        </p>
+                        <p>- [810-0022] 후쿠오카현 후쿠오카시 중앙구 야쿠인</p>
                     </div>
                     <div>
                         <p className="guide_sub_title">
@@ -92,7 +93,7 @@ export default function SubGuide() {
                             등) <br />- 시간의 경과에 의하여 재판매가 곤란할
                             정도로 가치가 현저히 감소한 경우 <br />- 자세한
                             내용은 고객상담센터를 이용해 주시기 바랍니다. 전화
-                            (01075874814) 카카오톡 @darles
+                            (08012345678) 카카오톡 @ryanshop
                         </p>
                     </div>
                     <div>

@@ -1,6 +1,5 @@
-import { useRecoilState } from 'recoil';
+import { useState } from 'react';
 import { styled } from 'styled-components';
-import { data } from '../../data/data';
 
 const DetailDescriptionWrapper = styled.div`
     flex-basis: 45%;
@@ -82,12 +81,23 @@ const Count = styled.div`
             color: #000;
             margin-right: 0.5rem;
         }
-        input {
-            width: 50px;
-            text-align: center;
-            font-weight: 700;
-            border: none;
-            padding: 0.25rem;
+        div.count_wrapper {
+            display: flex;
+            align-items: center;
+            button {
+                border: none;
+                background: none;
+                font-size: 1.25rem;
+                padding: 0.25rem 0.5rem;
+                cursor: pointer;
+            }
+            span.count_value {
+                color: grey;
+                font-size: 0.9rem;
+                cursor: default;
+                width: 15px;
+                text-align: center;
+            }
         }
     }
 `;
@@ -130,20 +140,25 @@ const Buttons = styled.div`
 `;
 
 export default function DetailDescription({ item }) {
-    const [allItem, setAllItem] = useRecoilState(data);
     const discount = (1 - item.discounted).toFixed(2);
     const discountedPrice = Math.round((item.price * discount) / 1000) * 1000;
+    const [itemCount, setItemCount] = useState(0);
 
-    const handleItemCount = (e) => {
-        const copy = [...allItem];
-        const itemIndex = copy.findIndex((a) => a.id === item.id);
-
-        if (item[itemIndex].count > -1) {
-            const updatedItem = { ...copy[itemIndex], count: e.target.value };
-            copy[itemIndex] = updatedItem;
-            setAllItem(copy);
+    const minusCnt = (e) => {
+        e.preventDefault();
+        if (itemCount >= 1) {
+            setItemCount((prev) => {
+                return --prev;
+            });
         }
-        console.log(copy);
+        return;
+    };
+
+    const plusCnt = (e) => {
+        e.preventDefault();
+        setItemCount((prev) => {
+            return ++prev;
+        });
     };
 
     return (
@@ -199,12 +214,10 @@ export default function DetailDescription({ item }) {
                 <div className="detail_count">최소주문수량 1개 이상</div>
                 <form>
                     <label>개수</label>
-                    <div>
-                        <input
-                            type="number"
-                            value={item.count}
-                            onChange={handleItemCount}
-                        />
+                    <div className="count_wrapper">
+                        <button onClick={minusCnt}>-</button>
+                        <span className="count_value">{itemCount}</span>
+                        <button onClick={plusCnt}>+</button>
                     </div>
                 </form>
             </Count>
@@ -212,7 +225,7 @@ export default function DetailDescription({ item }) {
                 <span className="detail_total">Total : 0KRW (0개)</span>
             </Total>
             <Buttons>
-                <button className="detail_buy">구매하기</button>
+                <button className="detail_buy">장바구니에 추가</button>
                 <button className="detail_bookmark">관심상품</button>
             </Buttons>
         </DetailDescriptionWrapper>

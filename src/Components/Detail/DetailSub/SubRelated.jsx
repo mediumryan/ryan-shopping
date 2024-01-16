@@ -13,7 +13,7 @@ export const SubItemWrapper = styled.div`
 
 export const SubItemTitle = styled.p`
     font-size: 1.25rem;
-    margin: 10rem 0 2rem 0;
+    margin: 5rem 0 2.5rem 0;
     cursor: default;
 `;
 
@@ -21,6 +21,10 @@ const RelatedItemList = styled.div`
     width: 100%;
     display: flex;
     justify-content: space-evenly;
+    flex-wrap: wrap;
+    @media only screen and (min-width: 320px) and (max-width: 768px) {
+        justify-content: start;
+    }
 `;
 
 const RelatedItem = styled(Link)`
@@ -34,6 +38,10 @@ const RelatedItem = styled(Link)`
         &:hover {
             opacity: 0.77;
         }
+    }
+    @media only screen and (min-width: 320px) and (max-width: 768px) {
+        width: 45%;
+        margin: 0.5rem;
     }
 `;
 

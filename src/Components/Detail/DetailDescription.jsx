@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import { useRecoilState } from 'recoil';
 import { styled } from 'styled-components';
+import { cartState } from '../../data/cart';
 
 const DetailDescriptionWrapper = styled.div`
     flex-basis: 45%;
@@ -88,6 +90,7 @@ const Count = styled.div`
             button {
                 border: none;
                 background: none;
+                color: #b3d4b3;
                 font-size: 1.25rem;
                 padding: 0.25rem 0.5rem;
                 cursor: pointer;
@@ -147,8 +150,8 @@ const Buttons = styled.div`
 export default function DetailDescription({ item }) {
     const discount = (1 - item.discounted).toFixed(2);
     const discountedPrice = Math.round((item.price * discount) / 1000) * 1000;
+    // handle item count
     const [itemCount, setItemCount] = useState(0);
-
     const minusCnt = (e) => {
         e.preventDefault();
         if (itemCount >= 1) {
@@ -165,6 +168,50 @@ export default function DetailDescription({ item }) {
             return ++prev;
         });
     };
+
+    // handle add to cart
+    const [cart, setCart] = useRecoilState(cartState);
+    const addToCart = () => {
+        const currentItemCount = itemCount;
+        const isCartItem = cart.findIndex((a) => a.name === item.name);
+        if (itemCount > 0) {
+            if (isCartItem === -1) {
+                const newItem = {
+                    id: Date.now(),
+                    name: item.name,
+                    price: discountedPrice,
+                    category: item.category,
+                    image_path: item.image_path,
+                    count: currentItemCount,
+                };
+                setCart((prev) => {
+                    const newCart = [...prev];
+                    newCart.push(newItem);
+                    return newCart;
+                });
+            } else {
+                setCart((prev) => {
+                    const cartItemIndex = prev.findIndex(
+                        (a) => a.name === item.name
+                    );
+
+                    if (cartItemIndex !== -1) {
+                        const newCart = [...prev];
+                        newCart[cartItemIndex] = {
+                            ...newCart[cartItemIndex],
+                            count:
+                                newCart[cartItemIndex].count + currentItemCount,
+                        };
+                        return newCart;
+                    }
+
+                    return prev;
+                });
+            }
+        }
+    };
+
+    console.log(cart);
 
     return (
         <DetailDescriptionWrapper>
@@ -242,7 +289,9 @@ export default function DetailDescription({ item }) {
                 </Total>
             )}
             <Buttons>
-                <button className="detail_buy">장바구니에 추가</button>
+                <button className="detail_buy" onClick={addToCart}>
+                    장바구니에 추가
+                </button>
                 <button className="detail_bookmark">관심상품</button>
             </Buttons>
         </DetailDescriptionWrapper>

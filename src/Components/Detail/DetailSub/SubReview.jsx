@@ -19,6 +19,9 @@ export const SubReviewInner = styled.div`
     & > p {
         font-size: 0.75rem;
     }
+    @media only screen and (min-width: 320px) and (max-width: 768px) {
+        min-height: 250px;
+    }
 `;
 
 export default function SubReview() {

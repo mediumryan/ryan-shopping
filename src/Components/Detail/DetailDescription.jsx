@@ -2,7 +2,10 @@ import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
 import { styled } from 'styled-components';
+// import state data
 import { cartState } from '../../data/cart';
+// import icons
+import { FaRegStar } from 'react-icons/fa';
 
 const DetailDescriptionWrapper = styled.div`
     flex-basis: 45%;
@@ -79,7 +82,7 @@ const Count = styled.div`
     & > form {
         display: flex;
         align-items: center;
-        font-size: 0.75rem;
+        font-size: 0.85rem;
         label {
             color: #000;
             margin-right: 0.5rem;
@@ -87,20 +90,32 @@ const Count = styled.div`
         div.count_wrapper {
             display: flex;
             align-items: center;
+            justify-content: space-between;
+            width: 75px;
+            height: 25px;
+            border: 1px solid #ddd;
             button {
+                flex-basis: 25%;
+                height: 100%;
+                font-size: 1rem;
                 border: none;
-                background: none;
+                background: #eee;
                 color: #b3d4b3;
-                font-size: 1.25rem;
-                padding: 0.25rem 0.5rem;
                 cursor: pointer;
             }
-            span.count_value {
+            div.count_value {
+                flex-basis: 50%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 color: grey;
                 font-size: 0.9rem;
                 cursor: default;
                 width: 15px;
                 text-align: center;
+                border-left: 1px solid #ddd;
+                border-right: 1px solid #ddd;
             }
         }
     }
@@ -140,10 +155,6 @@ const Buttons = styled.div`
         color: #ddd;
         background-color: transparent;
         border: 2px solid #ddd;
-        &:hover {
-            border-color: grey;
-            color: grey;
-        }
     }
 `;
 
@@ -271,7 +282,7 @@ export default function DetailDescription({ item }) {
                     <label>개수</label>
                     <div className="count_wrapper">
                         <button onClick={minusCnt}>-</button>
-                        <span className="count_value">{itemCount}</span>
+                        <div className="count_value">{itemCount}</div>
                         <button onClick={plusCnt}>+</button>
                     </div>
                 </form>
@@ -295,7 +306,9 @@ export default function DetailDescription({ item }) {
                 <button className="detail_buy" onClick={addToCart}>
                     장바구니에 추가
                 </button>
-                <button className="detail_bookmark">관심상품</button>
+                <button className="detail_bookmark">
+                    <FaRegStar />
+                </button>
             </Buttons>
         </DetailDescriptionWrapper>
     );

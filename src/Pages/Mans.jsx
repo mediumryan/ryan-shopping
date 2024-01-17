@@ -8,6 +8,7 @@ import ItemCard from '../Components/ItemCard/ItemCard';
 export const PageWrapper = styled.div`
     width: 100%;
     height: 100%;
+    min-height: 100vh;
 `;
 
 export const PageTitle = styled.h3`

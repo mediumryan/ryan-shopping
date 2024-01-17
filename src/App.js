@@ -16,6 +16,7 @@ import Bottom from './Pages/Bottom';
 import Accessory from './Pages/Accessory';
 import NotFound from './Pages/NotFound';
 import Detail from './Pages/Detail';
+import Cart from './Pages/Cart';
 
 const MainWrapper = styled.main`
     position: relative;
@@ -36,6 +37,7 @@ function App() {
                 <Route path="/bottom" element={<Bottom />} />
                 <Route path="/accessory" element={<Accessory />} />
                 <Route path="/detail/:id" element={<Detail />} />
+                <Route path="/cart" element={<Cart />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
             <Footer />

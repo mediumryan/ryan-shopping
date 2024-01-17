@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
 import { styled } from 'styled-components';
 import { cartState } from '../../data/cart';
@@ -169,6 +169,11 @@ export default function DetailDescription({ item }) {
         });
     };
 
+    // reset itemCount when reloading detail page
+    useEffect(() => {
+        setItemCount(0);
+    }, [item]);
+
     // handle add to cart
     const [cart, setCart] = useRecoilState(cartState);
     const addToCart = () => {
@@ -210,8 +215,6 @@ export default function DetailDescription({ item }) {
             }
         }
     };
-
-    console.log(cart);
 
     return (
         <DetailDescriptionWrapper>

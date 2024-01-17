@@ -1,13 +1,13 @@
-import { useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { useRecoilState } from 'recoil';
+import { Link } from 'react-router-dom';
+import { useSetRecoilState } from 'recoil';
 import { styled } from 'styled-components';
 // import state data
 import { isMenuModal } from '../../data/atom';
 // import icons
 import { FaTimes } from 'react-icons/fa';
+import { motion } from 'framer-motion';
 
-const MenuModalWrapper = styled.div`
+const MenuModalWrapper = styled(motion.div)`
     position: fixed;
     top: 0;
     width: 200px;
@@ -15,8 +15,7 @@ const MenuModalWrapper = styled.div`
     padding: 1.5rem 0;
     background-color: #e6f3e6;
     z-index: 15;
-    transform-origin: left center;
-    transition: 750ms all;
+    transform-origin: left top;
     ul {
         display: flex;
         flex-direction: column;
@@ -48,9 +47,20 @@ const ModalClose = styled.div`
     cursor: pointer;
 `;
 
+const menu_modal_variants = {
+    initial: {
+        scale: 0,
+    },
+    fadeIn: {
+        scale: 1,
+        transition: {
+            duration: 0.5,
+        },
+    },
+};
+
 export default function MenuModal() {
-    const { pathname } = useLocation();
-    const [isModal, setIsModal] = useRecoilState(isMenuModal);
+    const setIsModal = useSetRecoilState(isMenuModal);
 
     const toggleModal = () => {
         setIsModal((prev) => {
@@ -58,12 +68,12 @@ export default function MenuModal() {
         });
     };
 
-    useEffect(() => {
-        setIsModal(false);
-    }, [pathname]);
-
     return (
-        <MenuModalWrapper style={{ left: isModal ? '0%' : '-100%' }}>
+        <MenuModalWrapper
+            variants={menu_modal_variants}
+            initial="initial"
+            animate="fadeIn"
+        >
             <ul>
                 <li>
                     <Link to="/">HOME</Link>

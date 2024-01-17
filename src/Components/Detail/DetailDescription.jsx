@@ -102,6 +102,10 @@ const Count = styled.div`
                 background: #eee;
                 color: #b3d4b3;
                 cursor: pointer;
+                transition: 300ms color;
+                &:hover {
+                    color: green;
+                }
             }
             div.count_value {
                 flex-basis: 50%;

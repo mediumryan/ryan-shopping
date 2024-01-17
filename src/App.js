@@ -1,5 +1,6 @@
 import { styled } from 'styled-components';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
+import { useRecoilState } from 'recoil';
 // import css
 import './CSS/index.css';
 // import components
@@ -17,6 +18,9 @@ import Accessory from './Pages/Accessory';
 import NotFound from './Pages/NotFound';
 import Detail from './Pages/Detail';
 import Cart from './Pages/Cart';
+// import state data
+import { isMenuModal } from './data/atom';
+import { useEffect } from 'react';
 
 const MainWrapper = styled.main`
     position: relative;
@@ -24,10 +28,19 @@ const MainWrapper = styled.main`
 `;
 
 function App() {
+    const [isModal, setIsModal] = useRecoilState(isMenuModal);
+    const { pathname } = useLocation();
+
+    useEffect(() => {
+        if (isModal) {
+            setIsModal(false);
+        }
+    }, [pathname]);
+
     return (
         <MainWrapper>
             <Header />
-            <MenuModal />
+            {isModal && <MenuModal />}
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/mans" element={<Mans />} />

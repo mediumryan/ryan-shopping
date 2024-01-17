@@ -2,7 +2,7 @@ import { styled } from 'styled-components';
 import { AnimatePresence, motion } from 'framer-motion';
 // import icons
 import { FaAngleDown } from 'react-icons/fa';
-import { Link, useMatch } from 'react-router-dom';
+import { Link, useLocation, useMatch } from 'react-router-dom';
 
 const HeaderCategoryWrapper = styled.div`
     display: flex;
@@ -17,7 +17,9 @@ const Menu = styled.ul`
     display: flex;
     align-items: center;
     li {
-        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         margin: 0.5rem;
         @media only screen and (min-width: 320px) and (max-width: 768px) {
             margin: 0.25rem;
@@ -34,28 +36,27 @@ const Menu = styled.ul`
                 padding: 0.5rem;
             }
         }
-        div {
-            position: absolute;
-            width: 7.5px;
-            height: 7.5px;
-            border-radius: 50%;
-            background-color: green;
-            bottom: -15px;
-            left: 50%;
-            transform: translateY(-50%);
-        }
     }
+`;
+
+const NowHere = styled(motion.div)`
+    width: 36px;
+    height: 2px;
+    background-color: green;
 `;
 
 const CategoryToggle = styled.div``;
 
-export default function HeaderCategory({ scrollY }) {
+export default function HeaderCategory() {
     const man_match = useMatch('/mans');
     const outer_match = useMatch('/outer');
     const top_match = useMatch('/top');
     const dress_match = useMatch('/dress');
     const bottom_match = useMatch('/bottom');
     const accessory_match = useMatch('/accessory');
+
+    const { pathname } = useLocation();
+    console.log(pathname);
 
     const category_group = [
         {
@@ -91,7 +92,7 @@ export default function HeaderCategory({ scrollY }) {
     ];
 
     return (
-        <HeaderCategoryWrapper scrollY={scrollY}>
+        <HeaderCategoryWrapper>
             <Menu>
                 {category_group.map((item) => {
                     let match = null;
@@ -124,15 +125,7 @@ export default function HeaderCategory({ scrollY }) {
                         <AnimatePresence key={item.id}>
                             <li>
                                 <Link to={item.link}>{item.value}</Link>
-                                {match && (
-                                    <motion.div
-                                        initial={{ scale: 0 }}
-                                        animate={{ scale: 1 }}
-                                        transition={{
-                                            duration: 0.3,
-                                        }}
-                                    />
-                                )}
+                                {match && <NowHere layoutId="nowHere" />}
                             </li>
                         </AnimatePresence>
                     );

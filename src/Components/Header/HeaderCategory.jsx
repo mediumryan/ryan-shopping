@@ -2,7 +2,7 @@ import { styled } from 'styled-components';
 import { AnimatePresence, motion } from 'framer-motion';
 // import icons
 import { FaAngleDown } from 'react-icons/fa';
-import { Link, useLocation, useMatch } from 'react-router-dom';
+import { Link, useMatch } from 'react-router-dom';
 
 const HeaderCategoryWrapper = styled.div`
     display: flex;
@@ -54,9 +54,6 @@ export default function HeaderCategory() {
     const dress_match = useMatch('/dress');
     const bottom_match = useMatch('/bottom');
     const accessory_match = useMatch('/accessory');
-
-    const { pathname } = useLocation();
-    console.log(pathname);
 
     const category_group = [
         {

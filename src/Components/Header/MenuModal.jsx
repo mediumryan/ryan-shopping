@@ -39,12 +39,16 @@ const MenuModalWrapper = styled(motion.div)`
     }
 `;
 
-const ModalClose = styled.div`
+export const ModalClose = styled.div`
     position: absolute;
     top: 1%;
     right: 5%;
     color: grey;
     cursor: pointer;
+    transition: 300ms color;
+    &:hover {
+        color: #eee;
+    }
 `;
 
 const menu_modal_variants = {

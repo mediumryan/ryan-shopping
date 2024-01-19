@@ -1,8 +1,8 @@
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import { styled } from 'styled-components';
 // import state data
 import { cartState } from '../../../data/cart';
-import { detailItemCount } from '../../../data/detail';
+import { detailItemCount, isDetailModalState } from '../../../data/detail';
 // import icons
 import { FaRegStar } from 'react-icons/fa';
 
@@ -40,10 +40,16 @@ export default function DetailButtons({ item, discountedPrice }) {
     // handle add to cart
     const itemCount = useRecoilValue(detailItemCount);
     const [cart, setCart] = useRecoilState(cartState);
+    const setIsDetailModal = useSetRecoilState(isDetailModalState);
     const addToCart = () => {
         const currentItemCount = itemCount;
         const isCartItem = cart.findIndex((a) => a.name === item.name);
         if (itemCount > 0) {
+            setIsDetailModal(true);
+            const closeModalTimer = setTimeout(() => {
+                setIsDetailModal(false);
+            }, 3000);
+
             if (isCartItem === -1) {
                 const newItem = {
                     id: Date.now(),
@@ -78,6 +84,9 @@ export default function DetailButtons({ item, discountedPrice }) {
                     return prev;
                 });
             }
+            return () => {
+                return clearTimeout(closeModalTimer);
+            };
         }
     };
 

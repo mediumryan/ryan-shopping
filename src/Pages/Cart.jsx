@@ -1,7 +1,10 @@
 import { styled } from 'styled-components';
-import { PageTitle, PageWrapper } from './Mans';
 import { useRecoilState } from 'recoil';
+// import state data
 import { cartState } from '../data/cart';
+import { PageTitle, PageWrapper } from './Mans';
+// import icons
+import { FaAngleLeft, FaAngleRight } from 'react-icons/fa';
 
 const CartInner = styled.div`
     width: 100%;
@@ -33,20 +36,16 @@ const CartInner = styled.div`
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 0.85rem;
         div.cartCount {
             display: flex;
             align-items: center;
             justify-content: space-between;
             width: 75px;
-            height: 25px;
+            height: 30px;
             border: 1px solid #ddd;
-            button {
+            & > svg {
                 flex-basis: 25%;
-                height: 100%;
-                font-size: 1rem;
                 border: none;
-                background: #eee;
                 color: #b3d4b3;
                 cursor: pointer;
                 transition: 300ms color;
@@ -62,7 +61,7 @@ const CartInner = styled.div`
                 align-items: center;
                 color: grey;
                 font-size: 0.9rem;
-                cursor: default;
+                user-select: none;
                 width: 15px;
                 text-align: center;
                 border-left: 1px solid #ddd;
@@ -113,7 +112,7 @@ export default function Cart() {
                         <col width="92px" />
                         <col width="120px" />
                         <col width="92px" />
-                        <col width="92px" />
+                        <col width="160px" />
                     </colgroup>
                     <thead>
                         <tr>
@@ -150,33 +149,33 @@ export default function Cart() {
                                             alt={item.name}
                                         />
                                     </td>
-                                    <td>{item.name}</td>
-                                    <td>{item.price.toLocaleString()}KRW</td>
+                                    <td style={{ userSelect: 'none' }}>
+                                        {item.name}
+                                    </td>
+                                    <td style={{ userSelect: 'none' }}>
+                                        {item.price.toLocaleString()}KRW
+                                    </td>
                                     <td>
                                         <form>
                                             <div className="cartCount">
-                                                <button
+                                                <FaAngleLeft
                                                     onClick={() =>
                                                         minusCnt(item, index)
                                                     }
-                                                >
-                                                    -
-                                                </button>
+                                                />
                                                 <div className="countValue">
                                                     {item.count}
                                                 </div>
-                                                <button
+                                                <FaAngleRight
                                                     onClick={() =>
                                                         plusCnt(item, index)
                                                     }
-                                                >
-                                                    +
-                                                </button>
+                                                />
                                             </div>
                                         </form>
                                     </td>
-                                    <td>Free</td>
-                                    <td>
+                                    <td style={{ userSelect: 'none' }}>Free</td>
+                                    <td style={{ userSelect: 'none' }}>
                                         {(
                                             item.price * item.count
                                         ).toLocaleString()}

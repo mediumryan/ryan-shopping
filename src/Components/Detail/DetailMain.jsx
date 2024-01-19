@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 // import components
-import DetailDescription from './DetailDescription';
+import DetailDescription from './DetailDescription/DetailDescription';
 
 const DetailMainWrapper = styled.div`
     display: flex;

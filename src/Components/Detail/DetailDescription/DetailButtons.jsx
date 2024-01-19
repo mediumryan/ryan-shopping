@@ -87,6 +87,8 @@ export default function DetailButtons({ item, discountedPrice }) {
             return () => {
                 return clearTimeout(closeModalTimer);
             };
+        } else if (itemCount < 1) {
+            alert('구매할 상품의 개수를 다시 확인해 주세요.');
         }
     };
 

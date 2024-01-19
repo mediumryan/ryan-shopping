@@ -3,8 +3,8 @@ import { useRecoilState } from 'recoil';
 // import state data
 import { cartState } from '../data/cart';
 import { PageTitle, PageWrapper } from './Mans';
-// import icons
-import { FaAngleLeft, FaAngleRight } from 'react-icons/fa';
+import CartItem from '../Components/Cart/CartItem';
+import { useState } from 'react';
 
 const CartInner = styled.div`
     width: 100%;
@@ -73,31 +73,26 @@ const CartInner = styled.div`
 
 export default function Cart() {
     const [cart, setCart] = useRecoilState(cartState);
+    const [allCheckState, setAllCheckState] = useState(false);
 
-    // handle cart item count
-    const minusCnt = (item, index) => {
-        if (item.count >= 1) {
+    // handle all check
+    const toggleAllCheck = () => {
+        setAllCheckState(!allCheckState);
+        if (allCheckState) {
             setCart((prev) => {
-                const newCart = [...prev];
-                newCart[index] = {
-                    ...newCart[index],
-                    count: newCart[index].count - 1,
-                };
+                const newCart = prev.map((item) => {
+                    return { ...item, checked: false };
+                });
+                return newCart;
+            });
+        } else if (!allCheckState) {
+            setCart((prev) => {
+                const newCart = prev.map((item) => {
+                    return { ...item, checked: true };
+                });
                 return newCart;
             });
         }
-        return;
-    };
-
-    const plusCnt = (item, index) => {
-        setCart((prev) => {
-            const newCart = [...prev];
-            newCart[index] = {
-                ...newCart[index],
-                count: newCart[index].count + 1,
-            };
-            return newCart;
-        });
     };
 
     return (
@@ -121,6 +116,8 @@ export default function Cart() {
                                     type="checkbox"
                                     name="checkAll"
                                     id="checkAll"
+                                    checked={allCheckState}
+                                    onChange={toggleAllCheck}
                                 />
                             </th>
                             <th>이미지</th>
@@ -134,54 +131,11 @@ export default function Cart() {
                     <tbody>
                         {cart.map((item, index) => {
                             return (
-                                <tr key={item.id}>
-                                    <td>
-                                        <input
-                                            type="checkbox"
-                                            name="checkItem"
-                                            id="checkItem"
-                                        />
-                                    </td>
-                                    <td>
-                                        <img
-                                            className="cartImage"
-                                            src={item.image_path}
-                                            alt={item.name}
-                                        />
-                                    </td>
-                                    <td style={{ userSelect: 'none' }}>
-                                        {item.name}
-                                    </td>
-                                    <td style={{ userSelect: 'none' }}>
-                                        {item.price.toLocaleString()}KRW
-                                    </td>
-                                    <td>
-                                        <form>
-                                            <div className="cartCount">
-                                                <FaAngleLeft
-                                                    onClick={() =>
-                                                        minusCnt(item, index)
-                                                    }
-                                                />
-                                                <div className="countValue">
-                                                    {item.count}
-                                                </div>
-                                                <FaAngleRight
-                                                    onClick={() =>
-                                                        plusCnt(item, index)
-                                                    }
-                                                />
-                                            </div>
-                                        </form>
-                                    </td>
-                                    <td style={{ userSelect: 'none' }}>Free</td>
-                                    <td style={{ userSelect: 'none' }}>
-                                        {(
-                                            item.price * item.count
-                                        ).toLocaleString()}
-                                        KRW
-                                    </td>
-                                </tr>
+                                <CartItem
+                                    key={item.id}
+                                    item={item}
+                                    index={index}
+                                />
                             );
                         })}
                     </tbody>

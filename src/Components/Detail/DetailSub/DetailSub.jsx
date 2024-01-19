@@ -6,27 +6,38 @@ import SubGuide from './SubGuide';
 import SubReview from './SubReview';
 import SubQna from './SubQna';
 import SubMenuBar from './SubMenuBar';
-import { useRecoilValue } from 'recoil';
+import { useRecoilState } from 'recoil';
 import { subMenu } from '../../../data/atom';
+import { useEffect } from 'react';
 
 const DetailSubWrapper = styled.div``;
 
 export default function DetailSub({ detailItem }) {
-    const sub_menu = useRecoilValue(subMenu);
+    const [detailSubMenu, setDetailSubMenu] = useRecoilState(subMenu);
+
+    useEffect(() => {
+        setDetailSubMenu((prev) => {
+            const newMenu = prev.map((item) => {
+                return { ...item, isActive: false };
+            });
+            newMenu[0] = { ...newMenu[0], isActive: true };
+            return newMenu;
+        });
+    }, []);
 
     return (
         <DetailSubWrapper>
             <SubMenuBar />
-            {sub_menu[0].isActive ? (
+            {detailSubMenu[0].isActive ? (
                 <SubRelated detailItem={detailItem} />
-            ) : sub_menu[1].isActive ? (
+            ) : detailSubMenu[1].isActive ? (
                 <SubDetail />
-            ) : sub_menu[2].isActive ? (
+            ) : detailSubMenu[2].isActive ? (
                 <SubGuide />
-            ) : sub_menu[3].isActive ? (
+            ) : detailSubMenu[3].isActive ? (
                 <SubReview />
             ) : (
-                sub_menu[4].isActive && <SubQna />
+                detailSubMenu[4].isActive && <SubQna />
             )}
             <SubMenuBar />
         </DetailSubWrapper>

@@ -1,10 +1,13 @@
 import { styled } from 'styled-components';
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 // import state data
-import { cartState } from '../data/cart';
+import { cartModalState, cartState } from '../data/cart';
 import { PageTitle, PageWrapper } from './Mans';
 import CartItem from '../Components/Cart/CartItem';
 import { useState } from 'react';
+import CartTotal from '../Components/Cart/CartTotal';
+import CartDelete from '../Components/Cart/CartDelete';
+import CartDeleteModal from '../Components/Cart/CartDeleteModal';
 
 const CartInner = styled.div`
     width: 100%;
@@ -71,9 +74,32 @@ const CartInner = styled.div`
     }
 `;
 
+const CartPay = styled.div`
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+    & > button {
+        border: 2px solid #b3d4b3;
+        color: #b3d4b3;
+        border-radius: 4px;
+        padding: 0.25rem 0.5rem;
+        background: none;
+        font-size: 1.05rem;
+        font-weight: 700;
+        cursor: pointer;
+        user-select: none;
+        transition: 300ms all;
+        &:hover {
+            color: green;
+            border-color: green;
+        }
+    }
+`;
+
 export default function Cart() {
     const [cart, setCart] = useRecoilState(cartState);
     const [allCheckState, setAllCheckState] = useState(false);
+    const cartModal = useRecoilValue(cartModalState);
 
     // handle all check
     const toggleAllCheck = () => {
@@ -141,6 +167,12 @@ export default function Cart() {
                     </tbody>
                 </table>
             </CartInner>
+            <CartDelete />
+            <CartTotal />
+            <CartPay>
+                <button>결제하기</button>
+            </CartPay>
+            {cartModal && <CartDeleteModal />}
         </PageWrapper>
     );
 }

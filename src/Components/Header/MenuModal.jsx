@@ -11,9 +11,9 @@ const MenuModalWrapper = styled(motion.div)`
     position: fixed;
     top: 0;
     width: 200px;
-    height: 100vh;
+    height: 75vh;
     padding: 1.5rem 0;
-    background-color: #e6f3e6;
+    background-color: #c9ffc9;
     z-index: 15;
     transform-origin: left top;
     ul {

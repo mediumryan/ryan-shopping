@@ -20,6 +20,9 @@ const DetailImg = styled.div`
     flex-basis: 45%;
     border-radius: 10px;
     overflow: hidden;
+    img {
+        width: 100%;
+    }
 `;
 
 export default function DetailMain({ detailItem }) {

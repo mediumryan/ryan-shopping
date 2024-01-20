@@ -1,6 +1,7 @@
 import { styled } from 'styled-components';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
+import { useEffect } from 'react';
 // import css
 import './CSS/index.css';
 // import components
@@ -20,11 +21,31 @@ import Detail from './Pages/Detail';
 import Cart from './Pages/Cart';
 // import state data
 import { isMenuModal } from './data/atom';
-import { useEffect } from 'react';
+// import icons
+import { FaArrowUp } from 'react-icons/fa';
 
 const MainWrapper = styled.main`
     position: relative;
     height: 100%;
+`;
+
+const GoTop = styled(FaArrowUp)`
+    position: fixed;
+    bottom: 5%;
+    right: 2.5%;
+    color: #b3d4b3;
+    border: 3px solid #b3d4b3;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    padding: 0.35rem;
+    transition: 300ms transform;
+    z-index: 10;
+    cursor: pointer;
+    user-select: none;
+    &:hover {
+        transform: scale(1.05);
+    }
 `;
 
 function App() {
@@ -36,6 +57,11 @@ function App() {
             setIsModal(false);
         }
     }, [pathname]);
+
+    // handle GoTop
+    const pageToTop = () => {
+        window.scroll(0, 0);
+    };
 
     return (
         <MainWrapper>
@@ -54,6 +80,7 @@ function App() {
                 <Route path="*" element={<NotFound />} />
             </Routes>
             <Footer />
+            <GoTop onClick={pageToTop}>Go</GoTop>
         </MainWrapper>
     );
 }

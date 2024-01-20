@@ -11,6 +11,11 @@
     --white-200: #eee;
 }
 
+html,
+body {
+    scroll-behavior: smooth;
+}
+
 html {
     font-size: 18px;
 }

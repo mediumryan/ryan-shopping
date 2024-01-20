@@ -18,6 +18,9 @@ const HomeOuter = styled.div`
 
 const HomeInner = styled.div`
     height: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 2rem;
     /* hide scrollbar */
     &::-webkit-scrollbar {
         display: none;
@@ -40,7 +43,6 @@ const Sections = styled.section`
     margin-bottom: 5px;
     img {
         width: 25%;
-        height: 50%;
         border: 2px solid aliceblue;
         border-radius: 4px;
         @media only screen and (min-width: 320px) and (max-width: 768px) {
@@ -106,7 +108,7 @@ export default function Home() {
                             />
                         );
                     })}
-                    <SectionsTitle to="/mans">남성의류</SectionsTitle>
+                    <SectionsTitle to="/mans">Mans</SectionsTitle>
                 </Sections>
                 <Sections className="section2">
                     {outer.slice(0, 8).map((outer_item) => {
@@ -118,7 +120,7 @@ export default function Home() {
                             />
                         );
                     })}
-                    <SectionsTitle to="/outer">아우터</SectionsTitle>
+                    <SectionsTitle to="/outer">Outer</SectionsTitle>
                 </Sections>
                 <Sections className="section3">
                     {top.slice(0, 8).map((top_item) => {
@@ -130,7 +132,7 @@ export default function Home() {
                             />
                         );
                     })}
-                    <SectionsTitle to="/top">탑</SectionsTitle>
+                    <SectionsTitle to="/top">Top</SectionsTitle>
                 </Sections>
                 <Sections className="section4">
                     {dress.slice(0, 8).map((dress_item) => {
@@ -142,7 +144,7 @@ export default function Home() {
                             />
                         );
                     })}
-                    <SectionsTitle to="/dress">드레스</SectionsTitle>
+                    <SectionsTitle to="/dress">Dress</SectionsTitle>
                 </Sections>
                 <Sections className="section5">
                     {bottom.slice(0, 8).map((bottom_item) => {
@@ -154,7 +156,7 @@ export default function Home() {
                             />
                         );
                     })}
-                    <SectionsTitle to="/bottom">바텀</SectionsTitle>
+                    <SectionsTitle to="/bottom">Bottom</SectionsTitle>
                 </Sections>
                 <Sections className="section6">
                     {accessory.slice(0, 8).map((accessory_item) => {
@@ -166,7 +168,7 @@ export default function Home() {
                             />
                         );
                     })}
-                    <SectionsTitle to="/accessory">악세사리</SectionsTitle>
+                    <SectionsTitle to="/accessory">Accessory</SectionsTitle>
                 </Sections>
             </HomeInner>
         </HomeOuter>

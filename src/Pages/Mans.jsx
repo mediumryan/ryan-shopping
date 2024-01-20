@@ -12,8 +12,10 @@ export const PageWrapper = styled.div`
 `;
 
 export const PageTitle = styled.h3`
-    color: black;
+    color: #000;
     font-size: 2rem;
+    font-weight: 700;
+    font-style: italic;
     text-align: center;
     margin: 3rem 0 1.5rem 0;
 `;
@@ -22,10 +24,11 @@ export const PageInner = styled.div`
     padding: 2rem;
     width: 100%;
     height: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    @media only screen and (min-width: 320px) and (max-width: 768px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
 `;
 
 export default function Mans() {

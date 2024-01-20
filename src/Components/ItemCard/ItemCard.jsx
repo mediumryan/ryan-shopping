@@ -5,6 +5,9 @@ const CardWrapper = styled.div`
     margin: 1rem;
     border-radius: 10px;
     overflow: hidden;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+        rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+        rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
     cursor: pointer;
     transition: 500ms transform;
     &:hover {
@@ -18,15 +21,15 @@ const CardWrapper = styled.div`
 const CardImg = styled.div`
     position: relative;
     img {
-        width: 500px;
-        height: 500px;
+        width: 100%;
+        height: 250px;
     }
     span {
         position: absolute;
         top: 1%;
         right: 1%;
-        font-size: 1.5rem;
-        background-color: rgba(0, 0, 0, 0.85);
+        font-size: 1.05rem;
+        background-color: rgba(0, 0, 0, 0.75);
         color: #fff;
         padding: 0.75rem 1rem;
         border-radius: 4px;
@@ -41,13 +44,14 @@ const CardDescription = styled.div`
     justify-content: center;
     color: grey;
     text-align: center;
-    border: 0.5px solid grey;
-    border-top: none;
     border-radius: 0 0 10px 10px;
-    height: 150px;
+    height: 125px;
     p {
         margin-bottom: 0.5rem;
-        font-size: 1.15rem;
+        font-size: 0.85rem;
+        line-height: 1.5;
+        letter-spacing: 1px;
+        padding: 0 1rem;
         @media only screen and (min-width: 320px) and (max-width: 768px) {
             font-size: 1.25rem;
         }
@@ -55,17 +59,6 @@ const CardDescription = styled.div`
     @media only screen and (min-width: 320px) and (max-width: 768px) {
         height: 100px;
     }
-`;
-
-const SaleTag = styled.div`
-    position: absolute;
-    top: 1%;
-    left: 1%;
-    background-color: red;
-    color: #fff;
-    padding: 0.5rem 1rem;
-    font-size: 1.5rem;
-    border-radius: 0 0 10px 0;
 `;
 
 export default function ItemCard({ item }) {
@@ -94,7 +87,7 @@ export default function ItemCard({ item }) {
                             item.discounted === null ? 'none' : 'line-through',
                         color:
                             item.discounted === null
-                                ? 'grey'
+                                ? '#6db96d'
                                 : 'rgba(0,0,0,0.15)',
                     }}
                 >
@@ -106,7 +99,6 @@ export default function ItemCard({ item }) {
                         KRW
                     </p>
                 )}
-                {item.discounted !== null && <SaleTag>Sale</SaleTag>}
             </CardDescription>
         </CardWrapper>
     );

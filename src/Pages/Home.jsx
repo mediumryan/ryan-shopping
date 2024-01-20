@@ -47,7 +47,6 @@ const Sections = styled.section`
         border-radius: 4px;
         @media only screen and (min-width: 320px) and (max-width: 768px) {
             width: 50%;
-            height: 50%;
         }
     }
     @media only screen and (min-width: 320px) and (max-width: 768px) {
@@ -69,8 +68,9 @@ const SectionsTitle = styled(Link)`
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 100px;
+    font-size: 3rem;
     font-style: italic;
+    font-weight: 700;
     text-decoration: none;
     transition: 300ms background-color;
     cursor: pointer;

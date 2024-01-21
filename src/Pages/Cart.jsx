@@ -16,12 +16,58 @@ const CartInner = styled.div`
         width: 100%;
         border-collapse: collapse;
         margin-top: 20px;
+        /* 27,92,auto,92,120,92,160 */
+
+        colgroup {
+            &:nth-child(1) {
+                width: 27px;
+                @media only screen and (min-width: 320px) and (max-width: 768px) {
+                    width: auto;
+                }
+            }
+            &:nth-child(2) {
+                width: 92px;
+                @media only screen and (min-width: 320px) and (max-width: 768px) {
+                    width: auto;
+                }
+            }
+            &:nth-child(3) {
+                width: auto;
+            }
+            &:nth-child(4) {
+                width: 92px;
+                @media only screen and (min-width: 320px) and (max-width: 768px) {
+                    width: auto;
+                }
+            }
+            &:nth-child(5) {
+                width: 120px;
+                @media only screen and (min-width: 320px) and (max-width: 768px) {
+                    width: auto;
+                }
+            }
+            &:nth-child(6) {
+                width: 92px;
+                @media only screen and (min-width: 320px) and (max-width: 768px) {
+                    width: auto;
+                }
+            }
+            &:nth-child(7) {
+                width: 160px;
+                @media only screen and (min-width: 320px) and (max-width: 768px) {
+                    width: auto;
+                }
+            }
+        }
     }
     th,
     td {
         padding: 8px;
         text-align: center;
         vertical-align: middle;
+        @media only screen and (min-width: 320px) and (max-width: 768px) {
+            padding: 4px;
+        }
     }
     th {
         background-color: #ddd;
@@ -69,8 +115,19 @@ const CartInner = styled.div`
                 text-align: center;
                 border-left: 1px solid #ddd;
                 border-right: 1px solid #ddd;
+                @media only screen and (min-width: 320px) and (max-width: 768px) {
+                    font-size: 0.75rem;
+                }
+            }
+            @media only screen and (min-width: 320px) and (max-width: 768px) {
+                width: 50px;
+                height: 20px;
             }
         }
+    }
+    @media only screen and (min-width: 320px) and (max-width: 768px) {
+        padding: 0.5rem;
+        font-size: 0.75rem;
     }
 `;
 
@@ -127,14 +184,15 @@ export default function Cart() {
             <CartInner>
                 <table>
                     <colgroup>
-                        <col width="27px" />
-                        <col width="92px" />
-                        <col width="auto" />
-                        <col width="92px" />
-                        <col width="120px" />
-                        <col width="92px" />
-                        <col width="160px" />
+                        <col />
+                        <col />
+                        <col />
+                        <col />
+                        <col />
+                        <col />
+                        <col />
                     </colgroup>
+                    {/* 27,92,auto,92,120,92,160 */}
                     <thead>
                         <tr>
                             <th>

@@ -42,12 +42,9 @@ const Sections = styled.section`
     align-items: center;
     margin-bottom: 5px;
     img {
-        width: 25%;
+        width: 50%;
         border: 2px solid aliceblue;
         border-radius: 4px;
-        @media only screen and (min-width: 320px) and (max-width: 768px) {
-            width: 50%;
-        }
     }
     @media only screen and (min-width: 320px) and (max-width: 768px) {
         height: 50vh;
@@ -99,7 +96,7 @@ export default function Home() {
         <HomeOuter>
             <HomeInner>
                 <Sections className="section1">
-                    {man.slice(0, 8).map((mans_item) => {
+                    {man.slice(0, 4).map((mans_item) => {
                         return (
                             <img
                                 key={mans_item.id}
@@ -111,7 +108,7 @@ export default function Home() {
                     <SectionsTitle to="/mans">Mans</SectionsTitle>
                 </Sections>
                 <Sections className="section2">
-                    {outer.slice(0, 8).map((outer_item) => {
+                    {outer.slice(0, 4).map((outer_item) => {
                         return (
                             <img
                                 key={outer_item.id}
@@ -123,7 +120,7 @@ export default function Home() {
                     <SectionsTitle to="/outer">Outer</SectionsTitle>
                 </Sections>
                 <Sections className="section3">
-                    {top.slice(0, 8).map((top_item) => {
+                    {top.slice(0, 4).map((top_item) => {
                         return (
                             <img
                                 key={top_item.id}
@@ -135,7 +132,7 @@ export default function Home() {
                     <SectionsTitle to="/top">Top</SectionsTitle>
                 </Sections>
                 <Sections className="section4">
-                    {dress.slice(0, 8).map((dress_item) => {
+                    {dress.slice(0, 4).map((dress_item) => {
                         return (
                             <img
                                 key={dress_item.id}
@@ -147,7 +144,7 @@ export default function Home() {
                     <SectionsTitle to="/dress">Dress</SectionsTitle>
                 </Sections>
                 <Sections className="section5">
-                    {bottom.slice(0, 8).map((bottom_item) => {
+                    {bottom.slice(0, 4).map((bottom_item) => {
                         return (
                             <img
                                 key={bottom_item.id}
@@ -159,7 +156,7 @@ export default function Home() {
                     <SectionsTitle to="/bottom">Bottom</SectionsTitle>
                 </Sections>
                 <Sections className="section6">
-                    {accessory.slice(0, 8).map((accessory_item) => {
+                    {accessory.slice(0, 4).map((accessory_item) => {
                         return (
                             <img
                                 key={accessory_item.id}

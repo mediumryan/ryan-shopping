@@ -12,23 +12,56 @@ const CartTotalWrapper = styled.div`
         color: #b3d4b3;
         font-size: 0.75rem;
         letter-spacing: 1px;
+        @media only screen and (min-width: 320px) and (max-width: 768px) {
+            padding-left: 0.5rem;
+        }
     }
     table {
         width: 100%;
         border-collapse: collapse;
         margin-top: 20px;
+        colgroup {
+            &:nth-child(1) {
+                width: 120px;
+                @media only screen and (min-width: 320px) and (max-width: 768px) {
+                    width: auto;
+                }
+            }
+            &:nth-child(2) {
+                width: 160px;
+                @media only screen and (min-width: 320px) and (max-width: 768px) {
+                    width: auto;
+                }
+            }
+            &:nth-child(3) {
+                width: 120px;
+                @media only screen and (min-width: 320px) and (max-width: 768px) {
+                    width: auto;
+                }
+            }
+            &:nth-child(4) {
+                width: auto;
+            }
+        }
     }
     th,
     td {
+        font-size: 0.85rem;
         padding: 12px;
         text-align: center;
         vertical-align: middle;
+        @media only screen and (min-width: 320px) and (max-width: 768px) {
+            font-size: 0.75rem;
+        }
     }
     th {
         background-color: #ddd;
     }
     tr {
         border-bottom: 1px solid #ddd;
+    }
+    @media only screen and (min-width: 320px) and (max-width: 768px) {
+        padding: 0.5rem;
     }
 `;
 

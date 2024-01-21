@@ -12,9 +12,10 @@ import { cartModalState, cartState } from '../../data/cart';
 import { FaTimes } from 'react-icons/fa';
 
 const CartModalWrapper = styled(DetailBuyModalWrapper)`
+    position: fixed;
     width: 400px;
     height: 200px;
-    left: 19.5%;
+    left: 50%;
 `;
 
 const CartModalButton = styled(ModalButton)``;

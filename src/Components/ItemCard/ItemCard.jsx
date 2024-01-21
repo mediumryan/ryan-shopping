@@ -23,6 +23,9 @@ const CardImg = styled.div`
     img {
         width: 100%;
         height: 250px;
+        @media only screen and (min-width: 320px) and (max-width: 768px) {
+            height: 150px;
+        }
     }
     span {
         position: absolute;
@@ -52,9 +55,6 @@ const CardDescription = styled.div`
         line-height: 1.5;
         letter-spacing: 1px;
         padding: 0 1rem;
-        @media only screen and (min-width: 320px) and (max-width: 768px) {
-            font-size: 1.25rem;
-        }
     }
     @media only screen and (min-width: 320px) and (max-width: 768px) {
         height: 100px;

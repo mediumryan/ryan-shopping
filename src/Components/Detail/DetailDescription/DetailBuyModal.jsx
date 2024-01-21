@@ -33,6 +33,9 @@ export const DetailBuyModalWrapper = styled.div`
             color: #b3d4b3;
         }
     }
+    @media only screen and (min-width: 320px) and (max-width: 768px) {
+        width: 300px;
+    }
 `;
 
 export const ModalButton = styled.div`

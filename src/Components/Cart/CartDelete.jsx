@@ -22,6 +22,9 @@ const CartDeleteWrapper = styled.div`
             border-color: green;
         }
     }
+    @media only screen and (min-width: 320px) and (max-width: 768px) {
+        padding: 0.5rem;
+    }
 `;
 
 export default function CartDelete() {

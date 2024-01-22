@@ -1,12 +1,9 @@
 import { styled } from 'styled-components';
 import { AnimatePresence, motion } from 'framer-motion';
-// import icons
-import { FaAngleDown } from 'react-icons/fa';
 import { Link, useMatch } from 'react-router-dom';
 
 const HeaderCategoryWrapper = styled.div`
     display: flex;
-    justify-content: space-between;
     align-items: center;
     width: 100%;
     color: grey;
@@ -44,8 +41,6 @@ const NowHere = styled(motion.div)`
     height: 2px;
     background-color: green;
 `;
-
-const CategoryToggle = styled.div``;
 
 export default function HeaderCategory() {
     const man_match = useMatch('/mans');
@@ -128,9 +123,6 @@ export default function HeaderCategory() {
                     );
                 })}
             </Menu>
-            <CategoryToggle>
-                <FaAngleDown />
-            </CategoryToggle>
         </HeaderCategoryWrapper>
     );
 }

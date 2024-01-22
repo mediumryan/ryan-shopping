@@ -94,7 +94,11 @@ export default function ItemCard({ item }) {
                     {item.price.toLocaleString()} KRW
                 </p>
                 {item.discounted !== null && (
-                    <p>
+                    <p
+                        style={{
+                            color: '#6db96d',
+                        }}
+                    >
                         {discountedPrice.toLocaleString()}
                         KRW
                     </p>

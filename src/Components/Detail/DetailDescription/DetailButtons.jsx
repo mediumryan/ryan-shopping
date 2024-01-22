@@ -109,6 +109,8 @@ export default function DetailButtons({ item, discountedPrice }) {
             price: discountedPrice,
             category: item.category,
             image_path: item.image_path,
+            count: 1,
+            checked: false,
         };
         setIsBook((prev) => !prev);
         if (alreadyBooked === -1) {

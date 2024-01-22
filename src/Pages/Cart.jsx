@@ -9,7 +9,7 @@ import CartTotal from '../Components/Cart/CartTotal';
 import CartDelete from '../Components/Cart/CartDelete';
 import CartDeleteModal from '../Components/Cart/CartDeleteModal';
 
-const CartInner = styled.div`
+export const CartInner = styled.div`
     width: 100%;
     padding: 1rem 5rem;
     table {

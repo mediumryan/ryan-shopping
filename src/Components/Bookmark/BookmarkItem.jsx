@@ -1,46 +1,46 @@
-// import icons
-import { FaAngleLeft, FaAngleRight } from 'react-icons/fa';
+import React from 'react';
 import { useSetRecoilState } from 'recoil';
-import { cartState } from '../../data/cart';
+import { bookmarkState } from '../../data/bookmark';
+import { FaAngleLeft, FaAngleRight } from 'react-icons/fa';
 
-export default function CartItem({ item, index }) {
-    const setCart = useSetRecoilState(cartState);
+export default function BookmarkItem({ item, index }) {
+    const setBookmark = useSetRecoilState(bookmarkState);
 
     // handle cart item count
     const minusCnt = (item, index) => {
         if (item.count >= 1) {
-            setCart((prev) => {
-                const newCart = [...prev];
-                newCart[index] = {
-                    ...newCart[index],
-                    count: newCart[index].count - 1,
+            setBookmark((prev) => {
+                const newBookmark = [...prev];
+                newBookmark[index] = {
+                    ...newBookmark[index],
+                    count: newBookmark[index].count - 1,
                 };
-                return newCart;
+                return newBookmark;
             });
         }
         return;
     };
 
     const plusCnt = (index) => {
-        setCart((prev) => {
-            const newCart = [...prev];
-            newCart[index] = {
-                ...newCart[index],
-                count: newCart[index].count + 1,
+        setBookmark((prev) => {
+            const newBookmark = [...prev];
+            newBookmark[index] = {
+                ...newBookmark[index],
+                count: newBookmark[index].count + 1,
             };
-            return newCart;
+            return newBookmark;
         });
     };
 
     // handle item checkbox state
     const toggleItemCheck = (index) => {
-        setCart((prev) => {
-            const newCart = [...prev];
-            newCart[index] = {
-                ...newCart[index],
-                checked: !newCart[index].checked,
+        setBookmark((prev) => {
+            const newBookmark = [...prev];
+            newBookmark[index] = {
+                ...newBookmark[index],
+                checked: !newBookmark[index].checked,
             };
-            return newCart;
+            return newBookmark;
         });
     };
 

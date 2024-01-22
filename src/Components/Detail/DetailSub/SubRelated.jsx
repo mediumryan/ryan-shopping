@@ -1,6 +1,6 @@
 import { useRecoilValue } from 'recoil';
 import { styled } from 'styled-components';
-import { data } from '../../../data/data';
+import { dataState } from '../../../data/data';
 import { Link } from 'react-router-dom';
 // import components
 
@@ -46,7 +46,7 @@ const RelatedItem = styled(Link)`
 `;
 
 export default function SubRelated({ detailItem }) {
-    const allItem = useRecoilValue(data);
+    const allItem = useRecoilValue(dataState);
     const filteredItem = allItem
         .filter((a) => a.category[0] === detailItem.category[0])
         .filter((a) => a.name !== detailItem.name);

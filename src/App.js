@@ -19,6 +19,7 @@ import Accessory from './Pages/Accessory';
 import NotFound from './Pages/NotFound';
 import Detail from './Pages/Detail';
 import Cart from './Pages/Cart';
+import Search from './Pages/Search';
 // import state data
 import { isMenuModal } from './data/atom';
 // import icons
@@ -77,6 +78,7 @@ function App() {
                 <Route path="/accessory" element={<Accessory />} />
                 <Route path="/detail/:id" element={<Detail />} />
                 <Route path="/cart" element={<Cart />} />
+                <Route path="/search/:query" element={<Search />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
             <Footer />

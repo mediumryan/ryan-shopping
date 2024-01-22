@@ -4,7 +4,7 @@ import { styled } from 'styled-components';
 import { cartState } from '../../../data/cart';
 import { detailItemCount, isDetailModalState } from '../../../data/detail';
 // import icons
-import { FaRegStar } from 'react-icons/fa';
+import { FaStar } from 'react-icons/fa';
 
 const Buttons = styled.div`
     display: flex;
@@ -30,9 +30,9 @@ const Buttons = styled.div`
     }
     .detail_bookmark {
         flex-basis: 42%;
-        color: #ddd;
         background-color: transparent;
         border: 2px solid #ddd;
+        color: #ddd;
     }
 `;
 
@@ -98,7 +98,7 @@ export default function DetailButtons({ item, discountedPrice }) {
                 장바구니에 추가
             </button>
             <button className="detail_bookmark">
-                <FaRegStar />
+                <FaStar />
             </button>
         </Buttons>
     );

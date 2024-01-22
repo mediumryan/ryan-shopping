@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 import { styled } from 'styled-components';
 // import state data
-import { data } from '../data/data';
+import { dataState } from '../data/data';
 // import components
 import DetailMain from '../Components/Detail/DetailMain';
 import DetailSub from '../Components/Detail/DetailSub/DetailSub';
@@ -32,7 +32,7 @@ const DetailLoading = styled.div`
 
 export default function Detail() {
     const { id } = useParams();
-    const all_data = useRecoilValue(data);
+    const all_data = useRecoilValue(dataState);
     const [detailItem, setDetailItem] = useState();
     // for detail buy modal
     const isDetailModal = useRecoilValue(isDetailModalState);

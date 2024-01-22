@@ -2,9 +2,10 @@ import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
 // import components
-import { PageTitle, PageWrapper } from './Mans';
+import { PageInner, PageTitle, PageWrapper } from './Mans';
 // import state data
 import { dataState } from '../data/data';
+import ItemCard from '../Components/ItemCard/ItemCard';
 
 export default function Search() {
     const { query } = useParams();
@@ -23,15 +24,15 @@ export default function Search() {
     return (
         <PageWrapper>
             <PageTitle>'{query}'로 검색한 결과입니다.</PageTitle>
-            <div>
+            <PageInner>
                 {search ? (
                     search.map((item) => {
-                        return <div>hi</div>;
+                        return <ItemCard key={item.id} item={item} />;
                     })
                 ) : (
                     <p>'검색과 일치하는 상품이 존재하지 않습니다'</p>
                 )}
-            </div>
+            </PageInner>
         </PageWrapper>
     );
 }

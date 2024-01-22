@@ -144,8 +144,8 @@ export default function DetailButtons({ item, discountedPrice }) {
                 className="detail_bookmark"
                 onClick={handleBookmark}
                 style={{
-                    color: isBook ? 'yellowgreen' : '#ddd',
-                    borderColor: isBook ? 'yellowgreen' : '#ddd',
+                    color: isBook ? '#b3d4b3' : '#ddd',
+                    borderColor: isBook ? '#b3d4b3' : '#ddd',
                 }}
             >
                 <FaStar />

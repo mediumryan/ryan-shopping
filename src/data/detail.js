@@ -9,3 +9,8 @@ export const isDetailModalState = atom({
     key: 'is_detail_modal_state',
     default: false,
 });
+
+export const detailBookmarkState = atom({
+    key: 'detail_bookmark_state',
+    default: false,
+});

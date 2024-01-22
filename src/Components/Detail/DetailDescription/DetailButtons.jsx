@@ -2,9 +2,15 @@ import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import { styled } from 'styled-components';
 // import state data
 import { cartState } from '../../../data/cart';
-import { detailItemCount, isDetailModalState } from '../../../data/detail';
+import {
+    detailBookmarkState,
+    detailItemCount,
+    isDetailModalState,
+} from '../../../data/detail';
 // import icons
 import { FaStar } from 'react-icons/fa';
+import { bookmarkState } from '../../../data/bookmark';
+import { useEffect } from 'react';
 
 const Buttons = styled.div`
     display: flex;
@@ -92,12 +98,56 @@ export default function DetailButtons({ item, discountedPrice }) {
         }
     };
 
+    // handle bookmark
+    const [isBook, setIsBook] = useRecoilState(detailBookmarkState);
+    const [bookmark, setBookmark] = useRecoilState(bookmarkState);
+    const alreadyBooked = bookmark.findIndex((a) => a.name === item.name);
+    const handleBookmark = () => {
+        const newItem = {
+            id: Date.now(),
+            name: item.name,
+            price: discountedPrice,
+            category: item.category,
+            image_path: item.image_path,
+        };
+        setIsBook((prev) => !prev);
+        if (alreadyBooked === -1) {
+            setBookmark((prev) => {
+                const newBookmark = [...prev];
+                newBookmark.push(newItem);
+                return newBookmark;
+            });
+        } else {
+            setBookmark((prev) => {
+                const unBookmark = prev.filter((a) => a.name !== item.name);
+                return unBookmark;
+            });
+        }
+    };
+
+    useEffect(() => {
+        if (alreadyBooked === -1) {
+            setIsBook((prev) => false);
+        } else {
+            setIsBook((prev) => true);
+        }
+    }, []);
+
+    console.log(bookmark);
+
     return (
         <Buttons>
             <button className="detail_buy" onClick={addToCart}>
                 장바구니에 추가
             </button>
-            <button className="detail_bookmark">
+            <button
+                className="detail_bookmark"
+                onClick={handleBookmark}
+                style={{
+                    color: isBook ? 'yellowgreen' : '#ddd',
+                    borderColor: isBook ? 'yellowgreen' : '#ddd',
+                }}
+            >
                 <FaStar />
             </button>
         </Buttons>

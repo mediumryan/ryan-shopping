@@ -64,7 +64,9 @@ export default function BookmarkItem({ item, index }) {
                     alt={item.name}
                 />
             </td>
-            <td style={{ userSelect: 'none' }}>{item.name}</td>
+            <td style={{ userSelect: 'none' }}>
+                {item.name} [{item.color}]
+            </td>
             <td style={{ userSelect: 'none' }}>
                 {item.price.toLocaleString()}KRW
             </td>

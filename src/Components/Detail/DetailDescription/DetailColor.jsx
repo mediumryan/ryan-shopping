@@ -1,6 +1,7 @@
 import { useRecoilState } from 'recoil';
 import { styled } from 'styled-components';
 import { detailColorState } from './../../../data/detail';
+import { useEffect } from 'react';
 
 const Color = styled.div`
     display: flex;
@@ -26,6 +27,10 @@ export default function DetailColor({ item }) {
     const handleColor = (color_item) => {
         setColor(color_item);
     };
+
+    useEffect(() => {
+        setColor('');
+    }, []);
 
     return (
         <Color className="detail_item">

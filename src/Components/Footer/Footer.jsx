@@ -9,6 +9,9 @@ const FooterWrapper = styled.footer`
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 0.75rem;
+    line-height: 1.2;
+    letter-spacing: 0.5px;
     padding: 2rem 0;
     border-top: 2px solid #eee;
     cursor: default;

@@ -1,12 +1,12 @@
 import { styled } from 'styled-components';
 import { useNavigate } from 'react-router-dom';
-import { useSetRecoilState } from 'recoil';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
 // import icons
 import { FaTimes } from 'react-icons/fa';
 // import components
 import { ModalClose } from '../../Header/MenuModal';
 // import state data
-import { isDetailModalState } from '../../../data/detail';
+import { detailColorState, isDetailModalState } from '../../../data/detail';
 
 export const DetailBuyModalWrapper = styled.div`
     position: fixed;
@@ -64,12 +64,16 @@ export const ModalButton = styled.div`
 export default function DetailBuyModal({ detailItem }) {
     const navigate = useNavigate();
     const setIsDetailModal = useSetRecoilState(isDetailModalState);
+    const color = useRecoilValue(detailColorState);
 
     return (
         <DetailBuyModalWrapper>
             <p>
-                고객님의 장바구니에 <span>{detailItem.name}</span> 상품이
-                추가되었어요.
+                고객님의 장바구니에
+                <span>
+                    {detailItem.name}[{color}]
+                </span>
+                상품이 추가되었어요.
             </p>
             <ModalButton>
                 <button

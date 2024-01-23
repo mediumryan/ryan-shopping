@@ -1,4 +1,6 @@
+import { useRecoilState } from 'recoil';
 import { styled } from 'styled-components';
+import { detailColorState } from './../../../data/detail';
 
 const Color = styled.div`
     display: flex;
@@ -6,33 +8,50 @@ const Color = styled.div`
     ul.detail_color {
         display: flex;
         li {
-            margin: 0 0.5rem;
+            margin-right: 0.5rem;
             button {
-                background-color: #eee;
-                color: #bbb;
                 padding: 0.25rem 0.75rem;
                 border: none;
                 border-radius: 4px;
                 cursor: pointer;
+                user-select: none;
             }
         }
     }
 `;
 
-export default function DetailColor() {
+export default function DetailColor({ item }) {
+    const [color, setColor] = useRecoilState(detailColorState);
+
+    const handleColor = (color_item) => {
+        setColor(color_item);
+    };
+
     return (
         <Color className="detail_item">
             <div className="detail_subtitle">색상</div>
             <ul className="detail_color">
-                <li>
-                    <button>Black</button>
-                </li>
-                <li>
-                    <button>White</button>
-                </li>
-                <li>
-                    <button>Beige</button>
-                </li>
+                {item.color.map((color_item) => {
+                    return (
+                        <li key={color_item}>
+                            <button
+                                style={{
+                                    color:
+                                        color === color_item ? 'green' : '#ddd',
+                                    backgroundColor:
+                                        color === color_item
+                                            ? '#b3d4b3'
+                                            : '#eee',
+                                }}
+                                onClick={() => {
+                                    handleColor(color_item);
+                                }}
+                            >
+                                {color_item}
+                            </button>
+                        </li>
+                    );
+                })}
             </ul>
         </Color>
     );

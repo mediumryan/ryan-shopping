@@ -1,16 +1,17 @@
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import { styled } from 'styled-components';
+import { useEffect } from 'react';
 // import state data
 import { cartState } from '../../../data/cart';
 import {
     detailBookmarkState,
+    detailColorState,
     detailItemCount,
     isDetailModalState,
 } from '../../../data/detail';
+import { bookmarkState } from '../../../data/bookmark';
 // import icons
 import { FaStar } from 'react-icons/fa';
-import { bookmarkState } from '../../../data/bookmark';
-import { useEffect } from 'react';
 
 const Buttons = styled.div`
     display: flex;
@@ -47,10 +48,13 @@ export default function DetailButtons({ item, discountedPrice }) {
     const itemCount = useRecoilValue(detailItemCount);
     const [cart, setCart] = useRecoilState(cartState);
     const setIsDetailModal = useSetRecoilState(isDetailModalState);
+    const color = useRecoilValue(detailColorState);
     const addToCart = () => {
         const currentItemCount = itemCount;
-        const isCartItem = cart.findIndex((a) => a.name === item.name);
-        if (itemCount > 0) {
+        const isCartItem = cart.findIndex(
+            (a) => a.name === item.name && a.color === color
+        );
+        if (itemCount > 0 && color) {
             setIsDetailModal(true);
             const closeModalTimer = setTimeout(() => {
                 setIsDetailModal(false);
@@ -60,6 +64,7 @@ export default function DetailButtons({ item, discountedPrice }) {
                 const newItem = {
                     id: Date.now(),
                     name: item.name,
+                    color: color,
                     price: discountedPrice,
                     category: item.category,
                     image_path: item.image_path,
@@ -93,8 +98,8 @@ export default function DetailButtons({ item, discountedPrice }) {
             return () => {
                 return clearTimeout(closeModalTimer);
             };
-        } else if (itemCount < 1) {
-            alert('구매할 상품의 개수를 다시 확인해 주세요.');
+        } else if (itemCount < 1 || !color) {
+            alert('상품의 색상 혹은 구매할 상품의 개수 다시 확인해 주세요.');
         }
     };
 
@@ -106,6 +111,7 @@ export default function DetailButtons({ item, discountedPrice }) {
         const newItem = {
             id: Date.now(),
             name: item.name,
+            color: color,
             price: discountedPrice,
             category: item.category,
             image_path: item.image_path,
@@ -129,13 +135,13 @@ export default function DetailButtons({ item, discountedPrice }) {
 
     useEffect(() => {
         if (alreadyBooked === -1) {
-            setIsBook((prev) => false);
+            setIsBook(false);
         } else {
-            setIsBook((prev) => true);
+            setIsBook(true);
         }
     }, []);
 
-    console.log(bookmark);
+    console.log(color);
 
     return (
         <Buttons>

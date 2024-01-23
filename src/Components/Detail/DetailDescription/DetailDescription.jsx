@@ -43,7 +43,7 @@ export default function DetailDescription({ item }) {
                 <h5>{item.name}</h5>
             </Name>
             <DetailPrice item={item} discountedPrice={discountedPrice} />
-            <DetailColor />
+            <DetailColor item={item} />
             <DetailCount item={item} />
             {itemCount !== 0 && (
                 <DetailTotal discountedPrice={discountedPrice} />

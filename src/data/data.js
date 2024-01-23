@@ -10,6 +10,7 @@ export const dataState = atom({
             discounted: null,
             category: ['man', 'outer'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202203/2b8036e8aa63cf5e60613fb43d872031.png',
         },
@@ -20,6 +21,7 @@ export const dataState = atom({
             discounted: null,
             category: ['man'],
             sold_out: false,
+            color: ['white', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202203/28a97102a759f4311d821458fdef6bb7.png',
         },
@@ -30,6 +32,7 @@ export const dataState = atom({
             discounted: null,
             category: ['man', 'bottom'],
             sold_out: false,
+            color: ['white', 'black'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202203/18e0adcf85edbb1aea4a24fdcb1cf769.gif',
         },
@@ -40,6 +43,7 @@ export const dataState = atom({
             discounted: null,
             category: ['man', 'outer'],
             sold_out: false,
+            color: ['black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202203/a9d14575ede406345cd77c732231084f.png',
         },
@@ -50,6 +54,7 @@ export const dataState = atom({
             discounted: null,
             category: ['man', 'top'],
             sold_out: false,
+            color: ['red', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202203/3e8b109c9943d6bce941225ef484a560.gif',
         },
@@ -60,6 +65,7 @@ export const dataState = atom({
             discounted: null,
             category: ['man', 'bottom'],
             sold_out: false,
+            color: ['white', 'green', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202203/fa41d34119eb055fe485d1253aad33c6.png',
         },
@@ -70,6 +76,7 @@ export const dataState = atom({
             discounted: null,
             category: ['man', 'bottom'],
             sold_out: false,
+            color: ['white', 'yellow', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202203/7d88ca8211023733a0ae9c56aabbd0ab.png',
         },
@@ -80,6 +87,7 @@ export const dataState = atom({
             discounted: null,
             category: ['man', 'bottom'],
             sold_out: false,
+            color: ['aquamarine', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202203/07c0520fcff8ab6b72ef0c26bc5339cf.png',
         },
@@ -90,6 +98,7 @@ export const dataState = atom({
             discounted: null,
             category: ['man'],
             sold_out: false,
+            color: ['white', 'black', 'orange'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202203/89958303b16a6c5f89a1787f983eab33.png',
         },
@@ -100,6 +109,7 @@ export const dataState = atom({
             discounted: null,
             category: ['man', 'bottom'],
             sold_out: false,
+            color: ['red', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202203/c098da3e145e6c54b62473837046977d.png',
         },
@@ -110,6 +120,7 @@ export const dataState = atom({
             discounted: 0.33,
             category: ['man', 'top'],
             sold_out: false,
+            color: ['white', 'lightblue', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202204/fd048566e7c63a751df3c5969be6ee5d.gif',
         },
@@ -120,6 +131,7 @@ export const dataState = atom({
             discounted: null,
             category: ['man'],
             sold_out: false,
+            color: ['yellowgreen', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202202/6430c7542494cf62c4087132c4c49336.jpg',
         },
@@ -130,6 +142,7 @@ export const dataState = atom({
             discounted: null,
             category: ['man', 'top'],
             sold_out: false,
+            color: ['white', 'skyblue', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202202/060fd5565a356803539639d6b7e26136.gif',
         },
@@ -140,6 +153,7 @@ export const dataState = atom({
             discounted: 0.3,
             category: ['man'],
             sold_out: false,
+            color: ['white', 'black'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202203/4c4b0213e3eceacc043b7032ebec945a.png',
         },
@@ -150,6 +164,7 @@ export const dataState = atom({
             discounted: null,
             category: ['man'],
             sold_out: false,
+            color: ['white', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202202/bbc6ca024d0fb71be8219ae184c7db62.webp',
         },
@@ -160,6 +175,7 @@ export const dataState = atom({
             discounted: 0.24,
             category: ['man', 'top'],
             sold_out: false,
+            color: ['black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202204/1d33e9ba576e271767d71809abf1f3ee.png',
         },
@@ -170,6 +186,7 @@ export const dataState = atom({
             discounted: null,
             category: ['man', 'top'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202202/bb3ae1263796e52a57a28196a24ea80a.jpg',
         },
@@ -180,6 +197,7 @@ export const dataState = atom({
             discounted: null,
             category: ['man', 'top'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202202/76b19da2cbadc2bfab89b7a923cf6673.png',
         },
@@ -190,6 +208,7 @@ export const dataState = atom({
             discounted: null,
             category: ['man', 'top'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202201/6f24efc4d6f168780282fe23e3fa67b7.webp',
         },
@@ -200,6 +219,7 @@ export const dataState = atom({
             discounted: null,
             category: ['man'],
             sold_out: false,
+            color: ['grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202201/669db5bf64b2eb1cd8043a61f9ba9e76.jpg',
         },
@@ -210,6 +230,7 @@ export const dataState = atom({
             discounted: null,
             category: ['man', 'top'],
             sold_out: false,
+            color: ['white'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202201/dc49ca400930b5bbcc89d8b301286d18.gif',
         },
@@ -220,6 +241,7 @@ export const dataState = atom({
             discounted: 0.22,
             category: ['man', 'top'],
             sold_out: false,
+            color: ['white', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202204/1f44695705d12b43730d4bf7a33b7e69.png',
         },
@@ -230,6 +252,7 @@ export const dataState = atom({
             discounted: null,
             category: ['man', 'top'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202201/6505f55728e45175c71e82c8103e5bee.webp',
         },
@@ -240,6 +263,7 @@ export const dataState = atom({
             discounted: null,
             category: ['man', 'outer'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202201/dea828ca21c1505d53acabb37bfc8280.png',
         },
@@ -250,6 +274,7 @@ export const dataState = atom({
             discounted: null,
             category: ['outer'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202201/1d65b5e599b2bee1d89d1d2cf7627cb4.webp',
         },
@@ -260,6 +285,7 @@ export const dataState = atom({
             discounted: null,
             category: ['outer'],
             sold_out: false,
+            color: ['grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202112/e6c7efecfc0251fa95cc137adb5463f5.webp',
         },
@@ -270,6 +296,7 @@ export const dataState = atom({
             discounted: null,
             category: ['outer'],
             sold_out: false,
+            color: ['white'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202112/694c0182124fc9146ef8a67fc40fa3d1.webp',
         },
@@ -280,6 +307,7 @@ export const dataState = atom({
             discounted: null,
             category: ['outer'],
             sold_out: false,
+            color: ['black'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202112/007a7389419ac4c3bb16d91e474efa3b.png',
         },
@@ -290,6 +318,7 @@ export const dataState = atom({
             discounted: null,
             category: ['outer'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202112/2e6bea5e60ba792ae2c8da2a75d6c772.jpg',
         },
@@ -300,6 +329,7 @@ export const dataState = atom({
             discounted: null,
             category: ['outer'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202112/3c1ca29a2524dfea91132214dc7b45cc.png',
         },
@@ -310,6 +340,7 @@ export const dataState = atom({
             discounted: null,
             category: ['outer'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202111/7dd34173abc7731b2f34abbfb4dcafe2.jpg',
         },
@@ -320,6 +351,7 @@ export const dataState = atom({
             discounted: null,
             category: ['outer'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202111/389a20f98227a08f2ad9b82c3a1ac21c.gif',
         },
@@ -330,6 +362,7 @@ export const dataState = atom({
             discounted: null,
             category: ['outer'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202111/17b519ab26b08a9badeb7b6970b4dd17.png',
         },
@@ -340,6 +373,7 @@ export const dataState = atom({
             discounted: null,
             category: ['outer'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202111/235d6b1fd8c36e747605a0ba957ccc3f.png',
         },
@@ -350,6 +384,7 @@ export const dataState = atom({
             discounted: null,
             category: ['outer'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202111/3975df6f77f9676491b1a83da3704594.jpg',
         },
@@ -360,6 +395,7 @@ export const dataState = atom({
             discounted: null,
             category: ['outer'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202111/b583248fef07ad692e903119357d84e5.jpg',
         },
@@ -370,6 +406,7 @@ export const dataState = atom({
             discounted: 0.2,
             category: ['outer'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202204/c5e1bd83e0ae190dd357ddbf82002374.webp',
         },
@@ -380,6 +417,7 @@ export const dataState = atom({
             discounted: null,
             category: ['outer'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202109/0e69547845e9158d7cb388a14ffe2a44.jpg',
         },
@@ -390,6 +428,7 @@ export const dataState = atom({
             discounted: null,
             category: ['outer'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202109/d93994ca6c30da21697f284c5e7f6fc1.jpg',
         },
@@ -400,6 +439,7 @@ export const dataState = atom({
             discounted: null,
             category: ['outer'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202109/7247712ce007c0932ed22d4adbff72ad.jpg',
         },
@@ -410,6 +450,7 @@ export const dataState = atom({
             discounted: null,
             category: ['outer'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202109/59b011b5fb32b5ef76f0d01907473e95.jpg',
         },
@@ -420,6 +461,7 @@ export const dataState = atom({
             discounted: null,
             category: ['outer'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202108/5896525a4b837841057642dd28832870.jpg',
         },
@@ -430,6 +472,7 @@ export const dataState = atom({
             discounted: null,
             category: ['outer'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202108/5b3cbfea88f03e83a5f88d67a202e8c1.png',
         },
@@ -440,6 +483,7 @@ export const dataState = atom({
             discounted: null,
             category: ['outer'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202108/93926597d69ab59efe5b2ff4f6ccb7c6.webp',
         },
@@ -450,6 +494,7 @@ export const dataState = atom({
             discounted: null,
             category: ['outer'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202107/bc3ef6b79cedd2723f411e843ae4ccf8.gif',
         },
@@ -460,6 +505,7 @@ export const dataState = atom({
             discounted: null,
             category: ['top'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202201/5fcd00b2ad3b546a2e684635db71e40d.png',
         },
@@ -470,6 +516,7 @@ export const dataState = atom({
             discounted: 0.23,
             category: ['top'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202204/4876f8bf2fd45f937fde7600efcdad55.gif',
         },
@@ -480,6 +527,7 @@ export const dataState = atom({
             discounted: null,
             category: ['top'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202112/27378cf39b6c0f0e3a2c97bac8b9a9a3.gif',
         },
@@ -490,6 +538,7 @@ export const dataState = atom({
             discounted: null,
             category: ['top'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202112/511e7829a5eb3d2c13d3c3493e2749b7.png',
         },
@@ -500,6 +549,7 @@ export const dataState = atom({
             discounted: null,
             category: ['top'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202111/041ea0c6a31eeee063edb0de021904fa.jpg',
         },
@@ -510,6 +560,7 @@ export const dataState = atom({
             discounted: null,
             category: ['top'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202110/493714bd5ec25a66dddfc0f630b07f76.png',
         },
@@ -520,6 +571,7 @@ export const dataState = atom({
             discounted: null,
             category: ['top'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202110/7248d0652d871ad98527da5b95581de6.png',
         },
@@ -530,6 +582,7 @@ export const dataState = atom({
             discounted: null,
             category: ['top'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202110/dcea6307470625ca741b6980b8499a07.jpg',
         },
@@ -540,6 +593,7 @@ export const dataState = atom({
             discounted: null,
             category: ['top'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202109/c600f8b2a43a282d298690aad07966b2.jpg',
         },
@@ -550,6 +604,7 @@ export const dataState = atom({
             discounted: null,
             category: ['top'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202109/bb8e71972de5645a04464d974dc0b25c.jpg',
         },
@@ -560,6 +615,7 @@ export const dataState = atom({
             discounted: null,
             category: ['top'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202109/471428c710eccee679e01e8a7034933c.jpg',
         },
@@ -570,6 +626,7 @@ export const dataState = atom({
             discounted: null,
             category: ['top'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202109/5a2f9e3dccfac03b189c7b0f78281740.gif',
         },
@@ -580,6 +637,7 @@ export const dataState = atom({
             discounted: null,
             category: ['top'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202109/82839562162f53587396e9c89085a10f.png',
         },
@@ -590,6 +648,7 @@ export const dataState = atom({
             discounted: null,
             category: ['top'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202108/d7d939fbf5ef6ba2b3856f3697e9d6a8.jpg',
         },
@@ -600,6 +659,7 @@ export const dataState = atom({
             discounted: 0.5,
             category: ['dress'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202204/3938073a6490c4f67e72cb9ee4cee749.gif',
         },
@@ -610,6 +670,7 @@ export const dataState = atom({
             discounted: 0.3,
             category: ['dress'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202204/93e4a6ca118f9e4e6e363664c2f7829a.gif',
         },
@@ -620,6 +681,7 @@ export const dataState = atom({
             discounted: null,
             category: ['dress'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202108/266d8a6805c1ac92bc16cff6d007776f.jpg',
         },
@@ -630,6 +692,7 @@ export const dataState = atom({
             discounted: null,
             category: ['dress'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202107/af5473efbf98f6bc7bb91b676d4e7ff4.jpg',
         },
@@ -640,6 +703,7 @@ export const dataState = atom({
             discounted: null,
             category: ['dress'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202107/c0bef39d9fafdaad3319f55c35f6947b.png',
         },
@@ -650,6 +714,7 @@ export const dataState = atom({
             discounted: null,
             category: ['dress'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202106/641a58c71ffea3928d1c46fd290e658f.gif',
         },
@@ -660,6 +725,7 @@ export const dataState = atom({
             discounted: 0.37,
             category: ['dress'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202206/6ef30f88271b868c83c6e322f1191fc3.png',
         },
@@ -670,6 +736,7 @@ export const dataState = atom({
             discounted: null,
             category: ['dress'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202106/f2c3e584fa7451c83bec945bb45a548a.gif',
         },
@@ -680,6 +747,7 @@ export const dataState = atom({
             discounted: null,
             category: ['dress'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202106/566684e5809c8055b70fd1c6cfd4795b.jpg',
         },
@@ -690,6 +758,7 @@ export const dataState = atom({
             discounted: null,
             category: ['dress'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202106/25bb0843c6bedac0101ec0a33aa9cb27.png',
         },
@@ -700,6 +769,7 @@ export const dataState = atom({
             discounted: null,
             category: ['dress'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202106/998ba5562ae84861226a6e575de283b4.jpg',
         },
@@ -710,6 +780,7 @@ export const dataState = atom({
             discounted: null,
             category: ['dress'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202107/2cb072dd4b4aa96d183d62f254733c3b.webp',
         },
@@ -720,6 +791,7 @@ export const dataState = atom({
             discounted: null,
             category: ['dress'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202106/518dbcaf11d95a769c99f5534178d3ee.webp',
         },
@@ -730,6 +802,7 @@ export const dataState = atom({
             discounted: null,
             category: ['dress'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202106/4189c4b4852b2ee924722018a11e6906.webp',
         },
@@ -740,6 +813,7 @@ export const dataState = atom({
             discounted: null,
             category: ['dress'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202105/b72c439b0ff5281d4592e6287f471a1c.png',
         },
@@ -750,6 +824,7 @@ export const dataState = atom({
             discounted: null,
             category: ['dress'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202105/0fefd76f88734164516b36aa42915bbb.gif',
         },
@@ -760,6 +835,7 @@ export const dataState = atom({
             discounted: null,
             category: ['dress'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202105/e9b57ce23c7e4a97f07a6f1176cf5c30.gif',
         },
@@ -770,6 +846,7 @@ export const dataState = atom({
             discounted: null,
             category: ['dress'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202105/8b1a48260de7a52f8b3ef4c642a65b0b.webp',
         },
@@ -780,6 +857,7 @@ export const dataState = atom({
             discounted: null,
             category: ['dress'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202104/5bab414acd7d0ccfc6b41d1cbbcf830b.webp',
         },
@@ -790,6 +868,7 @@ export const dataState = atom({
             discounted: 0.33,
             category: ['dress'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202206/13a4c6dace644db170227f7c02531e56.gif',
         },
@@ -800,6 +879,7 @@ export const dataState = atom({
             discounted: null,
             category: ['dress'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202104/48a9bdf39cffc396731d83cb8931b42c.webp',
         },
@@ -810,6 +890,7 @@ export const dataState = atom({
             discounted: null,
             category: ['dress'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202104/46b1e50b0d8fe8cc60ed7cb38ed474aa.webp',
         },
@@ -820,6 +901,7 @@ export const dataState = atom({
             discounted: 0.33,
             category: ['dress'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202204/cc817f98cbcbab7780d6b8658143890c.png',
         },
@@ -830,6 +912,7 @@ export const dataState = atom({
             discounted: null,
             category: ['dress'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202104/8bcf5678c3f424a5c092c6a723103e55.webp',
         },
@@ -840,6 +923,7 @@ export const dataState = atom({
             discounted: null,
             category: ['bottom'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202201/5b4a72f8f820a12c582b6062c3ccd103.png',
         },
@@ -850,6 +934,7 @@ export const dataState = atom({
             discounted: null,
             category: ['bottom'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202112/78511269ab53dfdeda3e03c0c88fb385.png',
         },
@@ -860,6 +945,7 @@ export const dataState = atom({
             discounted: null,
             category: ['bottom'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202110/852c89590b06add44aa0287bd70e6da1.png',
         },
@@ -870,6 +956,7 @@ export const dataState = atom({
             discounted: null,
             category: ['bottom'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202109/6cbf7e4f3f1300324e12945d979df1c0.webp',
         },
@@ -880,6 +967,7 @@ export const dataState = atom({
             discounted: null,
             category: ['bottom'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202109/4eda4730243cffb22a76dd55e70d0328.jpg',
         },
@@ -890,6 +978,7 @@ export const dataState = atom({
             discounted: null,
             category: ['bottom'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202108/91d591e797573c325b39d75cc599d146.jpg',
         },
@@ -900,6 +989,7 @@ export const dataState = atom({
             discounted: null,
             category: ['bottom'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202108/5896525a4b837841057642dd28832870.jpg',
         },
@@ -910,6 +1000,7 @@ export const dataState = atom({
             discounted: null,
             category: ['bottom'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202107/5b827619a9b340019b5103b645e2aa24.webp',
         },
@@ -920,6 +1011,7 @@ export const dataState = atom({
             discounted: null,
             category: ['bottom'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202107/f89330228f94d1ae5a7bfd0149b235f4.gif',
         },
@@ -930,6 +1022,7 @@ export const dataState = atom({
             discounted: null,
             category: ['bottom'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202107/c98dd2d2cbbc7e269f2bc4395b2e27b8.gif',
         },
@@ -940,6 +1033,7 @@ export const dataState = atom({
             discounted: null,
             category: ['bottom'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202106/f8bbbebf5398a93e5020f04d01a82981.gif',
         },
@@ -950,6 +1044,7 @@ export const dataState = atom({
             discounted: null,
             category: ['bottom'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202105/0d5b834195bbeccda89381c92306a4ce.png',
         },
@@ -960,6 +1055,7 @@ export const dataState = atom({
             discounted: null,
             category: ['bottom'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202105/12f37cd181efb5de8480b668c241b5be.png',
         },
@@ -970,6 +1066,7 @@ export const dataState = atom({
             discounted: null,
             category: ['bottom'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202105/263017e2ea9db604ae3b65070d316c08.jpg',
         },
@@ -980,6 +1077,7 @@ export const dataState = atom({
             discounted: null,
             category: ['bottom'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202105/d72c79ce02be14a9d8469fd0b67f73b4.png',
         },
@@ -990,6 +1088,7 @@ export const dataState = atom({
             discounted: null,
             category: ['bottom'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202105/d3360e485da0d9694a794a51a6a04c33.gif',
         },
@@ -1000,6 +1099,7 @@ export const dataState = atom({
             discounted: null,
             category: ['bottom'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202104/7cbdc9a3b53956f85f93e19ed9a66436.webp',
         },
@@ -1010,6 +1110,7 @@ export const dataState = atom({
             discounted: null,
             category: ['bottom'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202104/cec7f3bf128254597bc1f67111508168.webp',
         },
@@ -1020,6 +1121,7 @@ export const dataState = atom({
             discounted: null,
             category: ['bottom'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202104/43ae1acb3d8ba6ba4aaf83c434baa49c.gif',
         },
@@ -1030,6 +1132,7 @@ export const dataState = atom({
             discounted: null,
             category: ['accessory'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202112/819fe64cb56b3c4c9ac17a28201adfc5.png',
         },
@@ -1040,6 +1143,7 @@ export const dataState = atom({
             discounted: null,
             category: ['accessory'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202112/89821ad5047e1539c356edb781e0823c.png',
         },
@@ -1050,6 +1154,7 @@ export const dataState = atom({
             discounted: 0.34,
             category: ['accessory'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202204/b1eaedd146ffe751e290b7a032c15378.png',
         },
@@ -1060,6 +1165,7 @@ export const dataState = atom({
             discounted: null,
             category: ['accessory'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path:
                 'https://m.darles.co.kr/web/product/medium/202108/397eed6e0bba98c8598514033514df0c.jpg',
         },
@@ -1070,6 +1176,7 @@ export const dataState = atom({
             discounted: null,
             category: ['bottom'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path: '',
         },
         {
@@ -1079,6 +1186,7 @@ export const dataState = atom({
             discounted: null,
             category: ['bottom'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path: '',
         },
         {
@@ -1088,6 +1196,7 @@ export const dataState = atom({
             discounted: null,
             category: ['bottom'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path: '',
         },
         {
@@ -1097,6 +1206,7 @@ export const dataState = atom({
             discounted: null,
             category: ['bottom'],
             sold_out: false,
+            color: ['white', 'black', 'grey'],
             image_path: '',
         },
     ],

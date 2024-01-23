@@ -5,6 +5,11 @@ export const detailItemCount = atom({
     default: 0,
 });
 
+export const detailColorState = atom({
+    key: 'detail_color_state',
+    default: '',
+});
+
 export const isDetailModalState = atom({
     key: 'is_detail_modal_state',
     default: false,

@@ -65,6 +65,9 @@ export const CartInner = styled.div`
         padding: 8px;
         text-align: center;
         vertical-align: middle;
+        span {
+            line-height: 1.2;
+        }
         @media only screen and (min-width: 320px) and (max-width: 768px) {
             padding: 4px;
         }

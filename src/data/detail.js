@@ -10,6 +10,11 @@ export const detailColorState = atom({
     default: '',
 });
 
+export const detailSizeState = atom({
+    key: 'detail_size_state',
+    default: '',
+});
+
 export const isDetailModalState = atom({
     key: 'is_detail_modal_state',
     default: false,

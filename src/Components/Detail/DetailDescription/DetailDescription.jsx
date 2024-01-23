@@ -8,6 +8,7 @@ import DetailColor from './DetailColor';
 import DetailCount from './DetailCount';
 import DetailTotal from './DetailTotal';
 import DetailButtons from './DetailButtons';
+import DetailSize from './DetailSize';
 
 const DetailDescriptionWrapper = styled.div`
     flex-basis: 45%;
@@ -44,6 +45,7 @@ export default function DetailDescription({ item }) {
             </Name>
             <DetailPrice item={item} discountedPrice={discountedPrice} />
             <DetailColor item={item} />
+            <DetailSize item={item} />
             <DetailCount item={item} />
             {itemCount !== 0 && (
                 <DetailTotal discountedPrice={discountedPrice} />

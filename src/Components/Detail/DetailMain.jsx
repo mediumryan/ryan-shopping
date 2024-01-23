@@ -5,6 +5,7 @@ import DetailDescription from './DetailDescription/DetailDescription';
 const DetailMainWrapper = styled.div`
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 85%;
     margin: 0 auto;
     padding-bottom: 2rem;

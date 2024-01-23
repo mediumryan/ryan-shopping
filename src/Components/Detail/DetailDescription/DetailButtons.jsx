@@ -7,6 +7,7 @@ import {
     detailBookmarkState,
     detailColorState,
     detailItemCount,
+    detailSizeState,
     isDetailModalState,
 } from '../../../data/detail';
 import { bookmarkState } from '../../../data/bookmark';
@@ -44,17 +45,19 @@ const Buttons = styled.div`
 `;
 
 export default function DetailButtons({ item, discountedPrice }) {
-    // handle add to cart
-    const itemCount = useRecoilValue(detailItemCount);
     const [cart, setCart] = useRecoilState(cartState);
     const setIsDetailModal = useSetRecoilState(isDetailModalState);
     const color = useRecoilValue(detailColorState);
+    const size = useRecoilValue(detailSizeState);
+
+    // handle add to cart
+    const itemCount = useRecoilValue(detailItemCount);
     const addToCart = () => {
         const currentItemCount = itemCount;
         const isCartItem = cart.findIndex(
-            (a) => a.name === item.name && a.color === color
+            (a) => a.name === item.name && a.color === color && a.size === size
         );
-        if (itemCount > 0 && color) {
+        if (itemCount > 0 && color && size) {
             setIsDetailModal(true);
             const closeModalTimer = setTimeout(() => {
                 setIsDetailModal(false);
@@ -65,6 +68,7 @@ export default function DetailButtons({ item, discountedPrice }) {
                     id: Date.now(),
                     name: item.name,
                     color: color,
+                    size: size,
                     price: discountedPrice,
                     category: item.category,
                     image_path: item.image_path,
@@ -98,38 +102,51 @@ export default function DetailButtons({ item, discountedPrice }) {
             return () => {
                 return clearTimeout(closeModalTimer);
             };
-        } else if (itemCount < 1 || !color) {
+        } else if (itemCount < 1 || !color || !size) {
             alert('상품의 색상 혹은 구매할 상품의 개수 다시 확인해 주세요.');
+        } else {
+            return;
         }
     };
 
-    // handle bookmark
+    // handle add to bookmark
     const [isBook, setIsBook] = useRecoilState(detailBookmarkState);
     const [bookmark, setBookmark] = useRecoilState(bookmarkState);
-    const alreadyBooked = bookmark.findIndex((a) => a.name === item.name);
+    const alreadyBooked = bookmark.findIndex(
+        (a) =>
+            a.name === item.name && item.color === color && item.size === size
+    );
     const handleBookmark = () => {
+        const currentItemCount = itemCount;
         const newItem = {
             id: Date.now(),
             name: item.name,
             color: color,
+            size: size,
             price: discountedPrice,
             category: item.category,
             image_path: item.image_path,
-            count: 1,
+            count: currentItemCount,
             checked: false,
         };
         setIsBook((prev) => !prev);
-        if (alreadyBooked === -1) {
-            setBookmark((prev) => {
-                const newBookmark = [...prev];
-                newBookmark.push(newItem);
-                return newBookmark;
-            });
+        if (itemCount > 0 && color && size) {
+            if (alreadyBooked === -1) {
+                setBookmark((prev) => {
+                    const newBookmark = [...prev];
+                    newBookmark.push(newItem);
+                    return newBookmark;
+                });
+            } else {
+                setBookmark((prev) => {
+                    const unBookmark = prev.filter((a) => a.name !== item.name);
+                    return unBookmark;
+                });
+            }
+        } else if (itemCount < 1 || !color || !size) {
+            alert('상품의 색상 혹은 구매할 상품의 개수 다시 확인해 주세요.');
         } else {
-            setBookmark((prev) => {
-                const unBookmark = prev.filter((a) => a.name !== item.name);
-                return unBookmark;
-            });
+            return;
         }
     };
 
@@ -140,8 +157,6 @@ export default function DetailButtons({ item, discountedPrice }) {
             setIsBook(true);
         }
     }, []);
-
-    console.log(color);
 
     return (
         <Buttons>

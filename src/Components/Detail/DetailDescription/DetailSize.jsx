@@ -1,14 +1,12 @@
 import { useRecoilState } from 'recoil';
 import { styled } from 'styled-components';
-import { detailColorState } from './../../../data/detail';
+import { detailSizeState } from './../../../data/detail';
 import { useEffect } from 'react';
 
-const Color = styled.div`
+const Size = styled.div`
     display: flex;
     align-items: center;
-    border-top: 2px solid #eee;
-    border-bottom: 2px solid #eee;
-    ul.detail_color {
+    ul.detail_size {
         display: flex;
         li {
             margin-right: 0.5rem;
@@ -23,43 +21,41 @@ const Color = styled.div`
     }
 `;
 
-export default function DetailColor({ item }) {
-    const [color, setColor] = useRecoilState(detailColorState);
+export default function DetailSize({ item }) {
+    const [size, setSize] = useRecoilState(detailSizeState);
 
-    const handleColor = (color_item) => {
-        setColor(color_item);
+    const handleSize = (size_item) => {
+        setSize(size_item);
     };
 
     useEffect(() => {
-        setColor('');
+        setSize('');
     }, []);
 
     return (
-        <Color className="detail_item">
-            <div className="detail_subtitle">색상</div>
-            <ul className="detail_color">
-                {item.color.map((color_item) => {
+        <Size className="detail_item">
+            <div className="detail_subtitle">사이즈</div>
+            <ul className="detail_size">
+                {item.size.map((size_item) => {
                     return (
-                        <li key={color_item}>
+                        <li key={size_item}>
                             <button
                                 style={{
                                     color:
-                                        color === color_item ? 'green' : '#ddd',
+                                        size === size_item ? 'green' : '#ddd',
                                     backgroundColor:
-                                        color === color_item
-                                            ? '#b3d4b3'
-                                            : '#eee',
+                                        size === size_item ? '#b3d4b3' : '#eee',
                                 }}
                                 onClick={() => {
-                                    handleColor(color_item);
+                                    handleSize(size_item);
                                 }}
                             >
-                                {color_item}
+                                {size_item}
                             </button>
                         </li>
                     );
                 })}
             </ul>
-        </Color>
+        </Size>
     );
 }

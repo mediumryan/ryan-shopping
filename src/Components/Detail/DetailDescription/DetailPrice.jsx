@@ -2,7 +2,6 @@ import { styled } from 'styled-components';
 
 const Price = styled.div`
     border-top: 2px solid #eee;
-    border-bottom: 2px solid #eee;
     & > div {
         display: flex;
         margin: 0.75rem 0;

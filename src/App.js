@@ -8,6 +8,7 @@ import './CSS/index.css';
 import Header from './Components/Header/Header';
 import Footer from './Components/Footer/Footer';
 import MenuModal from './Components/Header/MenuModal';
+import SearchBar from './Components/Header/SearchBar';
 // import pages
 import Home from './Pages/Home';
 import Mans from './Pages/Mans';
@@ -69,6 +70,7 @@ function App() {
         <MainWrapper>
             <Header />
             {isModal && <MenuModal />}
+            <SearchBar />
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/mans" element={<Mans />} />

@@ -65,11 +65,11 @@ export const CartInner = styled.div`
         padding: 8px;
         text-align: center;
         vertical-align: middle;
-        span {
+        & > p {
             line-height: 1.2;
         }
         @media only screen and (min-width: 320px) and (max-width: 768px) {
-            padding: 4px;
+            padding: 2px;
         }
     }
     th {
@@ -80,7 +80,7 @@ export const CartInner = styled.div`
     }
     .cartImage {
         width: 100%;
-        max-width: 80px;
+        max-width: 75px;
         height: auto;
     }
     // count form style
@@ -130,7 +130,7 @@ export const CartInner = styled.div`
     }
     @media only screen and (min-width: 320px) and (max-width: 768px) {
         padding: 0.5rem;
-        font-size: 0.75rem;
+        font-size: 0.6rem;
     }
 `;
 
@@ -195,7 +195,6 @@ export default function Cart() {
                         <col />
                         <col />
                     </colgroup>
-                    {/* 27,92,auto,92,120,92,160 */}
                     <thead>
                         <tr>
                             <th>

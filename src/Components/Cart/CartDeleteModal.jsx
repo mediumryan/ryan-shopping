@@ -2,16 +2,16 @@ import { styled } from 'styled-components';
 import { useSetRecoilState } from 'recoil';
 // import components
 import {
-    DetailBuyModalWrapper,
+    DetailModalWrapper,
     ModalButton,
-} from '../Detail/DetailDescription/DetailBuyModal';
+} from '../Detail/DetailDescription/DetailModal';
 import { ModalClose } from '../Header/MenuModal';
 // import state data
 import { cartModalState, cartState } from '../../data/cart';
 // import icons
 import { FaTimes } from 'react-icons/fa';
 
-const CartModalWrapper = styled(DetailBuyModalWrapper)`
+const CartModalWrapper = styled(DetailModalWrapper)`
     position: fixed;
     width: 400px;
     height: 200px;

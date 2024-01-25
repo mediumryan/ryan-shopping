@@ -5,7 +5,7 @@ import HeaderCategory from './HeaderCategory';
 import { useEffect, useState } from 'react';
 
 const HeaderWrapper = styled.header`
-    width: ${(props) => (props.scrollY > 50 ? '100%' : '85%')};
+    width: 100%;
     height: 125px;
     display: flex;
     flex-direction: column;

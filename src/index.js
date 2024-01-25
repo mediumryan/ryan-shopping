@@ -6,7 +6,7 @@ import { RecoilRoot } from 'recoil';
 // css
 import './CSS/index.css';
 // components
-import ScrollTop from './ScrollTop';
+import ScrollTop from './helper/ScrollTop';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

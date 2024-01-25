@@ -1,5 +1,6 @@
-import { useSetRecoilState } from 'recoil';
+import { useRecoilState, useSetRecoilState } from 'recoil';
 import { styled } from 'styled-components';
+// import state data
 import { cartModalState, cartState } from '../../data/cart';
 
 const CartDeleteWrapper = styled.div`
@@ -28,11 +29,15 @@ const CartDeleteWrapper = styled.div`
 `;
 
 export default function CartDelete() {
-    const setCart = useSetRecoilState(cartState);
+    const [cart, setCart] = useRecoilState(cartState);
     const setCartModal = useSetRecoilState(cartModalState);
 
     const deleteAll = () => {
-        setCartModal(true);
+        if (cart.length > 0) {
+            setCartModal(true);
+        } else {
+            alert('상품이 존재하지 않습니다.');
+        }
     };
 
     const deleteSelected = () => {

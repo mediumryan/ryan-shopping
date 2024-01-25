@@ -131,6 +131,10 @@ export default function DetailButtons({ item, discountedPrice }) {
         };
         setIsBook((prev) => !prev);
         if (itemCount > 0 && color && size) {
+            setIsDetailModal(true);
+            const closeModalTimer = setTimeout(() => {
+                setIsDetailModal(false);
+            }, 3000);
             if (alreadyBooked === -1) {
                 setBookmark((prev) => {
                     const newBookmark = [...prev];
@@ -143,6 +147,9 @@ export default function DetailButtons({ item, discountedPrice }) {
                     return unBookmark;
                 });
             }
+            return () => {
+                return clearTimeout(closeModalTimer);
+            };
         } else if (itemCount < 1 || !color || !size) {
             alert('상품의 색상 혹은 구매할 상품의 개수 다시 확인해 주세요.');
         } else {

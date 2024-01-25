@@ -1,14 +1,19 @@
 import { styled } from 'styled-components';
 import { useNavigate } from 'react-router-dom';
-import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 // import icons
 import { FaTimes } from 'react-icons/fa';
 // import components
 import { ModalClose } from '../../Header/MenuModal';
 // import state data
-import { detailColorState, isDetailModalState } from '../../../data/detail';
+import {
+    detailColorState,
+    isBookmarkModalState,
+    isDetailModalState,
+} from '../../../data/detail';
+import { useEffect, useState } from 'react';
 
-export const DetailBuyModalWrapper = styled.div`
+export const DetailModalWrapper = styled.div`
     position: fixed;
     top: 50%;
     left: 50%;
@@ -34,7 +39,7 @@ export const DetailBuyModalWrapper = styled.div`
         }
     }
     @media only screen and (min-width: 320px) and (max-width: 768px) {
-        width: 300px;
+        width: 325px;
     }
 `;
 
@@ -61,15 +66,28 @@ export const ModalButton = styled.div`
     }
 `;
 
-export default function DetailBuyModal({ detailItem }) {
+export default function DetailModal({ detailItem }) {
     const navigate = useNavigate();
-    const setIsDetailModal = useSetRecoilState(isDetailModalState);
+    const [isDetailModal, setIsDetailModal] =
+        useRecoilState(isDetailModalState);
+    const [isBookmarkModal, setIsBookmarkModal] =
+        useRecoilState(isBookmarkModalState);
     const color = useRecoilValue(detailColorState);
 
+    const [modalFor, setModalFor] = useState('');
+
+    useEffect(() => {
+        if (isDetailModal) {
+            setModalFor('cart');
+        } else if (isBookmarkModal) {
+            setModalFor('bookmark');
+        }
+    }, [isDetailModal, isBookmarkModal]);
+
     return (
-        <DetailBuyModalWrapper>
+        <DetailModalWrapper>
             <p>
-                고객님의 장바구니에
+                고객님의 {modalFor === 'cart' ? '장바구니' : '관심상품 목록'}에{' '}
                 <span>
                     {detailItem.name}[{color}]
                 </span>
@@ -78,10 +96,16 @@ export default function DetailBuyModal({ detailItem }) {
             <ModalButton>
                 <button
                     onClick={() => {
-                        navigate('/cart');
+                        if (modalFor === 'cart') {
+                            navigate('/cart');
+                        } else {
+                            navigate('/bookmark');
+                        }
                     }}
                 >
-                    장바구니 확인하기
+                    {modalFor === 'cart'
+                        ? '장바구니 확인하기'
+                        : '관심상품 목록 확인하기'}
                 </button>
                 <button
                     onClick={() => {
@@ -94,11 +118,17 @@ export default function DetailBuyModal({ detailItem }) {
             <ModalClose
                 style={{ right: '2%', top: '2%' }}
                 onClick={() => {
-                    setIsDetailModal(false);
+                    if (modalFor === 'cart') {
+                        setIsDetailModal(false);
+                    } else if (modalFor === 'bookmark') {
+                        setIsBookmarkModal(false);
+                    } else {
+                        return;
+                    }
                 }}
             >
                 <FaTimes />
             </ModalClose>
-        </DetailBuyModalWrapper>
+        </DetailModalWrapper>
     );
 }

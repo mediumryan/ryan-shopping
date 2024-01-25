@@ -19,8 +19,6 @@ export default function Search() {
         });
     }, [query]);
 
-    console.log(search);
-
     return (
         <PageWrapper>
             <PageTitle>'{query}'로 검색한 결과입니다.</PageTitle>

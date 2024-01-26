@@ -12,12 +12,12 @@ import CartDeleteModal from '../Components/Cart/CartDeleteModal';
 export const CartInner = styled.div`
     width: 100%;
     padding: 1rem 5rem;
+    max-height: 60vh;
+    overflow-y: scroll;
     table {
         width: 100%;
         border-collapse: collapse;
         margin-top: 20px;
-        /* 27,92,auto,92,120,92,160 */
-
         colgroup {
             &:nth-child(1) {
                 width: 27px;

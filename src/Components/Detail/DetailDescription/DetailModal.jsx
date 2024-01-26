@@ -1,17 +1,12 @@
 import { styled } from 'styled-components';
 import { useNavigate } from 'react-router-dom';
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
 // import icons
 import { FaTimes } from 'react-icons/fa';
 // import components
 import { ModalClose } from '../../Header/MenuModal';
 // import state data
-import {
-    detailColorState,
-    isBookmarkModalState,
-    isDetailModalState,
-} from '../../../data/detail';
-import { useEffect, useState } from 'react';
+import { detailColorState, isDetailModalState } from '../../../data/detail';
 
 export const DetailModalWrapper = styled.div`
     position: fixed;
@@ -68,26 +63,13 @@ export const ModalButton = styled.div`
 
 export default function DetailModal({ detailItem }) {
     const navigate = useNavigate();
-    const [isDetailModal, setIsDetailModal] =
-        useRecoilState(isDetailModalState);
-    const [isBookmarkModal, setIsBookmarkModal] =
-        useRecoilState(isBookmarkModalState);
+    const setIsDetailModal = useSetRecoilState(isDetailModalState);
     const color = useRecoilValue(detailColorState);
-
-    const [modalFor, setModalFor] = useState('');
-
-    useEffect(() => {
-        if (isDetailModal) {
-            setModalFor('cart');
-        } else if (isBookmarkModal) {
-            setModalFor('bookmark');
-        }
-    }, [isDetailModal, isBookmarkModal]);
 
     return (
         <DetailModalWrapper>
             <p>
-                고객님의 {modalFor === 'cart' ? '장바구니' : '관심상품 목록'}에{' '}
+                고객님의 장바구니 에{' '}
                 <span>
                     {detailItem.name}[{color}]
                 </span>
@@ -96,16 +78,10 @@ export default function DetailModal({ detailItem }) {
             <ModalButton>
                 <button
                     onClick={() => {
-                        if (modalFor === 'cart') {
-                            navigate('/cart');
-                        } else {
-                            navigate('/bookmark');
-                        }
+                        navigate('/cart');
                     }}
                 >
-                    {modalFor === 'cart'
-                        ? '장바구니 확인하기'
-                        : '관심상품 목록 확인하기'}
+                    장바구니 확인하기
                 </button>
                 <button
                     onClick={() => {
@@ -118,13 +94,7 @@ export default function DetailModal({ detailItem }) {
             <ModalClose
                 style={{ right: '2%', top: '2%' }}
                 onClick={() => {
-                    if (modalFor === 'cart') {
-                        setIsDetailModal(false);
-                    } else if (modalFor === 'bookmark') {
-                        setIsBookmarkModal(false);
-                    } else {
-                        return;
-                    }
+                    setIsDetailModal(false);
                 }}
             >
                 <FaTimes />

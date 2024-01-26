@@ -1,6 +1,7 @@
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import { styled } from 'styled-components';
 import { useEffect } from 'react';
+import { motion } from 'framer-motion';
 // import state data
 import { cartState } from '../../../data/cart';
 import {
@@ -8,6 +9,7 @@ import {
     detailColorState,
     detailItemCount,
     detailSizeState,
+    isBookmarkModalState,
     isDetailModalState,
 } from '../../../data/detail';
 import { bookmarkState } from '../../../data/bookmark';
@@ -110,6 +112,8 @@ export default function DetailButtons({ item, discountedPrice }) {
     };
 
     // handle add to bookmark
+    const [isBookmarkModal, setIsBookmarkModal] =
+        useRecoilState(isBookmarkModalState);
     const [isBook, setIsBook] = useRecoilState(detailBookmarkState);
     const [bookmark, setBookmark] = useRecoilState(bookmarkState);
     const alreadyBooked = bookmark.findIndex(
@@ -129,11 +133,11 @@ export default function DetailButtons({ item, discountedPrice }) {
             count: currentItemCount,
             checked: false,
         };
-        setIsBook((prev) => !prev);
         if (itemCount > 0 && color && size) {
-            setIsDetailModal(true);
+            setIsBook((prev) => !prev);
+            setIsBookmarkModal(true);
             const closeModalTimer = setTimeout(() => {
-                setIsDetailModal(false);
+                setIsBookmarkModal(false);
             }, 3000);
             if (alreadyBooked === -1) {
                 setBookmark((prev) => {
@@ -152,6 +156,7 @@ export default function DetailButtons({ item, discountedPrice }) {
             };
         } else if (itemCount < 1 || !color || !size) {
             alert('상품의 색상 혹은 구매할 상품의 개수 다시 확인해 주세요.');
+            return;
         } else {
             return;
         }

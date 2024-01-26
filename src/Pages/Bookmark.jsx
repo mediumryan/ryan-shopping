@@ -4,14 +4,12 @@ import { useState } from 'react';
 import { CartInner } from './Cart';
 import { PageTitle, PageWrapper } from './Mans';
 // import state data
-import { cartState } from '../data/cart';
 import { bookmarkState } from '../data/bookmark';
 import BookmarkItem from '../Components/Bookmark/BookmarkItem';
-import BookmarkDelete from '../Components/Bookmark/BookmarkDelete';
+import BookmarkButtons from '../Components/Bookmark/BookmarkButtons';
 
 export default function Bookmark() {
     const [bookmark, setBookmark] = useRecoilState(bookmarkState);
-    const [cart, setCart] = useRecoilState(cartState);
     const [allCheckState, setAllCheckState] = useState(false);
 
     // handle all check
@@ -35,7 +33,7 @@ export default function Bookmark() {
     };
 
     return (
-        <PageWrapper>
+        <PageWrapper style={{ position: 'relative' }}>
             <PageTitle>Bookmark</PageTitle>
             <CartInner>
                 <table>
@@ -48,7 +46,6 @@ export default function Bookmark() {
                         <col />
                         <col />
                     </colgroup>
-                    {/* 27,92,auto,92,120,92,160 */}
                     <thead>
                         <tr>
                             <th>
@@ -81,7 +78,7 @@ export default function Bookmark() {
                     </tbody>
                 </table>
             </CartInner>
-            <BookmarkDelete />
+            <BookmarkButtons />
         </PageWrapper>
     );
 }

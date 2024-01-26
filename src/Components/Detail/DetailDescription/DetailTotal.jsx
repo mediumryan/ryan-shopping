@@ -8,8 +8,14 @@ const Total = styled(motion.div)`
     justify-content: end;
     letter-spacing: -0.5px;
     margin-top: 2rem;
-    transform-origin: left center;
+    transform-origin: left top;
     user-select: none;
+    span.detail_total {
+        letter-spacing: 1px;
+        font-weight: 700;
+        font-style: italic;
+        color: green;
+    }
 `;
 
 export default function DetailTotal({ discountedPrice }) {
@@ -21,7 +27,7 @@ export default function DetailTotal({ discountedPrice }) {
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{
-                duration: 0.75,
+                duration: 0.3,
             }}
         >
             <span className="detail_total">

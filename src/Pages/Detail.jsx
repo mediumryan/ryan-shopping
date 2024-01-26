@@ -56,9 +56,6 @@ export default function Detail() {
             {detailItem && isDetailModal && (
                 <DetailModal detailItem={detailItem} />
             )}
-            {detailItem && isBookmarkModal && (
-                <DetailModal detailItem={detailItem} />
-            )}
         </DetailWrapper>
     );
 }

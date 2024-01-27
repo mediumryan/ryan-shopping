@@ -33,7 +33,7 @@ const Logo = styled.div`
     }
 `;
 
-export default function HeaderLogo({ scrollY }) {
+export default function HeaderLogo() {
     const [isModal, setIsModal] = useRecoilState(isMenuModal);
 
     const toggleModal = () => {
@@ -43,9 +43,7 @@ export default function HeaderLogo({ scrollY }) {
     };
 
     return (
-        <HeaderLogoWrapper
-            style={{ paddingBottom: scrollY > 50 ? '0' : '1rem' }}
-        >
+        <HeaderLogoWrapper>
             <MenuToggle
                 onClick={toggleModal}
                 style={{

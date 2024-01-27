@@ -1,48 +1,49 @@
-import { styled } from 'styled-components';
 import { useSetRecoilState } from 'recoil';
+import { styled } from 'styled-components';
 // import components
+import { ModalClose } from '../Header/MenuModal';
 import {
     DetailModalWrapper,
     ModalButton,
 } from '../Detail/DetailDescription/DetailModal';
-import { ModalClose } from '../Header/MenuModal';
+
 // import state data
-import { cartModalState, cartState } from '../../data/cart';
+import { bookmarkModalState, bookmarkState } from '../../data/bookmark';
 // import icons
 import { FaTimes } from 'react-icons/fa';
 
-export const CartModalWrapper = styled(DetailModalWrapper)`
+export const BookmarkModalWrapper = styled(DetailModalWrapper)`
     position: fixed;
     width: 400px;
     height: 200px;
     left: 50%;
 `;
 
-export const CartModalButton = styled(ModalButton)``;
+export const BookmarkModalButton = styled(ModalButton)``;
 
-export default function CartDeleteModal() {
-    const setCart = useSetRecoilState(cartState);
-    const setCartModal = useSetRecoilState(cartModalState);
+export default function BookmarkDeleteModal() {
+    const setBookmark = useSetRecoilState(bookmarkState);
+    const setBookmarkModal = useSetRecoilState(bookmarkModalState);
 
     const deleteAll = () => {
-        setCart([]);
-        setCartModal(false);
+        setBookmark([]);
+        setBookmarkModal(false);
     };
 
     const closeModal = () => {
-        setCartModal(false);
+        setBookmarkModal(false);
     };
 
     return (
-        <CartModalWrapper>
+        <BookmarkModalWrapper>
             <p>모든 항목을 제거하시겠어요?</p>
-            <CartModalButton>
+            <BookmarkModalButton>
                 <button onClick={deleteAll}>Y</button>
                 <button onClick={closeModal}>N</button>
-            </CartModalButton>
+            </BookmarkModalButton>
             <ModalClose style={{ right: '2%', top: '2%' }} onClick={closeModal}>
                 <FaTimes />
             </ModalClose>
-        </CartModalWrapper>
+        </BookmarkModalWrapper>
     );
 }

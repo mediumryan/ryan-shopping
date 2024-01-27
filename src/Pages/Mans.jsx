@@ -18,6 +18,7 @@ export const PageTitle = styled.h3`
     font-style: italic;
     text-align: center;
     margin: 3rem 0 1.5rem 0;
+    padding-top: 5rem;
 `;
 
 export const PageInner = styled.div`

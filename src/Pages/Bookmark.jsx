@@ -1,15 +1,17 @@
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import { useState } from 'react';
 // import components
 import { CartInner } from './Cart';
 import { PageTitle, PageWrapper } from './Mans';
-// import state data
-import { bookmarkState } from '../data/bookmark';
 import BookmarkItem from '../Components/Bookmark/BookmarkItem';
 import BookmarkButtons from '../Components/Bookmark/BookmarkButtons';
+// import state data
+import { bookmarkModalState, bookmarkState } from '../data/bookmark';
+import BookmarkDeleteModal from '../Components/Bookmark/BookmarkDeleteModal';
 
 export default function Bookmark() {
     const [bookmark, setBookmark] = useRecoilState(bookmarkState);
+    const bookmarkModal = useRecoilValue(bookmarkModalState);
     const [allCheckState, setAllCheckState] = useState(false);
 
     // handle all check
@@ -79,6 +81,7 @@ export default function Bookmark() {
                 </table>
             </CartInner>
             <BookmarkButtons />
+            {bookmarkModal && <BookmarkDeleteModal />}
         </PageWrapper>
     );
 }

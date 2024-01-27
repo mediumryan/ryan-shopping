@@ -1,7 +1,6 @@
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import { styled } from 'styled-components';
 import { useEffect } from 'react';
-import { motion } from 'framer-motion';
 // import state data
 import { cartState } from '../../../data/cart';
 import {
@@ -112,10 +111,10 @@ export default function DetailButtons({ item, discountedPrice }) {
     };
 
     // handle add to bookmark
-    const [isBookmarkModal, setIsBookmarkModal] =
-        useRecoilState(isBookmarkModalState);
+    const setIsBookmarkModal = useSetRecoilState(isBookmarkModalState);
     const [isBook, setIsBook] = useRecoilState(detailBookmarkState);
     const [bookmark, setBookmark] = useRecoilState(bookmarkState);
+    const onlyAlreadyBooked = bookmark.findIndex((a) => a.name === item.name);
     const alreadyBooked = bookmark.findIndex(
         (a) =>
             a.name === item.name && item.color === color && item.size === size
@@ -163,7 +162,7 @@ export default function DetailButtons({ item, discountedPrice }) {
     };
 
     useEffect(() => {
-        if (alreadyBooked === -1) {
+        if (onlyAlreadyBooked === -1) {
             setIsBook(false);
         } else {
             setIsBook(true);

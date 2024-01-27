@@ -13,6 +13,7 @@ import {
 
 const HomeOuter = styled.div`
     position: relative;
+    padding-top: 5rem;
     padding-bottom: 2rem;
 `;
 

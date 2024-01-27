@@ -2,7 +2,6 @@ import { styled } from 'styled-components';
 // import components
 import HeaderLogo from './HeaderLogo';
 import HeaderCategory from './HeaderCategory';
-import { useEffect, useState } from 'react';
 
 const HeaderWrapper = styled.header`
     width: 100%;
@@ -11,10 +10,9 @@ const HeaderWrapper = styled.header`
     flex-direction: column;
     align-items: center;
     margin: 0 auto;
+    background-color: rgb(255, 255, 255);
     transition: background-color 0.3s ease;
-    background-color: ${(props) =>
-        props.scrollY > 50 ? 'rgba(255, 255, 255, 0.95)' : 'transparent'};
-    position: ${(props) => (props.scrollY > 50 ? 'fixed' : 'relative')};
+    position: fixed;
     top: 0;
     padding: 0 10rem;
     z-index: 10;
@@ -25,27 +23,10 @@ const HeaderWrapper = styled.header`
 `;
 
 export default function Header() {
-    const [scrollY, setScrollY] = useState(0);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            setScrollY(window.scrollY);
-        };
-
-        window.addEventListener('scroll', handleScroll);
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
-
     return (
-        <HeaderWrapper
-            scrollY={scrollY}
-            style={{ paddingBottom: scrollY > 50 ? '1rem' : '0' }}
-        >
-            <HeaderLogo scrollY={scrollY} />
-            <HeaderCategory scrollY={scrollY} />
+        <HeaderWrapper>
+            <HeaderLogo />
+            <HeaderCategory />
         </HeaderWrapper>
     );
 }

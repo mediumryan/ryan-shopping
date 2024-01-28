@@ -4,6 +4,8 @@ import { styled } from 'styled-components';
 import { bookmarkModalState, bookmarkState } from '../../data/bookmark';
 // import components
 import { cartState } from '../../data/cart';
+import { useNavigate } from 'react-router-dom';
+import { FaShoppingCart } from 'react-icons/fa';
 
 const BookmarkButtonsWrapper = styled.div`
     bottom: 1rem;
@@ -13,7 +15,7 @@ const BookmarkButtonsWrapper = styled.div`
     justify-content: space-between;
     padding: 1rem 10rem;
     margin-top: 2.5rem;
-    div.book_delete {
+    & > div {
         display: flex;
     }
     button {
@@ -22,7 +24,7 @@ const BookmarkButtonsWrapper = styled.div`
         border-radius: 4px;
         outline: none;
         padding: 0.5rem;
-        margin: 0.25rem;
+        margin: 0.5rem;
         font-size: 0.75rem;
         box-shadow: #b3d4b3 0px 3px 8px;
         transition: 150ms all;
@@ -40,6 +42,7 @@ export default function BookmarkButtons() {
     const [bookmark, setBookmark] = useRecoilState(bookmarkState);
     const setBookmarkModal = useSetRecoilState(bookmarkModalState);
 
+    // handle delete items
     const deleteSelectedItem = () => {
         setBookmark((prev) => {
             const newBookmark = prev.filter((a) => !a.checked);
@@ -55,6 +58,7 @@ export default function BookmarkButtons() {
         }
     };
 
+    // handle move to cart items
     const moveToCart = () => {
         const checkedItem = bookmark.filter((a) => a.checked);
         checkedItem.forEach((a) => {
@@ -89,13 +93,25 @@ export default function BookmarkButtons() {
         });
     };
 
+    // handle go to the Cart page
+    const navigate = useNavigate();
+
     return (
         <BookmarkButtonsWrapper>
             <div className="book_delete">
                 <button onClick={deleteSelectedItem}>선택 제거</button>
                 <button onClick={deleteAllItem}>모두 제거</button>
             </div>
-            <button onClick={moveToCart}>장바구니에 추가</button>
+            <div className="book_cart">
+                <button onClick={moveToCart}>장바구니에 추가</button>
+                <button
+                    onClick={() => {
+                        navigate('/cart');
+                    }}
+                >
+                    <FaShoppingCart />
+                </button>
+            </div>
         </BookmarkButtonsWrapper>
     );
 }

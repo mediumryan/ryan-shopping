@@ -8,7 +8,7 @@ import { dataState } from '../data/data';
 import DetailMain from '../Components/Detail/DetailMain';
 import DetailSub from '../Components/Detail/DetailSub/DetailSub';
 import DetailModal from '../Components/Detail/DetailDescription/DetailModal';
-import { isBookmarkModalState, isDetailModalState } from '../data/detail';
+import { isDetailModalState } from '../data/detail';
 
 const DetailWrapper = styled.div`
     height: 100%;
@@ -19,6 +19,7 @@ const DetailWrapper = styled.div`
     padding: 2rem 5rem;
     @media only screen and (min-width: 320px) and (max-width: 768px) {
         padding: 2rem;
+        padding-top: 8rem;
     }
 `;
 
@@ -36,7 +37,6 @@ export default function Detail() {
     const [detailItem, setDetailItem] = useState();
     // for detail buy modal
     const isDetailModal = useRecoilValue(isDetailModalState);
-    const isBookmarkModal = useRecoilValue(isBookmarkModalState);
 
     useEffect(() => {
         const filtered = all_data.filter((a) => a.name === id);

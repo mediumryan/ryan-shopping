@@ -7,8 +7,8 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { FaCheck, FaSearch } from 'react-icons/fa';
 
 const HeaderSearch = styled.div`
-    position: absolute;
-    top: 1rem;
+    position: fixed;
+    top: 12px;
     right: 15%;
     display: flex;
     align-items: center;

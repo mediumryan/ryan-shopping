@@ -1,6 +1,9 @@
 import { useRecoilState, useSetRecoilState } from 'recoil';
 import { styled } from 'styled-components';
+// import state data
 import { bookmarkModalState, bookmarkState } from '../../data/bookmark';
+// import components
+import { cartState } from '../../data/cart';
 
 const BookmarkButtonsWrapper = styled.div`
     bottom: 1rem;
@@ -33,6 +36,7 @@ const BookmarkButtonsWrapper = styled.div`
 `;
 
 export default function BookmarkButtons() {
+    const [cart, setCart] = useRecoilState(cartState);
     const [bookmark, setBookmark] = useRecoilState(bookmarkState);
     const setBookmarkModal = useSetRecoilState(bookmarkModalState);
 
@@ -51,13 +55,47 @@ export default function BookmarkButtons() {
         }
     };
 
+    const moveToCart = () => {
+        const checkedItem = bookmark.filter((a) => a.checked);
+        checkedItem.forEach((a) => {
+            const alreadyIsCart = cart.findIndex(
+                (cartItem) =>
+                    cartItem.name === a.name &&
+                    cartItem.size === a.size &&
+                    cartItem.color === a.color
+            );
+            if (alreadyIsCart === -1) {
+                setCart((prev) => {
+                    const newCart = [...prev];
+                    newCart.push(a);
+                    return newCart;
+                });
+            } else if (alreadyIsCart !== -1) {
+                setCart((prev) => {
+                    const newCart = [...prev];
+                    newCart[alreadyIsCart] = {
+                        ...newCart[alreadyIsCart],
+                        count: newCart[alreadyIsCart].count + a.count,
+                    };
+                    return newCart;
+                });
+            } else {
+                return;
+            }
+            setBookmark((prev) => {
+                const newBookmark = prev.filter((a) => !a.checked);
+                return newBookmark;
+            });
+        });
+    };
+
     return (
         <BookmarkButtonsWrapper>
             <div className="book_delete">
                 <button onClick={deleteSelectedItem}>선택 제거</button>
                 <button onClick={deleteAllItem}>모두 제거</button>
             </div>
-            <button>장바구니에 추가</button>
+            <button onClick={moveToCart}>장바구니에 추가</button>
         </BookmarkButtonsWrapper>
     );
 }

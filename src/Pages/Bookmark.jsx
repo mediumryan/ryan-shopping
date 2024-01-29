@@ -34,6 +34,17 @@ export default function Bookmark() {
         }
     };
 
+    // sort items
+    const sortedData = [...bookmark].sort((a, b) => {
+        if (a.name < b.name) {
+            return -1;
+        }
+        if (a.name > b.name) {
+            return 1;
+        }
+        return 0;
+    });
+
     return (
         <PageWrapper style={{ position: 'relative' }}>
             <PageTitle>Bookmark</PageTitle>
@@ -68,7 +79,7 @@ export default function Bookmark() {
                         </tr>
                     </thead>
                     <tbody>
-                        {bookmark.map((item, index) => {
+                        {sortedData.map((item, index) => {
                             return (
                                 <BookmarkItem
                                     key={item.id}

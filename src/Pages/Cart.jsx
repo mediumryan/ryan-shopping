@@ -181,6 +181,17 @@ export default function Cart() {
         }
     };
 
+    // sort items
+    const sortedData = [...cart].sort((a, b) => {
+        if (a.name < b.name) {
+            return -1;
+        }
+        if (a.name > b.name) {
+            return 1;
+        }
+        return 0;
+    });
+
     return (
         <PageWrapper>
             <PageTitle>My Cart</PageTitle>
@@ -215,7 +226,7 @@ export default function Cart() {
                         </tr>
                     </thead>
                     <tbody>
-                        {cart.map((item, index) => {
+                        {sortedData.map((item, index) => {
                             return (
                                 <CartItem
                                     key={item.id}

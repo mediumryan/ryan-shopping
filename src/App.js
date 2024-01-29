@@ -17,11 +17,12 @@ import Top from './Pages/Top';
 import Dress from './Pages/Dress';
 import Bottom from './Pages/Bottom';
 import Accessory from './Pages/Accessory';
-import NotFound from './Pages/NotFound';
 import Detail from './Pages/Detail';
 import Cart from './Pages/Cart';
 import Search from './Pages/Search';
 import Bookmark from './Pages/Bookmark';
+import SignIn from './Pages/SignIn';
+import NotFound from './Pages/NotFound';
 // import state data
 import { isMenuModal } from './data/atom';
 // import icons
@@ -83,6 +84,7 @@ function App() {
                 <Route path="/cart" element={<Cart />} />
                 <Route path="/search/:query" element={<Search />} />
                 <Route path="/bookmark" element={<Bookmark />} />
+                <Route path="/sign-in" element={<SignIn />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
             <Footer />

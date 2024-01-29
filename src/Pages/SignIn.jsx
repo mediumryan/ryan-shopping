@@ -27,6 +27,25 @@ const SignInInner = styled.div`
                 }
             }
         }
+        button.sign-in-submit {
+            font-size: 0.75rem;
+            font-weight: 700;
+            background: none;
+            outline: none;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            user-select: none;
+            margin-top: 1rem;
+            padding: 0.5rem;
+            box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+                rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+            transition: 300ms all;
+            &:hover {
+                box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 6px 0px,
+                    rgba(27, 31, 35, 0.5) 0px 0px 0px 2px;
+            }
+        }
         div.sign-in-buttons {
             display: flex;
             justify-content: center;
@@ -79,6 +98,7 @@ export default function SignIn() {
                     <div className="sign-in-id-pw">
                         <input type="password" placeholder="PW" />
                     </div>
+                    <button className="sign-in-submit">Submit</button>
                     <div className="sign-in-buttons">
                         <button className="sign-in-sign-up">Sign up</button>
                         <button className="sign-in-forget">

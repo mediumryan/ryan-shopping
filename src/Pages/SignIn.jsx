@@ -1,6 +1,11 @@
 import { styled } from 'styled-components';
+import { useForm } from 'react-hook-form';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
 // import components
 import { PageTitle, PageWrapper } from './Mans';
+import { isSignedState, userId, userPw } from '../data/signIn';
+import { userInfoState } from '../data/userInfo';
+import { useNavigate } from 'react-router-dom';
 
 const SignInInner = styled.div`
     display: flex;
@@ -87,16 +92,51 @@ const SignInInner = styled.div`
 `;
 
 export default function SignIn() {
+    const { register, handleSubmit, setValue } = useForm();
+    const navigate = useNavigate();
+
+    const userInfo = useRecoilValue(userInfoState);
+    const setId = useSetRecoilState(userId);
+    const setPw = useSetRecoilState(userPw);
+    const setIsSigned = useSetRecoilState(isSignedState);
+
+    const handleSignIn = (data) => {
+        const isUser = userInfo.filter((a) => a.id === data.id);
+        if (isUser.length > 0) {
+            if (isUser[0].pw === data.pw) {
+                alert(`환영합니다. ${data.id}님`);
+                setId(data.id);
+                setPw(data.pw);
+                setIsSigned(true);
+                setValue('id', '');
+                setValue('pw', '');
+                navigate('/');
+            } else {
+                alert('비밀번호가 일치하지 않습니다.');
+            }
+        } else {
+            alert('일치하는 아이디 정보가 없습니다.');
+        }
+    };
+
     return (
         <PageWrapper>
             <PageTitle>Sign in</PageTitle>
             <SignInInner>
-                <form>
+                <form onSubmit={handleSubmit(handleSignIn)}>
                     <div className="sign-in-id-pw">
-                        <input type="text" placeholder="ID" />
+                        <input
+                            type="text"
+                            placeholder="ID"
+                            {...register('id', { required: true })}
+                        />
                     </div>
                     <div className="sign-in-id-pw">
-                        <input type="password" placeholder="PW" />
+                        <input
+                            type="password"
+                            placeholder="PW"
+                            {...register('pw', { required: true })}
+                        />
                     </div>
                     <button className="sign-in-submit">Submit</button>
                     <div className="sign-in-buttons">

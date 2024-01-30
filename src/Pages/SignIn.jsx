@@ -1,6 +1,7 @@
 import { styled } from 'styled-components';
 import { useForm } from 'react-hook-form';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
+import Swal from 'sweetalert2';
 // import components
 import { PageTitle, PageWrapper } from './Mans';
 import { isSignedState, userId, userPw } from '../data/signIn';
@@ -104,18 +105,30 @@ export default function SignIn() {
         const isUser = userInfo.filter((a) => a.id === data.id);
         if (isUser.length > 0) {
             if (isUser[0].pw === data.pw) {
-                alert(`환영합니다. ${data.id}님`);
+                Swal.fire({
+                    icon: 'success',
+                    title: '환영합니다!',
+                    text: `안녕하세요, ${data.id}님`,
+                });
                 setId(data.id);
                 setPw(data.pw);
                 setIsSigned(true);
                 setValue('id', '');
                 setValue('pw', '');
-                navigate('/');
+                navigate(-1);
             } else {
-                alert('비밀번호가 일치하지 않습니다.');
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: '비밀번호가 일치하지 않습니다.',
+                });
             }
         } else {
-            alert('일치하는 아이디 정보가 없습니다.');
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: '일치하는 아이디 정보가 없습니다.',
+            });
         }
     };
 

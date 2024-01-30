@@ -1,13 +1,16 @@
 import { styled } from 'styled-components';
 import { useRecoilState, useRecoilValue } from 'recoil';
+import Swal from 'sweetalert2';
 // import state data
 import { cartModalState, cartState } from '../data/cart';
 import { PageTitle, PageWrapper } from './Mans';
 import CartItem from '../Components/Cart/CartItem';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import CartTotal from '../Components/Cart/CartTotal';
 import CartDelete from '../Components/Cart/CartDelete';
 import CartDeleteModal from '../Components/Cart/CartDeleteModal';
+import { isSignedState, userId } from '../data/signIn';
+import { useNavigate } from 'react-router-dom';
 
 export const CartInner = styled.div`
     width: 100%;
@@ -160,6 +163,28 @@ export default function Cart() {
     const [cart, setCart] = useRecoilState(cartState);
     const [allCheckState, setAllCheckState] = useState(false);
     const cartModal = useRecoilValue(cartModalState);
+    const id = useRecoilValue(userId);
+    const isSigned = useRecoilValue(isSignedState);
+
+    // check user log in
+    const navigate = useNavigate();
+    useEffect(() => {
+        if (!isSigned) {
+            Swal.fire({
+                title: '로그인이 필요합니다',
+                showDenyButton: true,
+                confirmButtonText: '로그인 페이지로',
+                denyButtonText: `뒤로가기`,
+            }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                    navigate('/sign-in');
+                } else if (result.isDenied) {
+                    navigate(-1);
+                }
+            });
+        }
+    }, []);
 
     // handle all check
     const toggleAllCheck = () => {
@@ -194,7 +219,7 @@ export default function Cart() {
 
     return (
         <PageWrapper>
-            <PageTitle>My Cart</PageTitle>
+            <PageTitle>{id}'s Cart</PageTitle>
             <CartInner>
                 <table>
                     <colgroup>

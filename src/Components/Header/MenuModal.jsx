@@ -1,6 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
+import { useRecoilState, useSetRecoilState } from 'recoil';
 import { styled } from 'styled-components';
+import Swal from 'sweetalert2';
 // import state data
 import { isMenuModal } from '../../data/atom';
 // import icons
@@ -44,13 +45,11 @@ const MenuModalWrapper = styled(motion.div)`
 `;
 
 const MenuGreeting = styled.div`
+    font-weight: 700;
+    font-size: 1.25rem;
     text-align: center;
     margin: 2rem 0;
-    font-size: 1.15rem;
     user-select: none;
-    & > span {
-        font-weight: 700;
-    }
 `;
 
 export const ModalClose = styled.div`
@@ -114,11 +113,23 @@ export default function MenuModal() {
 
     // handle log out
     const handleLogOut = () => {
-        alert('성공적으로 로그아웃 되었습니다.');
-        setIsSigned(false);
-        setId('');
-        setPw('');
-        navigate('/');
+        Swal.fire({
+            title: '정말로 로그아웃 하시겠어요?',
+            showDenyButton: true,
+            confirmButtonText: '예',
+            denyButtonText: `아뇨`,
+        }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+                Swal.fire('로그아웃 되었습니다', '', 'success');
+                setIsSigned(false);
+                setId('');
+                setPw('');
+                navigate('/');
+            } else if (result.isDenied) {
+                return;
+            }
+        });
     };
 
     return (
@@ -127,9 +138,7 @@ export default function MenuModal() {
             initial="initial"
             animate="fadeIn"
         >
-            <MenuGreeting>
-                안녕하세요, <span>{isSigned ? id : 'guest '}</span>님
-            </MenuGreeting>
+            <MenuGreeting>{isSigned ? id : 'guest '}</MenuGreeting>
             <ul>
                 <li>
                     <Link to="/">HOME</Link>

@@ -1,18 +1,43 @@
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 // import components
 import { CartInner } from './Cart';
 import { PageTitle, PageWrapper } from './Mans';
 import BookmarkItem from '../Components/Bookmark/BookmarkItem';
 import BookmarkButtons from '../Components/Bookmark/BookmarkButtons';
+import BookmarkDeleteModal from '../Components/Bookmark/BookmarkDeleteModal';
 // import state data
 import { bookmarkModalState, bookmarkState } from '../data/bookmark';
-import BookmarkDeleteModal from '../Components/Bookmark/BookmarkDeleteModal';
+import { isSignedState } from '../data/signIn';
 
 export default function Bookmark() {
     const [bookmark, setBookmark] = useRecoilState(bookmarkState);
-    const bookmarkModal = useRecoilValue(bookmarkModalState);
+    const [bookmarkModal, setBookmarkModal] =
+        useRecoilState(bookmarkModalState);
     const [allCheckState, setAllCheckState] = useState(false);
+    const isSigned = useRecoilValue(isSignedState);
+
+    // check user log in
+    const navigate = useNavigate();
+    useEffect(() => {
+        if (!isSigned) {
+            Swal.fire({
+                title: '로그인이 필요합니다',
+                showDenyButton: true,
+                confirmButtonText: '로그인 페이지로',
+                denyButtonText: `뒤로가기`,
+            }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                    navigate('/sign-in');
+                } else if (result.isDenied) {
+                    navigate(-1);
+                }
+            });
+        }
+    }, []);
 
     // handle all check
     const toggleAllCheck = () => {
@@ -33,6 +58,12 @@ export default function Bookmark() {
             });
         }
     };
+
+    useEffect(() => {
+        if (bookmarkModal) {
+            setBookmarkModal(false);
+        }
+    }, []);
 
     // sort items
     const sortedData = [...bookmark].sort((a, b) => {

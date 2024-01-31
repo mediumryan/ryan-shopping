@@ -22,6 +22,7 @@ import Cart from './Pages/Cart';
 import Search from './Pages/Search';
 import Bookmark from './Pages/Bookmark';
 import SignIn from './Pages/SignIn';
+import SignUp from './Pages/SignUp';
 import NotFound from './Pages/NotFound';
 // import state data
 import { isMenuModal } from './data/atom';
@@ -85,6 +86,7 @@ function App() {
                 <Route path="/search/:query" element={<Search />} />
                 <Route path="/bookmark" element={<Bookmark />} />
                 <Route path="/sign-in" element={<SignIn />} />
+                <Route path="/sign-up" element={<SignUp />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
             <Footer />

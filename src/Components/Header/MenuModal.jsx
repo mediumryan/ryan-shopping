@@ -15,7 +15,7 @@ const MenuModalWrapper = styled(motion.div)`
     width: 300px;
     height: 75vh;
     padding: 1.5rem 0;
-    background-color: rgb(201, 255, 201, 0.9);
+    background-color: rgba(255, 255, 255, 0.9);
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
     border-radius: 0 0 10px 0;
     z-index: 15;

@@ -1,8 +1,13 @@
 import { useForm } from 'react-hook-form';
 import { ErrorMessage } from '@hookform/error-message';
+import { styled } from 'styled-components';
+import { useRecoilState } from 'recoil';
+import Swal from 'sweetalert2';
 // import components
 import { PageTitle, PageWrapper } from './Mans';
-import { styled } from 'styled-components';
+// import state data
+import { userInfoState } from '../data/userInfo';
+import { useNavigate } from 'react-router-dom';
 
 const SignUpForm = styled.form`
     display: flex;
@@ -12,6 +17,7 @@ const SignUpForm = styled.form`
     margin: 2rem auto 0 auto;
     padding: 2rem;
     font-size: 0.75rem;
+    /* submit button */
     input.sign-up-submit {
         width: 33%;
         margin: 1rem auto 0 auto;
@@ -42,10 +48,15 @@ const FormRow = styled.div`
         width: 30%;
         font-weight: 700;
     }
-    input {
+    div.input {
+        display: flex;
+        flex-direction: column;
         flex: 7;
         width: 70%;
+    }
+    input {
         padding: 0.5rem;
+        margin-bottom: 1rem;
         border: none;
         border-bottom: 1px solid #ddd;
         outline: none;
@@ -57,17 +68,124 @@ const FormRow = styled.div`
 `;
 
 export default function SignUp() {
+    const [userInfo, setUserInfo] = useRecoilState(userInfoState);
+    const navigate = useNavigate();
+
     const {
         register,
         handleSubmit,
+        setValue,
         reset,
         formState: { errors },
     } = useForm();
 
     // handle data
     const onSubmit = (data) => {
-        reset();
+        const newUser = {
+            id: new Date(),
+            userId: data.id,
+            password: data.password,
+            firstName: data.firstName,
+            lastName: data.lastName,
+            email: data.email,
+            phoneNumber: data.phoneNumber,
+        };
+
+        const alreadyIsId = userInfo.filter((a) => a.userId === data.id);
+        const passwordChecker = data.password === data.passwordCheck;
+
+        if (alreadyIsId.length > 0) {
+            Swal.fire({
+                icon: 'warning',
+                title: 'ID error',
+                text: '이미 존재하는 ID 입니다.',
+            }).then(() => {
+                setValue('id', '');
+            });
+        } else {
+            if (!passwordChecker) {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Password error',
+                    text: '비밀번호가 일치하지 않습니다.',
+                }).then(() => {
+                    setValue('passwordCheck', '');
+                });
+            } else {
+                setUserInfo((prev) => [...prev, newUser]);
+                Swal.fire({
+                    icon: 'success',
+                    title: '회원가입이 완료되었습니다.',
+                    text: `환영합니다. ${data.id}님`,
+                    showDenyButton: true,
+                    confirmButtonText: '홈으로',
+                    denyButtonText: `로그인`,
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        reset();
+                        navigate('/');
+                    } else if (result.isDenied) {
+                        navigate('/sign-in');
+                    }
+                });
+            }
+        }
     };
+
+    //     const alreadyIsId = prev.find((a) => a.userId === data.id);
+    //     const passwordChecker = data.password === data.passwordCheck;
+    //     console.log(passwordChecker);
+    //     // check the length of the userInfo state is less than 1
+    //     if (prev.length < 1) {
+    //         return newUser;
+    //     } else {
+    //         // check overlapping user id
+    //         if (alreadyIsId) {
+    //             Swal.fire({
+    //                 icon: 'warning',
+    //                 title: 'ID error',
+    //                 text: '이미 존재하는 ID 입니다.',
+    //             });
+    //             setValue('id', '');
+    //             return;
+    //         } else {
+    //             if (!passwordChecker) {
+    //                 Swal.fire({
+    //                     icon: 'warning',
+    //                     title: 'Password error',
+    //                     text: '비밀번호가 일치하지 않습니다.',
+    //                 });
+    //                 setValue('password', '');
+    //                 return;
+    //             } else {
+    //                 Swal.fire({
+    //                     icon: 'success',
+    //                     title: '회원가입이 완료되었습니다.',
+    //                     text: `환영합니다. ${data.id}님`,
+    //                     showDenyButton: true,
+    //                     confirmButtonText: '홈으로',
+    //                     denyButtonText: `로그인`,
+    //                 }).then((result) => {
+    //                     if (result.isConfirmed) {
+    //                         reset();
+    //                         navigate('/');
+    //                     } else if (result.isDenied) {
+    //                         navigate('/sign-in');
+    //                     }
+    //                 });
+    //                 const newUserInfo = [...prev];
+    //                 newUserInfo.push(newUser);
+    //                 return newUserInfo;
+    //             }
+    //         }
+    //     }
+    //     return;
+    // });
+    // reset();
+
+    console.log(userInfo);
+
+    console.log(errors);
 
     return (
         <PageWrapper>
@@ -75,141 +193,157 @@ export default function SignUp() {
             <SignUpForm onSubmit={handleSubmit(onSubmit)}>
                 <FormRow>
                     <label>아이디</label>
-                    <input
-                        type="text"
-                        placeholder="ID"
-                        {...register('id', {
-                            required: '필수 입력 항목입니다.',
-                            maxLength: 20,
-                            pattern: {
-                                value: /^[a-zA-Z0-9_-]{3,20}$/,
-                                message:
-                                    '아이디는 영문자, 숫자, 언더스코어, 대시만 허용되며 3~20자여야 합니다.',
-                            },
-                        })}
-                    />
-                    <ErrorMessage
-                        errors={errors}
-                        name="id"
-                        className="errorM"
-                    />
+                    <div className="input">
+                        <input
+                            type="text"
+                            placeholder="ryan"
+                            {...register('id', {
+                                required: '필수 입력 항목입니다.',
+                                maxLength: 20,
+                                pattern: {
+                                    value: /^[a-zA-Z0-9_-]{3,20}$/,
+                                    message:
+                                        '아이디는 영문자, 숫자, 언더스코어, 대시만 허용되며 3~20자여야 합니다.',
+                                },
+                            })}
+                        />
+                        <ErrorMessage
+                            errors={errors}
+                            name="id"
+                            className="errorM"
+                        />
+                    </div>
                 </FormRow>
                 <FormRow>
                     <label>비밀번호</label>
-                    <input
-                        type="password"
-                        placeholder="password"
-                        {...register('password', {
-                            required: '필수 입력 항목입니다.',
-                            maxLength: 20,
-                            pattern: {
-                                value: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
-                                message:
-                                    '비밀번호는 최소 8자 이상, 숫자와 문자를 포함해야 합니다.',
-                            },
-                        })}
-                    />{' '}
-                    <ErrorMessage
-                        errors={errors}
-                        name="password"
-                        className="errorM"
-                    />
+                    <div className="input">
+                        <input
+                            type="password"
+                            placeholder="qwer1234!!"
+                            {...register('password', {
+                                required: '필수 입력 항목입니다.',
+                                maxLength: 20,
+                                pattern: {
+                                    value: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
+                                    message:
+                                        '비밀번호는 최소 8자 이상, 숫자와 문자를 포함해야 합니다.',
+                                },
+                            })}
+                        />{' '}
+                        <ErrorMessage
+                            errors={errors}
+                            name="password"
+                            className="errorM"
+                        />
+                    </div>
                 </FormRow>
                 <FormRow>
                     <label>비밀번호 확인</label>
-                    <input
-                        type="password"
-                        placeholder="password-check"
-                        {...register('password check', {
-                            required: '필수 입력 항목입니다.',
-                            maxLength: 20,
-                            pattern: {
-                                value: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
-                                message: '비밀번호가 일치하지 않습니다.',
-                            },
-                        })}
-                    />
-                    <ErrorMessage errors={errors} name="password check" />
+                    <div className="input">
+                        <input
+                            type="password"
+                            placeholder="qwer1234!!"
+                            {...register('passwordCheck', {
+                                required: '필수 입력 항목입니다.',
+                                maxLength: 20,
+                                pattern: {
+                                    value: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
+                                    message:
+                                        '비밀번호는 최소 8자 이상, 숫자와 문자를 포함해야 합니다.',
+                                },
+                            })}
+                        />
+                        <ErrorMessage errors={errors} name="passwordCheck" />
+                    </div>
                 </FormRow>
                 <FormRow>
                     <label>성</label>
-                    <input
-                        type="text"
-                        placeholder="First name"
-                        {...register('First name', {
-                            required: '필수 입력 항목입니다.',
-                            maxLength: 20,
-                            pattern: {
-                                value: /^[a-zA-Z가-힣]{1,20}$/,
-                                message: '올바른 성을 입력해주세요.',
-                            },
-                        })}
-                    />
-                    <ErrorMessage
-                        errors={errors}
-                        name="First name"
-                        className="errorM"
-                    />
+                    <div className="input">
+                        <input
+                            type="text"
+                            placeholder="Lee"
+                            {...register('firstName', {
+                                required: '필수 입력 항목입니다.',
+                                maxLength: 20,
+                                pattern: {
+                                    value: /^[a-zA-Z가-힣]{1,20}$/,
+                                    message: '올바른 성을 입력해주세요.',
+                                },
+                            })}
+                        />
+                        <ErrorMessage
+                            errors={errors}
+                            name="First name"
+                            className="errorM"
+                        />
+                    </div>
                 </FormRow>
                 <FormRow>
                     <label>이름</label>
-                    <input
-                        type="text"
-                        placeholder="Last name"
-                        {...register('Last name', {
-                            required: '필수 입력 항목입니다.',
-                            maxLength: 30,
-                            pattern: {
-                                value: /^[a-zA-Z가-힣]{1,30}$/,
-                                message: '올바른 이름을 입력해주세요.',
-                            },
-                        })}
-                    />
-                    <ErrorMessage
-                        errors={errors}
-                        name="Last name"
-                        className="errorM"
-                    />
+                    <div className="input">
+                        <input
+                            type="text"
+                            placeholder="Ryan"
+                            {...register('lastName', {
+                                required: '필수 입력 항목입니다.',
+                                maxLength: 30,
+                                pattern: {
+                                    value: /^[a-zA-Z가-힣]{1,30}$/,
+                                    message: '올바른 이름을 입력해주세요.',
+                                },
+                            })}
+                        />
+                        <ErrorMessage
+                            errors={errors}
+                            name="Last name"
+                            className="errorM"
+                        />
+                    </div>
                 </FormRow>
                 <FormRow>
                     <label>이메일</label>
-                    <input
-                        type="text"
-                        placeholder="Email"
-                        {...register('Email', {
-                            required: '필수 입력 항목입니다.',
-                            pattern: {
-                                value: /^\S+@\S+$/i,
-                                message: '올바른 이메일 주소를 입력해주세요.',
-                            },
-                        })}
-                    />
-                    <ErrorMessage
-                        errors={errors}
-                        name="Email"
-                        className="errorM"
-                    />
+                    <div className="input">
+                        <input
+                            type="text"
+                            placeholder="mediumryan@ryan.com"
+                            {...register('email', {
+                                required: '필수 입력 항목입니다.',
+                                pattern: {
+                                    value: /^\S+@\S+$/i,
+                                    message:
+                                        '올바른 이메일 주소를 입력해주세요.',
+                                },
+                            })}
+                        />
+                        <ErrorMessage
+                            errors={errors}
+                            name="Email"
+                            className="errorM"
+                        />
+                    </div>
                 </FormRow>
                 <FormRow>
                     <label>연락처</label>
-                    <input
-                        type="tel"
-                        placeholder="Phone number"
-                        {...register('phone number', {
-                            required: '필수 입력 항목입니다.',
-                            minLength: 6,
-                            maxLength: 12,
-                            pattern: {
-                                value: /^[0-9-]+$/,
-                                message: '올바른 전화번호를 입력해주세요.',
-                            },
-                        })}
-                    />
-                    <ErrorMessage
-                        errors={errors}
-                        name="phone number"
-                        className="errorM"
-                    />
+                    <div className="input">
+                        <input
+                            type="tel"
+                            placeholder="010-1234-5678"
+                            {...register('phoneNumber', {
+                                required: '필수 입력 항목입니다.',
+                                minLength: 6,
+                                maxLength: 12,
+                                pattern: {
+                                    value: /^[0-9-]+$/,
+                                    message: '올바른 전화번호를 입력해주세요.',
+                                },
+                            })}
+                        />
+                        <ErrorMessage
+                            errors={errors}
+                            name="phone number"
+                            className="errorM"
+                        />
+                    </div>
                 </FormRow>
                 <input
                     type="submit"

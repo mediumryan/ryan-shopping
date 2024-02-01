@@ -105,9 +105,9 @@ export default function SignIn() {
     const setIsSigned = useSetRecoilState(isSignedState);
 
     const handleSignIn = (data) => {
-        const isUser = userInfo.filter((a) => a.id === data.id);
+        const isUser = userInfo.filter((a) => a.userId === data.id);
         if (isUser.length > 0) {
-            if (isUser[0].pw === data.pw) {
+            if (isUser[0].password === data.pw) {
                 Swal.fire({
                     icon: 'success',
                     title: '환영합니다!',
@@ -118,7 +118,7 @@ export default function SignIn() {
                 setIsSigned(true);
                 setValue('id', '');
                 setValue('pw', '');
-                navigate(-1);
+                navigate('/');
             } else {
                 Swal.fire({
                     icon: 'error',

@@ -28,6 +28,7 @@ const MenuToggle = styled(FaGripLines)`
 const Logo = styled.div`
     a {
         font-size: 2rem;
+        font-family: 'Diphylleia', serif;
         text-decoration: none;
         color: var(--black-200);
     }

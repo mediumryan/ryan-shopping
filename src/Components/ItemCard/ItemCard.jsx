@@ -34,7 +34,7 @@ const CardImg = styled.div`
         font-size: 1.05rem;
         background-color: rgba(0, 0, 0, 0.75);
         color: var(--white-100);
-        padding: 0.75rem 1rem;
+        padding: 0.5rem 0.75rem;
         border-radius: 4px;
     }
 `;

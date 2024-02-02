@@ -1,15 +1,16 @@
 import { styled } from 'styled-components';
-import { Link } from 'react-router-dom';
-import { useRecoilState } from 'recoil';
+import { Link, useNavigate } from 'react-router-dom';
+import { useRecoilState, useSetRecoilState } from 'recoil';
+import Swal from 'sweetalert2';
 // import icons
-import { FaGripLines } from 'react-icons/fa';
+import { FaGripLines, FaSignOutAlt, FaRegUser } from 'react-icons/fa';
 // import state data
 import { isMenuModal } from '../../data/atom';
+import { isSignedState, userId, userPw } from '../../data/signIn';
 
 const HeaderLogoWrapper = styled.div`
-    position: relative;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     width: 100%;
     color: var(--black-200);
@@ -18,11 +19,7 @@ const HeaderLogoWrapper = styled.div`
 `;
 
 const MenuToggle = styled(FaGripLines)`
-    position: absolute;
-    left: 0;
-    margin-left: 1rem;
     cursor: pointer;
-    transition: 300ms all;
 `;
 
 const Logo = styled.div`
@@ -34,13 +31,35 @@ const Logo = styled.div`
     }
 `;
 
+const HeaderLog = styled.div`
+    svg {
+        cursor: pointer;
+        transition: 300ms color;
+        &:hover {
+            color: var(--accent-200);
+        }
+    }
+`;
+
 export default function HeaderLogo() {
     const [isModal, setIsModal] = useRecoilState(isMenuModal);
+    const [isSign, setIsSign] = useRecoilState(isSignedState);
+    const setId = useSetRecoilState(userId);
+    const setPw = useSetRecoilState(userPw);
+    const navigate = useNavigate();
 
     const toggleModal = () => {
         setIsModal((prev) => {
             return !prev;
         });
+    };
+
+    const handleLogOut = () => {
+        Swal.fire('로그아웃 되었습니다', '', 'success');
+        setIsSign(false);
+        setId('');
+        setPw('');
+        navigate('/');
     };
 
     return (
@@ -54,6 +73,13 @@ export default function HeaderLogo() {
             <Logo>
                 <Link to="/">Ryan Mall</Link>
             </Logo>
+            <HeaderLog>
+                {isSign ? (
+                    <FaSignOutAlt onClick={handleLogOut} />
+                ) : (
+                    <FaRegUser onClick={() => navigate('/sign-in')} />
+                )}
+            </HeaderLog>
         </HeaderLogoWrapper>
     );
 }

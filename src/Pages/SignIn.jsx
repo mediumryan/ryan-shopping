@@ -34,22 +34,21 @@ const SignInInner = styled.div`
             }
         }
         button.sign-in-submit {
+            width: 50%;
             font-size: 0.75rem;
             font-weight: 700;
             background: none;
+            color: var(--black-200);
             outline: none;
-            border: none;
+            border: 2px solid var(--black-200);
             border-radius: 4px;
             cursor: pointer;
-            user-select: none;
-            margin-top: 1rem;
+            margin: 1rem auto 0 auto;
             padding: 0.5rem;
-            box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
-                rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
             transition: 300ms all;
             &:hover {
-                box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 6px 0px,
-                    rgba(27, 31, 35, 0.5) 0px 0px 0px 2px;
+                border-color: var(--accent-200);
+                color: var(--accent-200);
             }
         }
         div.sign-in-buttons {
@@ -59,6 +58,7 @@ const SignInInner = styled.div`
             button.sign-in-sign-up {
                 background: none;
                 border: 2px solid var(--black-200);
+                color: var(--black-200);
                 border-radius: 4px;
                 outline: none;
                 padding: 0.5rem 1rem;
@@ -156,7 +156,12 @@ export default function SignIn() {
                     </div>
                     <button className="sign-in-submit">Submit</button>
                     <div className="sign-in-buttons">
-                        <button className="sign-in-sign-up">Sign up</button>
+                        <button
+                            className="sign-in-sign-up"
+                            onClick={() => navigate('/sign-up')}
+                        >
+                            Sign up
+                        </button>
                         <button className="sign-in-forget">
                             forget your password?
                         </button>

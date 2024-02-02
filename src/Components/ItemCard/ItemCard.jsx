@@ -51,6 +51,7 @@ const CardDescription = styled.div`
     height: 125px;
     p {
         margin-bottom: 0.5rem;
+        font-weight: 700;
         font-size: 0.85rem;
         line-height: 1.5;
         letter-spacing: 1px;
@@ -80,25 +81,18 @@ export default function ItemCard({ item }) {
                 )}
             </CardImg>
             <CardDescription>
-                <p style={{ fontWeight: 700 }}>{item.name}</p>
+                <p>{item.name}</p>
                 <p
                     style={{
                         textDecoration:
                             item.discounted === null ? 'none' : 'line-through',
-                        color:
-                            item.discounted === null
-                                ? '#6db96d'
-                                : 'rgba(0,0,0,0.15)',
+                        color: item.discounted === null ? 'green' : '#eee',
                     }}
                 >
                     {item.price.toLocaleString()} KRW
                 </p>
                 {item.discounted !== null && (
-                    <p
-                        style={{
-                            color: '#6db96d',
-                        }}
-                    >
+                    <p style={{ color: 'green' }}>
                         {discountedPrice.toLocaleString()}
                         KRW
                     </p>

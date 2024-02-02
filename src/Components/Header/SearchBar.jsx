@@ -10,11 +10,16 @@ const HeaderSearch = styled.div`
     flex-direction: column;
     align-items: center;
     padding: 0.5rem 1rem;
-    margin-top: 5rem;
+    margin: 1rem;
     color: var(--black-200);
-    & > svg {
-        cursor: default;
-        margin: 1rem 0;
+    & > div {
+        display: flex;
+        align-items: center;
+        margin-bottom: 0.75rem;
+        & > svg {
+            cursor: default;
+            margin-right: 0.5rem;
+        }
     }
     form {
         display: flex;
@@ -24,6 +29,11 @@ const HeaderSearch = styled.div`
             width: 150px;
             margin: 0 0.5rem;
             padding: 0.25rem;
+            border: 2px solid var(--white-200);
+            border-radius: 4px;
+            &:focus {
+                outline-color: var(--accent-200);
+            }
         }
         button {
             font-size: 0.75rem;
@@ -59,11 +69,14 @@ export default function SearchBar() {
 
     return (
         <HeaderSearch>
-            <FaSearch
-                onClick={() => {
-                    setIsSearch((prev) => !prev);
-                }}
-            />
+            <div>
+                <FaSearch
+                    onClick={() => {
+                        setIsSearch((prev) => !prev);
+                    }}
+                />{' '}
+                <span>상품검색</span>
+            </div>
             <form onSubmit={handleSubmit(getSearch)}>
                 <input
                     type="text"

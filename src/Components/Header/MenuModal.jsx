@@ -143,6 +143,7 @@ export default function MenuModal() {
             animate="fadeIn"
         >
             <MenuGreeting>{isSigned ? id : 'guest '}</MenuGreeting>
+            <SearchBar />
             <ul>
                 <li>
                     <Link to="/">HOME</Link>
@@ -164,7 +165,6 @@ export default function MenuModal() {
                     <Link to="cart">MY-CART</Link>
                 </li>
             </ul>
-            <SearchBar />
             <ModalClose onClick={toggleModal}>
                 <FaTimes />
             </ModalClose>

@@ -37,6 +37,9 @@ const SignUpForm = styled.form`
                 rgba(27, 31, 35, 0.25) 0px 0px 0px 2px;
         }
     }
+    @media only screen and (min-width: 320px) and (max-width: 768px) {
+        width: 75%;
+    }
 `;
 
 const FormRow = styled.div`
@@ -183,10 +186,6 @@ export default function SignUp() {
     // });
     // reset();
 
-    console.log(userInfo);
-
-    console.log(errors);
-
     return (
         <PageWrapper>
             <PageTitle>Sign up</PageTitle>
@@ -273,7 +272,7 @@ export default function SignUp() {
                         />
                         <ErrorMessage
                             errors={errors}
-                            name="First name"
+                            name="firstName"
                             className="errorM"
                         />
                     </div>
@@ -295,7 +294,7 @@ export default function SignUp() {
                         />
                         <ErrorMessage
                             errors={errors}
-                            name="Last name"
+                            name="lastName"
                             className="errorM"
                         />
                     </div>
@@ -317,7 +316,7 @@ export default function SignUp() {
                         />
                         <ErrorMessage
                             errors={errors}
-                            name="Email"
+                            name="email"
                             className="errorM"
                         />
                     </div>
@@ -340,7 +339,7 @@ export default function SignUp() {
                         />
                         <ErrorMessage
                             errors={errors}
-                            name="phone number"
+                            name="tel"
                             className="errorM"
                         />
                     </div>

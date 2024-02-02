@@ -11,7 +11,7 @@ export const SubReviewInner = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: #999;
+    color: var(--black-200);
     & > svg {
         font-size: 2rem;
         margin-bottom: 1rem;

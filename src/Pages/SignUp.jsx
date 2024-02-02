@@ -61,11 +61,11 @@ const FormRow = styled.div`
         padding: 0.5rem;
         margin-bottom: 1rem;
         border: none;
-        border-bottom: 1px solid #ddd;
+        border-bottom: 2px solid var(--white-200);
         outline: none;
         transition: 300ms all;
         &:focus {
-            border-color: #6bb26b;
+            border-color: var(--accent-200);
         }
     }
 `;

@@ -9,7 +9,7 @@ const CartTotalWrapper = styled.div`
     width: 100%;
     padding: 1rem 5rem;
     p {
-        color: #b3d4b3;
+        color: var(--accent-200);
         font-size: 0.75rem;
         letter-spacing: 1px;
         @media only screen and (min-width: 320px) and (max-width: 768px) {
@@ -55,10 +55,10 @@ const CartTotalWrapper = styled.div`
         }
     }
     th {
-        background-color: #ddd;
+        background-color: var(--white-200);
     }
     tr {
-        border-bottom: 1px solid #ddd;
+        border-bottom: 1px solid var(--white-200);
     }
     @media only screen and (min-width: 320px) and (max-width: 768px) {
         padding: 0.5rem;

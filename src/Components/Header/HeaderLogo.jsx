@@ -12,7 +12,7 @@ const HeaderLogoWrapper = styled.div`
     justify-content: center;
     align-items: center;
     width: 100%;
-    color: grey;
+    color: var(--black-200);
     top: 0;
     margin-top: 1rem;
 `;
@@ -29,7 +29,7 @@ const Logo = styled.div`
     a {
         font-size: 2rem;
         text-decoration: none;
-        color: grey;
+        color: var(--black-200);
     }
 `;
 

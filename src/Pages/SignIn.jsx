@@ -24,12 +24,12 @@ const SignInInner = styled.div`
             height: 40px;
             input {
                 border: none;
-                border-bottom: 1px solid #ddd;
+                border-bottom: 1px solid var(--white-200);
                 outline: none;
                 width: 100%;
                 padding: 0.5rem;
                 &:focus {
-                    border-color: grey;
+                    border-color: var(--black-200);
                 }
             }
         }
@@ -58,19 +58,19 @@ const SignInInner = styled.div`
             margin: 2rem 0;
             button.sign-in-sign-up {
                 background: none;
-                border: 1px solid #b3d4b3;
+                border: 2px solid var(--black-200);
                 border-radius: 4px;
                 outline: none;
-                padding: 0.5rem;
+                padding: 0.5rem 1rem;
                 margin: 0.5rem;
                 font-size: 0.75rem;
-                box-shadow: #b3d4b3 0px 3px 8px;
+                font-weight: 700;
                 transition: 150ms all;
                 cursor: pointer;
                 user-select: none;
                 &:hover {
-                    color: #b3d4b3;
-                    border-color: transparent;
+                    color: var(--accent-200);
+                    border-color: var(--accent-200);
                 }
             }
             button.sign-in-forget {
@@ -78,14 +78,14 @@ const SignInInner = styled.div`
                 border: none;
                 outline: none;
                 text-decoration: underline;
-                color: #ccc;
+                color: var(--white-200);
                 margin-left: 2rem;
                 cursor: pointer;
                 user-select: none;
                 font-size: 0.75rem;
                 transition: 300ms color;
                 &:hover {
-                    color: #000;
+                    color: var(--black-200);
                 }
             }
         }

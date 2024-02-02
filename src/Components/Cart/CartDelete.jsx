@@ -9,18 +9,18 @@ const CartDeleteWrapper = styled.div`
     margin: 1rem 0;
     padding: 1rem 5rem;
     & > button {
-        color: grey;
-        border: 1px solid grey;
+        color: var(--black-200);
+        border: 1px solid var(--black-200);
         border-radius: 4px;
         background: none;
-        padding: 0.15rem 0.25rem;
+        padding: 0.15rem 0.35rem;
         margin: 0.15rem;
         cursor: pointer;
         user-select: none;
         transition: 300ms all;
         &:hover {
-            color: green;
-            border-color: green;
+            color: var(--accent-200);
+            border-color: var(--accent-200);
         }
     }
     @media only screen and (min-width: 320px) and (max-width: 768px) {

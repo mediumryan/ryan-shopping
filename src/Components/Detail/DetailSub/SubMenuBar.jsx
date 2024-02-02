@@ -13,7 +13,7 @@ const SubMenuBarWrapper = styled.div`
         li {
             margin: 0 0.5rem;
             a {
-                color: grey;
+                color: var(--white-200);
                 font-size: 0.75rem;
                 text-decoration: none;
                 padding: 0.5rem 0.75rem;

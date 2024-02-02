@@ -6,7 +6,7 @@ const HeaderCategoryWrapper = styled.div`
     display: flex;
     align-items: center;
     width: 100%;
-    color: grey;
+    color: var(--black-200);
     padding-top: 0.5rem;
 `;
 
@@ -23,11 +23,11 @@ const Menu = styled.ul`
         }
         a {
             text-decoration: none;
-            color: grey;
+            color: var(--black-200);
             padding: 0.5rem 0.75rem;
             font-size: 0.65rem;
             &:hover {
-                color: green;
+                color: var(--accent-300);
             }
             @media only screen and (min-width: 320px) and (max-width: 768px) {
                 padding: 0.5rem;
@@ -39,7 +39,7 @@ const Menu = styled.ul`
 const NowHere = styled(motion.div)`
     width: 36px;
     height: 2px;
-    background-color: green;
+    background-color: var(--accent-300);
 `;
 
 export default function HeaderCategory() {

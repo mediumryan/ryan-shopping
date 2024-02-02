@@ -6,8 +6,8 @@ import { useEffect } from 'react';
 const Color = styled.div`
     display: flex;
     align-items: center;
-    border-top: 2px solid #eee;
-    border-bottom: 2px solid #eee;
+    border-top: 2px solid var(--white-200);
+    border-bottom: 2px solid var(--white-200);
     ul.detail_color {
         display: flex;
         li {
@@ -17,7 +17,6 @@ const Color = styled.div`
                 border: none;
                 border-radius: 4px;
                 cursor: pointer;
-                user-select: none;
             }
         }
     }

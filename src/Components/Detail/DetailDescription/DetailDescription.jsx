@@ -14,10 +14,10 @@ const DetailDescriptionWrapper = styled.div`
     flex-basis: 45%;
     display: flex;
     flex-direction: column;
-    border-top: 3px solid grey;
+    border-top: 3px solid var(--black-200);
     padding: 1rem;
     div.detail_subtitle {
-        color: grey;
+        color: var(--black-200);
         font-size: 0.75rem;
         width: 33%;
     }

@@ -12,7 +12,7 @@ export const PageWrapper = styled.div`
 `;
 
 export const PageTitle = styled.h3`
-    color: #000;
+    color: var(--black-100);
     font-size: 2rem;
     font-weight: 700;
     font-style: italic;

@@ -29,19 +29,19 @@ const Buttons = styled.div`
     }
     .detail_buy {
         flex-basis: 57%;
-        color: #b3d4b3;
-        background-color: #e6f3e6;
-        border: 2px solid #b3d4b3;
+        color: var(--accent-100);
+        background-color: var(--white-100);
+        border: 2px solid var(--accent-100);
         &:hover {
-            border-color: green;
-            color: green;
+            border-color: var(--accent-200);
+            color: var(--accent-200);
         }
     }
     .detail_bookmark {
         flex-basis: 42%;
         background-color: transparent;
-        border: 2px solid #ddd;
-        color: #ddd;
+        border: 2px solid var(--white-200);
+        color: var(--white-200);
     }
 `;
 

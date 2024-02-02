@@ -9,7 +9,7 @@ const CardWrapper = styled.div`
         rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
         rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
     cursor: pointer;
-    transition: 500ms transform;
+    transition: 300ms transform;
     &:hover {
         transform: scale(1.05);
     }
@@ -33,7 +33,7 @@ const CardImg = styled.div`
         right: 1%;
         font-size: 1.05rem;
         background-color: rgba(0, 0, 0, 0.75);
-        color: #fff;
+        color: var(--white-100);
         padding: 0.75rem 1rem;
         border-radius: 4px;
     }
@@ -45,7 +45,7 @@ const CardDescription = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: grey;
+    color: var(--black-200);
     text-align: center;
     border-radius: 0 0 10px 10px;
     height: 125px;

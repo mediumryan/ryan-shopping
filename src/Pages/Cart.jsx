@@ -76,10 +76,10 @@ export const CartInner = styled.div`
         }
     }
     th {
-        background-color: #ddd;
+        background-color: var(--white-200);
     }
     tr {
-        border-bottom: 1px solid #ddd;
+        border-bottom: 1px solid var(--white-200);
     }
     .cartImage {
         width: 100%;
@@ -97,11 +97,11 @@ export const CartInner = styled.div`
             justify-content: space-between;
             width: 75px;
             height: 30px;
-            border: 1px solid #ddd;
+            border: 1px solid var(--white-200);
             & > svg {
                 flex-basis: 25%;
                 border: none;
-                color: #b3d4b3;
+                color: var(--accent-200);
                 cursor: pointer;
                 transition: 300ms color;
                 &:hover {
@@ -119,8 +119,8 @@ export const CartInner = styled.div`
                 user-select: none;
                 width: 15px;
                 text-align: center;
-                border-left: 1px solid #ddd;
-                border-right: 1px solid #ddd;
+                border-left: 1px solid var(--white-200);
+                border-right: 1px solid var(--white-200);
                 @media only screen and (min-width: 320px) and (max-width: 768px) {
                     font-size: 0.75rem;
                 }

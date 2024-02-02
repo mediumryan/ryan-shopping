@@ -18,8 +18,6 @@ export const CartModalWrapper = styled(DetailModalWrapper)`
     left: 50%;
 `;
 
-export const CartModalButton = styled(ModalButton)``;
-
 export default function CartDeleteModal() {
     const setCart = useSetRecoilState(cartState);
     const setCartModal = useSetRecoilState(cartModalState);
@@ -36,10 +34,10 @@ export default function CartDeleteModal() {
     return (
         <CartModalWrapper>
             <p>모든 항목을 제거하시겠어요?</p>
-            <CartModalButton>
+            <ModalButton>
                 <button onClick={deleteAll}>Y</button>
                 <button onClick={closeModal}>N</button>
-            </CartModalButton>
+            </ModalButton>
             <ModalClose style={{ right: '2%', top: '2%' }} onClick={closeModal}>
                 <FaTimes />
             </ModalClose>

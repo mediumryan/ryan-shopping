@@ -10,8 +10,8 @@ const HeaderWrapper = styled.header`
     flex-direction: column;
     align-items: center;
     margin: 0 auto;
-    background-color: rgb(255, 255, 255);
-    transition: background-color 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.9);
+    transition: 300ms all;
     position: fixed;
     top: 0;
     padding: 0 10rem;

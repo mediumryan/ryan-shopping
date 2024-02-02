@@ -20,19 +20,19 @@ const BookmarkButtonsWrapper = styled.div`
     }
     button {
         background: none;
-        border: 1px solid #b3d4b3;
+        border: 2px solid var(--white-200);
         border-radius: 4px;
         outline: none;
         padding: 0.5rem;
         margin: 0.5rem;
         font-size: 0.75rem;
-        box-shadow: #b3d4b3 0px 3px 8px;
-        transition: 150ms all;
+        font-weight: 700;
+        transition: 300ms all;
         cursor: pointer;
         user-select: none;
         &:hover {
-            color: #b3d4b3;
-            border-color: transparent;
+            color: var(--accent-200);
+            border-color: var(--accent-200);
         }
     }
     @media only screen and (min-width: 320px) and (max-width: 768px) {

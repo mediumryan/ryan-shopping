@@ -5,7 +5,7 @@ import { SubItemTitle, SubItemWrapper } from './SubRelated';
 const GuideInner = styled.div`
     padding: 5rem 10rem 2.5rem 5rem;
     margin: 0 5rem;
-    border: 1px solid #999;
+    border: 1px solid var(--white-200);
     border-radius: 10px;
     @media only screen and (min-width: 320px) and (max-width: 768px) {
         padding: 2rem;
@@ -19,7 +19,7 @@ const GuideItem = styled.div`
         font-size: 0.75rem;
         font-weight: 300;
         line-height: 1.5;
-        color: #000;
+        color: var(--black-100);
         margin-bottom: 1rem;
     }
     p.guide_sub_title {

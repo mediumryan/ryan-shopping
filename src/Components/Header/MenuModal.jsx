@@ -1,13 +1,15 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useRecoilState, useSetRecoilState } from 'recoil';
 import { styled } from 'styled-components';
+import { motion } from 'framer-motion';
 import Swal from 'sweetalert2';
 // import state data
 import { isMenuModal } from '../../data/atom';
+import { isSignedState, userId, userPw } from '../../data/signIn';
 // import icons
 import { FaTimes } from 'react-icons/fa';
-import { isSignedState, userId, userPw } from '../../data/signIn';
-import { motion } from 'framer-motion';
+// import components
+import SearchBar from './SearchBar';
 
 const MenuModalWrapper = styled(motion.div)`
     position: fixed;
@@ -31,13 +33,12 @@ const MenuModalWrapper = styled(motion.div)`
             a {
                 display: block;
                 text-decoration: none;
-                color: grey;
+                color: var(--black-200);
                 padding: 0.5rem 0;
                 cursor: pointer;
                 transition: 300ms color;
                 &:hover {
-                    color: green;
-                    background-color: #6bb26b;
+                    color: var(--accent-300);
                 }
             }
         }
@@ -163,6 +164,7 @@ export default function MenuModal() {
                     <Link to="cart">MY-CART</Link>
                 </li>
             </ul>
+            <SearchBar />
             <ModalClose onClick={toggleModal}>
                 <FaTimes />
             </ModalClose>

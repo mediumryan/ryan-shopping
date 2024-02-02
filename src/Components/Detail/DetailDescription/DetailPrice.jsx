@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 
 const Price = styled.div`
-    border-top: 2px solid #eee;
+    border-top: 2px solid var(--white-200);
     & > div {
         display: flex;
         margin: 0.75rem 0;
@@ -12,7 +12,7 @@ const Price = styled.div`
     div.discount {
         margin-left: 1rem;
         font-size: 0.9rem;
-        background-color: red;
+        background-color: var(--red-100);
         color: #fff;
         padding: 0.25rem 0.5rem;
         border-radius: 4px;
@@ -28,7 +28,7 @@ export default function DetailPrice({ item, discountedPrice }) {
                         className="detail_price"
                         style={{
                             textDecoration: 'line-through',
-                            color: '#bbb',
+                            color: '#eee',
                         }}
                     >
                         {item.price.toLocaleString()}KRW

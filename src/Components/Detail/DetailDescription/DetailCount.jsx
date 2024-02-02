@@ -9,8 +9,8 @@ const Count = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-top: 2px solid #eee;
-    border-bottom: 2px solid #eee;
+    border-top: 2px solid var(--white-200);
+    border-bottom: 2px solid var(--white-200);
     .detail_count {
         color: grey;
         font-size: 0.75rem;
@@ -19,7 +19,7 @@ const Count = styled.div`
         display: flex;
         align-items: center;
         label {
-            color: #000;
+            color: var(--black-100);
             margin-right: 0.5rem;
             font-size: 0.85rem;
         }
@@ -29,15 +29,15 @@ const Count = styled.div`
             justify-content: space-between;
             width: 75px;
             height: 25px;
-            border: 1px solid #ddd;
+            border: 1px solid var(--white-200);
             & > svg {
                 flex-basis: 25%;
                 border: none;
-                color: #b3d4b3;
+                color: var(--accent-100);
                 cursor: pointer;
                 transition: 300ms color;
                 &:hover {
-                    color: green;
+                    color: var(--accent-200);
                 }
             }
             div.count_value {
@@ -51,8 +51,8 @@ const Count = styled.div`
                 user-select: none;
                 width: 15px;
                 text-align: center;
-                border-left: 1px solid #ddd;
-                border-right: 1px solid #ddd;
+                border-left: 1px solid var(--white-200);
+                border-right: 1px solid var(--white-200);
             }
         }
     }

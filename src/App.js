@@ -8,7 +8,6 @@ import './CSS/index.css';
 import Header from './Components/Header/Header';
 import Footer from './Components/Footer/Footer';
 import MenuModal from './Components/Header/MenuModal';
-import SearchBar from './Components/Header/SearchBar';
 // import pages
 import Home from './Pages/Home';
 import Mans from './Pages/Mans';
@@ -38,8 +37,8 @@ const GoTop = styled(FaArrowUp)`
     position: fixed;
     bottom: 5%;
     right: 2.5%;
-    color: #b3d4b3;
-    border: 3px solid #b3d4b3;
+    color: var(--accent-100);
+    border: 3px solid var(--accent-100);
     border-radius: 50%;
     width: 35px;
     height: 35px;
@@ -72,7 +71,6 @@ function App() {
         <MainWrapper>
             <Header />
             {isModal && <MenuModal />}
-            <SearchBar />
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/mans" element={<Mans />} />

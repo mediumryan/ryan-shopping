@@ -1,37 +1,29 @@
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { styled } from 'styled-components';
-import { motion } from 'framer-motion';
 import { useLocation, useNavigate } from 'react-router-dom';
 // import icons
 import { FaCheck, FaSearch } from 'react-icons/fa';
 
 const HeaderSearch = styled.div`
-    position: fixed;
-    top: 12px;
-    right: 15%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     padding: 0.5rem 1rem;
-    color: grey;
-    z-index: 15;
+    margin-top: 5rem;
+    color: var(--black-200);
     & > svg {
-        cursor: pointer;
-        user-select: none;
+        cursor: default;
+        margin: 1rem 0;
     }
     form {
-        position: absolute;
         display: flex;
         align-items: center;
-        left: 75%;
         transform-origin: left center;
         input {
             width: 150px;
             margin: 0 0.5rem;
             padding: 0.25rem;
-            @media only screen and (min-width: 320px) and (max-width: 768px) {
-                width: 75px;
-            }
         }
         button {
             font-size: 0.75rem;
@@ -39,13 +31,9 @@ const HeaderSearch = styled.div`
             border: none;
             outline: none;
             cursor: pointer;
-            color: grey;
-            user-select: none;
+            color: var(--black-200);
             padding: 0.25rem;
         }
-    }
-    @media only screen and (min-width: 320px) and (max-width: 768px) {
-        right: 25%;
     }
 `;
 
@@ -76,22 +64,15 @@ export default function SearchBar() {
                     setIsSearch((prev) => !prev);
                 }}
             />
-            {isSearch && (
-                <motion.form
-                    onSubmit={handleSubmit(getSearch)}
-                    initial={{ scaleX: 0 }}
-                    animate={{ scaleX: 1 }}
-                    transition={{ duration: 0.5 }}
-                >
-                    <input
-                        type="text"
-                        {...register('search', { required: true })}
-                    />
-                    <button>
-                        <FaCheck />
-                    </button>
-                </motion.form>
-            )}
+            <form onSubmit={handleSubmit(getSearch)}>
+                <input
+                    type="text"
+                    {...register('search', { required: true })}
+                />
+                <button>
+                    <FaCheck />
+                </button>
+            </form>
         </HeaderSearch>
     );
 }

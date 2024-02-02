@@ -16,7 +16,7 @@ export const DetailModalWrapper = styled.div`
     width: 500px;
     height: 250px;
     background: rgba(0, 0, 0, 0.9);
-    color: #eee;
+    color: var(--white-100);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -30,7 +30,7 @@ export const DetailModalWrapper = styled.div`
         font-size: 0.95rem;
         & > span {
             font-weight: 700;
-            color: #b3d4b3;
+            color: var(--accent-100);
         }
     }
     @media only screen and (min-width: 320px) and (max-width: 768px) {
@@ -42,9 +42,9 @@ export const ModalButton = styled.div`
     display: flex;
     align-items: center;
     & > button {
-        color: #eee;
+        color: var(--white-200);
         background: none;
-        border: 2px solid #eee;
+        border: 2px solid var(--white-200);
         border-radius: 10px;
         padding: 0.5rem 1rem;
         margin: 0 0.5rem;
@@ -54,9 +54,8 @@ export const ModalButton = styled.div`
         user-select: none;
         transition: 300ms all;
         &:hover {
-            color: #b3d4b3;
-            border-color: #b3d4b3;
-            transform: scale(1.05);
+            color: var(--accent-100);
+            border-color: var(--accent-100);
         }
     }
 `;

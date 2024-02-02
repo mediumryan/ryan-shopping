@@ -13,8 +13,7 @@ const Total = styled(motion.div)`
     span.detail_total {
         letter-spacing: 1px;
         font-weight: 700;
-        font-style: italic;
-        color: green;
+        color: var(--accent-200);
     }
 `;
 

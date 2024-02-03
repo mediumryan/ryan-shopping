@@ -1,8 +1,8 @@
-import { useRecoilState, useSetRecoilState } from 'recoil';
+import { useRecoilState } from 'recoil';
 import { styled } from 'styled-components';
 import Swal from 'sweetalert2';
 // import state data
-import { bookmarkModalState, bookmarkState } from '../../data/bookmark';
+import { bookmarkState } from '../../data/bookmark';
 // import components
 import { cartState } from '../../data/cart';
 import { useNavigate } from 'react-router-dom';
@@ -44,21 +44,49 @@ const BookmarkButtonsWrapper = styled.div`
 export default function BookmarkButtons() {
     const [cart, setCart] = useRecoilState(cartState);
     const [bookmark, setBookmark] = useRecoilState(bookmarkState);
-    const setBookmarkModal = useSetRecoilState(bookmarkModalState);
 
     // handle delete items
-    const deleteSelectedItem = () => {
-        setBookmark((prev) => {
-            const newBookmark = prev.filter((a) => !a.checked);
-            return newBookmark;
-        });
+    const deleteAll = () => {
+        if (bookmark.length > 0) {
+            Swal.fire({
+                title: '모든 항목을 제거합니다.',
+                showDenyButton: true,
+                confirmButtonText: '예',
+                denyButtonText: `아뇨`,
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    setBookmark([]);
+                    Swal.fire('모든 항목이 제거되었습니다.', '', 'success');
+                } else if (result.isDenied) {
+                    return;
+                }
+            });
+        } else {
+            Swal.fire('상품이 존재하지 않습니다.', '', 'warning');
+        }
     };
 
-    const deleteAllItem = () => {
-        if (bookmark.length > 0) {
-            setBookmarkModal(true);
+    const deleteSelected = () => {
+        if (bookmark.filter((a) => a.checked).length === 0) {
+            Swal.fire('상품을 선택해주세요.', '', 'warning');
+            return;
         } else {
-            alert('상품이 존재하지 않습니다.');
+            Swal.fire({
+                title: '선택된 항목을 제거합니다.',
+                showDenyButton: true,
+                confirmButtonText: '예',
+                denyButtonText: `아뇨`,
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    setBookmark((prev) => {
+                        const newBookmark = prev.filter((a) => !a.checked);
+                        return newBookmark;
+                    });
+                    Swal.fire('선택된 항목이 제거되었습니다.', '', 'success');
+                } else if (result.isDenied) {
+                    return;
+                }
+            });
         }
     };
 
@@ -109,8 +137,8 @@ export default function BookmarkButtons() {
     return (
         <BookmarkButtonsWrapper>
             <div className="book_delete">
-                <button onClick={deleteSelectedItem}>선택 제거</button>
-                <button onClick={deleteAllItem}>모두 제거</button>
+                <button onClick={deleteAll}>모두 제거</button>
+                <button onClick={deleteSelected}>선택 제거</button>
             </div>
             <div className="book_cart">
                 <button onClick={moveToCart}>장바구니로 이동</button>

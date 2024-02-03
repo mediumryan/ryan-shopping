@@ -7,15 +7,12 @@ import { CartInner } from './Cart';
 import { PageTitle, PageWrapper } from './Mans';
 import BookmarkItem from '../Components/Bookmark/BookmarkItem';
 import BookmarkButtons from '../Components/Bookmark/BookmarkButtons';
-import BookmarkDeleteModal from '../Components/Bookmark/BookmarkDeleteModal';
 // import state data
-import { bookmarkModalState, bookmarkState } from '../data/bookmark';
+import { bookmarkState } from '../data/bookmark';
 import { isSignedState } from '../data/signIn';
 
 export default function Bookmark() {
     const [bookmark, setBookmark] = useRecoilState(bookmarkState);
-    const [bookmarkModal, setBookmarkModal] =
-        useRecoilState(bookmarkModalState);
     const [allCheckState, setAllCheckState] = useState(false);
     const isSigned = useRecoilValue(isSignedState);
 
@@ -58,12 +55,6 @@ export default function Bookmark() {
             });
         }
     };
-
-    useEffect(() => {
-        if (bookmarkModal) {
-            setBookmarkModal(false);
-        }
-    }, []);
 
     // sort items
     const sortedData = [...bookmark].sort((a, b) => {
@@ -123,7 +114,6 @@ export default function Bookmark() {
                 </table>
             </CartInner>
             <BookmarkButtons />
-            {bookmarkModal && <BookmarkDeleteModal />}
         </PageWrapper>
     );
 }

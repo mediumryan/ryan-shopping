@@ -1,7 +1,8 @@
-import { useRecoilState, useSetRecoilState } from 'recoil';
+import { useRecoilState } from 'recoil';
 import { styled } from 'styled-components';
+import Swal from 'sweetalert2';
 // import state data
-import { cartModalState, cartState } from '../../data/cart';
+import { cartState } from '../../data/cart';
 
 const CartDeleteWrapper = styled.div`
     display: flex;
@@ -30,21 +31,49 @@ const CartDeleteWrapper = styled.div`
 
 export default function CartDelete() {
     const [cart, setCart] = useRecoilState(cartState);
-    const setCartModal = useSetRecoilState(cartModalState);
 
     const deleteAll = () => {
         if (cart.length > 0) {
-            setCartModal(true);
+            Swal.fire({
+                title: '모든 항목을 제거합니다.',
+                showDenyButton: true,
+                confirmButtonText: '예',
+                denyButtonText: `아뇨`,
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    setCart([]);
+                    Swal.fire('모든 항목이 제거되었습니다.', '', 'success');
+                } else if (result.isDenied) {
+                    return;
+                }
+            });
         } else {
-            alert('상품이 존재하지 않습니다.');
+            Swal.fire('상품이 존재하지 않습니다.', '', 'warning');
         }
     };
 
     const deleteSelected = () => {
-        setCart((prev) => {
-            const filteredCart = prev.filter((a) => !a.checked);
-            return filteredCart;
-        });
+        if (cart.filter((a) => a.checked).length === 0) {
+            Swal.fire('상품을 선택해주세요.', '', 'warning');
+            return;
+        } else {
+            Swal.fire({
+                title: '선택된 항목을 제거합니다.',
+                showDenyButton: true,
+                confirmButtonText: '예',
+                denyButtonText: `아뇨`,
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    setCart((prev) => {
+                        const newCart = prev.filter((a) => !a.checked);
+                        return newCart;
+                    });
+                    Swal.fire('선택된 항목이 제거되었습니다.', '', 'success');
+                } else if (result.isDenied) {
+                    return;
+                }
+            });
+        }
     };
 
     return (

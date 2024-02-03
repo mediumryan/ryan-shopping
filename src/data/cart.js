@@ -9,12 +9,6 @@ export const cartState = atom({
     effects_UNSTABLE: [persistAtom],
 });
 
-// about cart modal
-export const cartModalState = atom({
-    key: 'cart_modal_state',
-    default: false,
-});
-
 export const selectedCartCountState = selector({
     key: 'selected_cart_item_count',
     get: ({ get }) => {

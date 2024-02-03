@@ -2,13 +2,12 @@ import { styled } from 'styled-components';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import Swal from 'sweetalert2';
 // import state data
-import { cartModalState, cartState } from '../data/cart';
+import { cartState } from '../data/cart';
 import { PageTitle, PageWrapper } from './Mans';
 import CartItem from '../Components/Cart/CartItem';
 import { useEffect, useState } from 'react';
 import CartTotal from '../Components/Cart/CartTotal';
 import CartDelete from '../Components/Cart/CartDelete';
-import CartDeleteModal from '../Components/Cart/CartDeleteModal';
 import { isSignedState, userId } from '../data/signIn';
 import { useNavigate } from 'react-router-dom';
 
@@ -162,7 +161,6 @@ const CartPay = styled.div`
 export default function Cart() {
     const [cart, setCart] = useRecoilState(cartState);
     const [allCheckState, setAllCheckState] = useState(false);
-    const cartModal = useRecoilValue(cartModalState);
     const id = useRecoilValue(userId);
     const isSigned = useRecoilValue(isSignedState);
 
@@ -268,7 +266,6 @@ export default function Cart() {
             <CartPay>
                 <button>결제하기</button>
             </CartPay>
-            {cartModal && <CartDeleteModal />}
         </PageWrapper>
     );
 }

@@ -40,7 +40,7 @@ const SignInInner = styled.div`
             background: none;
             color: var(--black-200);
             outline: none;
-            border: 2px solid var(--black-200);
+            border: 1px solid var(--black-200);
             border-radius: 4px;
             cursor: pointer;
             margin: 1rem auto 0 auto;
@@ -57,7 +57,7 @@ const SignInInner = styled.div`
             margin: 2rem 0;
             button.sign-in-sign-up {
                 background: none;
-                border: 2px solid var(--black-200);
+                border: 1px solid var(--black-200);
                 color: var(--black-200);
                 border-radius: 4px;
                 outline: none;
@@ -91,7 +91,7 @@ const SignInInner = styled.div`
         }
     }
     @media only screen and (min-width: 320px) and (max-width: 768px) {
-        width: 50%;
+        width: 60%;
     }
 `;
 

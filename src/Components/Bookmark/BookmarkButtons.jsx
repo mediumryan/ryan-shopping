@@ -1,5 +1,6 @@
 import { useRecoilState, useSetRecoilState } from 'recoil';
 import { styled } from 'styled-components';
+import Swal from 'sweetalert2';
 // import state data
 import { bookmarkModalState, bookmarkState } from '../../data/bookmark';
 // import components
@@ -64,6 +65,10 @@ export default function BookmarkButtons() {
     // handle move to cart items
     const moveToCart = () => {
         const checkedItem = bookmark.filter((a) => a.checked);
+        if (checkedItem.length === 0) {
+            Swal.fire('선택된 항목이 없습니다.', '', 'OK');
+            return;
+        }
         checkedItem.forEach((a) => {
             const alreadyIsCart = cart.findIndex(
                 (cartItem) =>
@@ -72,12 +77,14 @@ export default function BookmarkButtons() {
                     cartItem.color === a.color
             );
             if (alreadyIsCart === -1) {
+                Swal.fire('장바구니로 이동되었습니다.', '', 'OK');
                 setCart((prev) => {
                     const newCart = [...prev];
                     newCart.push(a);
                     return newCart;
                 });
             } else if (alreadyIsCart !== -1) {
+                Swal.fire('장바구니로 이동되었습니다.', '', 'OK');
                 setCart((prev) => {
                     const newCart = [...prev];
                     newCart[alreadyIsCart] = {
@@ -106,7 +113,7 @@ export default function BookmarkButtons() {
                 <button onClick={deleteAllItem}>모두 제거</button>
             </div>
             <div className="book_cart">
-                <button onClick={moveToCart}>장바구니에 추가</button>
+                <button onClick={moveToCart}>장바구니로 이동</button>
                 <button
                     onClick={() => {
                         navigate('/cart');

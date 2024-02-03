@@ -17,6 +17,7 @@ const DetailWrapper = styled.div`
     flex-direction: column;
     align-items: center;
     padding: 2rem 5rem;
+    padding-top: 10rem;
     @media only screen and (min-width: 320px) and (max-width: 768px) {
         padding: 2rem;
         padding-top: 8rem;

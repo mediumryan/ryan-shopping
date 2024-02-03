@@ -123,7 +123,6 @@ export default function MenuModal() {
             confirmButtonText: '예',
             denyButtonText: `아뇨`,
         }).then((result) => {
-            /* Read more about isConfirmed, isDenied below */
             if (result.isConfirmed) {
                 Swal.fire('로그아웃 되었습니다', '', 'success');
                 setIsSigned(false);

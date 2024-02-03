@@ -1,4 +1,3 @@
-import { styled } from 'styled-components';
 // import components
 import SubRelated from './SubRelated';
 import SubDetail from './SubDetail/SubDetail';
@@ -9,8 +8,6 @@ import SubMenuBar from './SubMenuBar';
 import { useRecoilState } from 'recoil';
 import { subMenu } from '../../../data/atom';
 import { useEffect } from 'react';
-
-const DetailSubWrapper = styled.div``;
 
 export default function DetailSub({ detailItem }) {
     const [detailSubMenu, setDetailSubMenu] = useRecoilState(subMenu);
@@ -26,7 +23,7 @@ export default function DetailSub({ detailItem }) {
     }, []);
 
     return (
-        <DetailSubWrapper>
+        <div>
             <SubMenuBar />
             {detailSubMenu[0].isActive ? (
                 <SubRelated detailItem={detailItem} />
@@ -40,6 +37,6 @@ export default function DetailSub({ detailItem }) {
                 detailSubMenu[4].isActive && <SubQna />
             )}
             <SubMenuBar />
-        </DetailSubWrapper>
+        </div>
     );
 }

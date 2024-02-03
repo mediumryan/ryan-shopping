@@ -8,12 +8,10 @@ const DetailMainWrapper = styled.div`
     align-items: center;
     width: 85%;
     margin: 0 auto;
-    padding-bottom: 2rem;
-    border-bottom: 3px solid grey;
+    padding: 2rem 0;
     @media only screen and (min-width: 320px) and (max-width: 768px) {
         flex-direction: column;
         width: 100%;
-        padding-bottom: 0;
     }
 `;
 
@@ -23,6 +21,9 @@ const DetailImg = styled.div`
     overflow: hidden;
     img {
         width: 100%;
+    }
+    @media only screen and (min-width: 320px) and (max-width: 768px) {
+        padding-bottom: 1rem;
     }
 `;
 

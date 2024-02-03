@@ -19,7 +19,6 @@ const Buttons = styled.div`
     display: flex;
     justify-content: space-between;
     margin-top: 2rem;
-    user-select: none;
     & > button {
         padding: 0.5rem 0;
         font-size: 0.85rem;
@@ -42,6 +41,9 @@ const Buttons = styled.div`
         background-color: transparent;
         border: 2px solid var(--white-200);
         color: var(--white-200);
+    }
+    @media only screen and (min-width: 320px) and (max-width: 768px) {
+        padding-bottom: 1rem;
     }
 `;
 

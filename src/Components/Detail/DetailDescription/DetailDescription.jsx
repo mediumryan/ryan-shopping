@@ -15,6 +15,7 @@ const DetailDescriptionWrapper = styled.div`
     display: flex;
     flex-direction: column;
     border-top: 3px solid var(--black-200);
+    border-bottom: 3px solid var(--black-200);
     padding: 1rem;
     div.detail_subtitle {
         color: var(--black-200);
@@ -23,6 +24,9 @@ const DetailDescriptionWrapper = styled.div`
     }
     .detail_item {
         padding: 1rem 0;
+    }
+    @media only screen and (min-width: 320px) and (max-width: 768px) {
+        width: 100%;
     }
 `;
 

@@ -7,8 +7,6 @@ import { dataState } from '../data/data';
 // import components
 import DetailMain from '../Components/Detail/DetailMain';
 import DetailSub from '../Components/Detail/DetailSub/DetailSub';
-import DetailModal from '../Components/Detail/DetailDescription/DetailModal';
-import { isDetailModalState } from '../data/detail';
 
 const DetailWrapper = styled.div`
     height: 100%;
@@ -36,8 +34,6 @@ export default function Detail() {
     const { id } = useParams();
     const all_data = useRecoilValue(dataState);
     const [detailItem, setDetailItem] = useState();
-    // for detail buy modal
-    const isDetailModal = useRecoilValue(isDetailModalState);
 
     useEffect(() => {
         const filtered = all_data.filter((a) => a.name === id);
@@ -53,9 +49,6 @@ export default function Detail() {
                 </>
             ) : (
                 <DetailLoading>Loading...</DetailLoading>
-            )}
-            {detailItem && isDetailModal && (
-                <DetailModal detailItem={detailItem} />
             )}
         </DetailWrapper>
     );

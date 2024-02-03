@@ -7,8 +7,3 @@ export const bookmarkState = atom({
     default: [],
     effects_UNSTABLE: [persistAtom],
 });
-
-export const bookmarkModalState = atom({
-    key: 'bookmark_modal_state',
-    default: false,
-});

@@ -15,11 +15,6 @@ export const detailSizeState = atom({
     default: '',
 });
 
-export const isDetailModalState = atom({
-    key: 'is_detail_modal_state',
-    default: false,
-});
-
 export const isBookmarkModalState = atom({
     key: 'is_bookmark_modal_state',
     default: false,

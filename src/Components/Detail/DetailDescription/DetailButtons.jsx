@@ -1,6 +1,7 @@
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import { styled } from 'styled-components';
 import { useEffect } from 'react';
+import Swal from 'sweetalert2';
 // import state data
 import { cartState } from '../../../data/cart';
 import {
@@ -9,11 +10,11 @@ import {
     detailItemCount,
     detailSizeState,
     isBookmarkModalState,
-    isDetailModalState,
 } from '../../../data/detail';
 import { bookmarkState } from '../../../data/bookmark';
 // import icons
 import { FaStar } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
 const Buttons = styled.div`
     display: flex;
@@ -48,8 +49,8 @@ const Buttons = styled.div`
 `;
 
 export default function DetailButtons({ item, discountedPrice }) {
+    const navigate = useNavigate();
     const [cart, setCart] = useRecoilState(cartState);
-    const setIsDetailModal = useSetRecoilState(isDetailModalState);
     const color = useRecoilValue(detailColorState);
     const size = useRecoilValue(detailSizeState);
 
@@ -61,11 +62,6 @@ export default function DetailButtons({ item, discountedPrice }) {
             (a) => a.name === item.name && a.color === color && a.size === size
         );
         if (itemCount > 0 && color && size) {
-            setIsDetailModal(true);
-            const closeModalTimer = setTimeout(() => {
-                setIsDetailModal(false);
-            }, 3000);
-
             if (isCartItem === -1) {
                 const newItem = {
                     id: Date.now(),
@@ -98,15 +94,23 @@ export default function DetailButtons({ item, discountedPrice }) {
                         };
                         return newCart;
                     }
-
                     return prev;
                 });
             }
-            return () => {
-                return clearTimeout(closeModalTimer);
-            };
+            Swal.fire({
+                title: `${item.name}이(가) 장바구니에 추가되었습니다.`,
+                showDenyButton: true,
+                confirmButtonText: '장바구니',
+                denyButtonText: `계속 쇼핑하기`,
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    navigate('/cart');
+                } else if (result.isDenied) {
+                    return;
+                }
+            });
         } else if (itemCount < 1 || !color || !size) {
-            alert('상품의 색상 혹은 구매할 상품의 개수 다시 확인해 주세요.');
+            Swal.fire('상품의 색상,사이즈,개수를 확인해주세요.', '', 'warning');
         } else {
             return;
         }
@@ -137,9 +141,6 @@ export default function DetailButtons({ item, discountedPrice }) {
         if (itemCount > 0 && color && size) {
             setIsBook((prev) => !prev);
             setIsBookmarkModal(true);
-            const closeModalTimer = setTimeout(() => {
-                setIsBookmarkModal(false);
-            }, 3000);
             if (alreadyBooked === -1) {
                 setBookmark((prev) => {
                     const newBookmark = [...prev];
@@ -152,9 +153,6 @@ export default function DetailButtons({ item, discountedPrice }) {
                     return unBookmark;
                 });
             }
-            return () => {
-                return clearTimeout(closeModalTimer);
-            };
         } else if (itemCount < 1 || !color || !size) {
             alert('상품의 색상 혹은 구매할 상품의 개수 다시 확인해 주세요.');
             return;

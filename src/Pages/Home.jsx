@@ -9,6 +9,7 @@ import {
     mans_data,
     outer_data,
     top_data,
+    womans_data,
 } from '../data/data';
 
 const HomeOuter = styled.div`
@@ -87,6 +88,7 @@ const SectionsTitle = styled(Link)`
 export default function Home() {
     // data
     const man = useRecoilValue(mans_data);
+    const woman = useRecoilValue(womans_data);
     const outer = useRecoilValue(outer_data);
     const top = useRecoilValue(top_data);
     const dress = useRecoilValue(dress_data);
@@ -109,18 +111,33 @@ export default function Home() {
                     <SectionsTitle to="/mans">Mans</SectionsTitle>
                 </Sections>
                 <Sections className="section2">
-                    {outer.slice(0, 4).map((outer_item) => {
+                    {woman.slice(0, 4).map((womans_item) => {
                         return (
                             <img
-                                key={outer_item.id}
-                                src={outer_item.image_path}
-                                alt={outer_item.name}
+                                key={womans_item.id}
+                                src={womans_item.image_path}
+                                alt={womans_item.name}
                             />
                         );
                     })}
-                    <SectionsTitle to="/outer">Outer</SectionsTitle>
+                    <SectionsTitle to="/mans">Ladies</SectionsTitle>
                 </Sections>
                 <Sections className="section3">
+                    {outer
+                        .toReversed()
+                        .slice(0, 4)
+                        .map((outer_item) => {
+                            return (
+                                <img
+                                    key={outer_item.id}
+                                    src={outer_item.image_path}
+                                    alt={outer_item.name}
+                                />
+                            );
+                        })}
+                    <SectionsTitle to="/outer">Outer</SectionsTitle>
+                </Sections>
+                <Sections className="section4">
                     {top.slice(0, 4).map((top_item) => {
                         return (
                             <img
@@ -132,7 +149,7 @@ export default function Home() {
                     })}
                     <SectionsTitle to="/top">Top</SectionsTitle>
                 </Sections>
-                <Sections className="section4">
+                <Sections className="section5">
                     {dress.slice(0, 4).map((dress_item) => {
                         return (
                             <img
@@ -144,7 +161,7 @@ export default function Home() {
                     })}
                     <SectionsTitle to="/dress">Dress</SectionsTitle>
                 </Sections>
-                <Sections className="section5">
+                <Sections className="section6">
                     {bottom.slice(0, 4).map((bottom_item) => {
                         return (
                             <img
@@ -156,7 +173,7 @@ export default function Home() {
                     })}
                     <SectionsTitle to="/bottom">Bottom</SectionsTitle>
                 </Sections>
-                <Sections className="section6">
+                <Sections className="section7">
                     {accessory.slice(0, 4).map((accessory_item) => {
                         return (
                             <img

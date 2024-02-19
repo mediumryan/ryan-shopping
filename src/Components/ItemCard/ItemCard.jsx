@@ -23,8 +23,10 @@ const CardImg = styled.div`
     img {
         width: 100%;
         height: 250px;
+        min-height: 250px;
         @media only screen and (min-width: 320px) and (max-width: 768px) {
             height: 150px;
+            min-height: 150px;
         }
     }
     span {
@@ -77,7 +79,7 @@ export default function ItemCard({ item }) {
             <CardImg>
                 <img src={item.image_path} alt={item.name} />
                 {item.discounted !== null && (
-                    <span>{item.discounted * 100}%</span>
+                    <span>{(item.discounted * 100).toFixed(0)}%</span>
                 )}
             </CardImg>
             <CardDescription>

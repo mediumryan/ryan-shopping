@@ -1,6 +1,7 @@
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import { styled } from 'styled-components';
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 // import state data
 import { cartState } from '../../../data/cart';
@@ -14,7 +15,6 @@ import {
 import { bookmarkState } from '../../../data/bookmark';
 // import icons
 import { FaStar } from 'react-icons/fa';
-import { useNavigate } from 'react-router-dom';
 
 const Buttons = styled.div`
     display: flex;

@@ -32,6 +32,7 @@ const HomeInner = styled.div`
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
+        padding: 2rem 0.5rem;
     }
 `;
 
@@ -43,15 +44,20 @@ const Sections = styled.section`
     justify-content: center;
     align-items: center;
     margin-bottom: 5px;
+    padding: 1rem;
     img {
         width: 50%;
         border: 2px solid aliceblue;
         border-radius: 4px;
+        @media only screen and (min-width: 320px) and (max-width: 768px) {
+            height: 45%;
+        }
     }
     @media only screen and (min-width: 320px) and (max-width: 768px) {
         height: 50vh;
         width: 45%;
         margin: 5px;
+        padding: 0.5rem;
         border-radius: 5px;
         overflow: hidden;
     }
@@ -78,7 +84,7 @@ const SectionsTitle = styled(Link)`
     }
     @media only screen and (min-width: 320px) and (max-width: 768px) {
         height: 50vh;
-        font-size: 36px;
+        font-size: 1.85rem;
         padding: 0 2rem;
         text-align: center;
         background-color: rgba(0, 0, 0, 0.5);

@@ -26,13 +26,13 @@ const CardImg = styled.div`
         min-height: 250px;
         @media only screen and (min-width: 320px) and (max-width: 768px) {
             height: 150px;
-            min-height: 150px;
+            min-height: 175px;
         }
     }
     span {
         position: absolute;
-        top: 1%;
-        right: 1%;
+        top: 2%;
+        right: 2%;
         font-size: 1.05rem;
         background-color: rgba(0, 0, 0, 0.75);
         color: var(--white-100);
@@ -58,9 +58,6 @@ const CardDescription = styled.div`
         line-height: 1.5;
         letter-spacing: 1px;
         padding: 0 1rem;
-    }
-    @media only screen and (min-width: 320px) and (max-width: 768px) {
-        height: 100px;
     }
 `;
 

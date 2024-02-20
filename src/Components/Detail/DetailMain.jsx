@@ -13,6 +13,9 @@ const DetailMainWrapper = styled.div`
         flex-direction: column;
         width: 100%;
     }
+    @media only screen and (min-width: 768px) and (max-width: 1024px) {
+        width: 95%;
+    }
 `;
 
 const DetailImg = styled.div`

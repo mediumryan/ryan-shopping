@@ -1,7 +1,9 @@
 import { useRecoilState } from 'recoil';
 import { styled } from 'styled-components';
-import { detailSizeState } from './../../../data/detail';
 import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+// import components
+import { detailSizeState } from './../../../data/detail';
 
 const Size = styled.div`
     display: flex;
@@ -22,6 +24,7 @@ const Size = styled.div`
 `;
 
 export default function DetailSize({ item }) {
+    const { pathname } = useLocation();
     const [size, setSize] = useRecoilState(detailSizeState);
 
     const handleSize = (size_item) => {
@@ -30,7 +33,7 @@ export default function DetailSize({ item }) {
 
     useEffect(() => {
         setSize('');
-    }, []);
+    }, [pathname]);
 
     return (
         <Size className="detail_item">

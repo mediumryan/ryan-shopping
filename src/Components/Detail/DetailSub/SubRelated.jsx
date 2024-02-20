@@ -1,8 +1,8 @@
 import { useRecoilValue } from 'recoil';
 import { styled } from 'styled-components';
-import { dataState } from '../../../data/data';
 import { Link } from 'react-router-dom';
-// import components
+// import state data
+import { dataState } from '../../../data/data';
 
 export const SubItemWrapper = styled.div`
     height: 100%;
@@ -41,7 +41,11 @@ const RelatedItem = styled(Link)`
     }
     @media only screen and (min-width: 320px) and (max-width: 768px) {
         width: 45%;
+        height: 225px;
         margin: 0.5rem;
+    }
+    @media only screen and (min-width: 768px) and (max-width: 1024px) {
+        height: 250px;
     }
 `;
 

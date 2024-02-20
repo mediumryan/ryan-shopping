@@ -31,6 +31,9 @@ export const PageInner = styled.div`
         grid-template-columns: repeat(2, 1fr);
         padding: 0.5rem;
     }
+    @media only screen and (min-width: 768px) and (max-width: 1024px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
 `;
 
 export default function Mans() {

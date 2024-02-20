@@ -23,6 +23,7 @@ const SubMenuBarWrapper = styled.div`
                 cursor: pointer;
                 @media only screen and (min-width: 320px) and (max-width: 768px) {
                     padding: 0.25rem;
+                    font-size: 0.65rem;
                 }
             }
         }

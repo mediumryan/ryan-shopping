@@ -20,6 +20,9 @@ const DetailWrapper = styled.div`
         padding: 2rem;
         padding-top: 8rem;
     }
+    @media only screen and (min-width: 768px) and (max-width: 1024px) {
+        padding: 8rem 1rem 1rem 1rem;
+    }
 `;
 
 const DetailLoading = styled.div`

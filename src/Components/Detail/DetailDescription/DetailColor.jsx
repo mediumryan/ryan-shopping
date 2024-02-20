@@ -1,7 +1,9 @@
 import { useRecoilState } from 'recoil';
 import { styled } from 'styled-components';
-import { detailColorState } from './../../../data/detail';
 import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+// import components
+import { detailColorState } from './../../../data/detail';
 
 const Color = styled.div`
     display: flex;
@@ -23,6 +25,7 @@ const Color = styled.div`
 `;
 
 export default function DetailColor({ item }) {
+    const { pathname } = useLocation();
     const [color, setColor] = useRecoilState(detailColorState);
 
     const handleColor = (color_item) => {
@@ -31,7 +34,7 @@ export default function DetailColor({ item }) {
 
     useEffect(() => {
         setColor('');
-    }, []);
+    }, [pathname]);
 
     return (
         <Color className="detail_item">

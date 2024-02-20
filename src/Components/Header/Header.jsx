@@ -6,7 +6,6 @@ import HeaderCategory from './HeaderCategory';
 
 const HeaderWrapper = styled.header`
     width: 100%;
-    height: 125px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -19,7 +18,9 @@ const HeaderWrapper = styled.header`
     z-index: 10;
     @media only screen and (min-width: 320px) and (max-width: 768px) {
         padding: 0 1.5rem;
-        height: 100px;
+    }
+    @media only screen and (min-width: 768px) and (max-width: 1024px) {
+        padding: 0 3rem;
     }
 `;
 

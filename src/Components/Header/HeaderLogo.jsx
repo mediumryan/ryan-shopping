@@ -15,7 +15,7 @@ const HeaderLogoWrapper = styled.div`
     width: 100%;
     color: var(--black-200);
     top: 0;
-    margin-top: 1rem;
+    margin: 1rem 0;
 `;
 
 const MenuToggle = styled(FaGripLines)`

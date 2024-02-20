@@ -28,6 +28,10 @@ const CardImg = styled.div`
             height: 150px;
             min-height: 175px;
         }
+        @media only screen and (min-width: 768px) and (max-width: 1024px) {
+            height: 325px;
+            min-height: 325px;
+        }
     }
     span {
         position: absolute;
@@ -85,7 +89,7 @@ export default function ItemCard({ item }) {
                     style={{
                         textDecoration:
                             item.discounted === null ? 'none' : 'line-through',
-                        color: item.discounted === null ? 'green' : '#eee',
+                        color: item.discounted === null ? 'green' : '#ddd',
                     }}
                 >
                     {item.price.toLocaleString()} KRW

@@ -23,7 +23,6 @@ const HomeInner = styled.div`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     padding: 2rem;
-    /* hide scrollbar */
     &::-webkit-scrollbar {
         display: none;
     }
@@ -32,6 +31,10 @@ const HomeInner = styled.div`
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
+        padding: 2rem 0.5rem;
+    }
+    @media only screen and (min-width: 768px) and (max-width: 1024px) {
+        grid-template-columns: repeat(2, 1fr);
         padding: 2rem 0.5rem;
     }
 `;
@@ -51,6 +54,9 @@ const Sections = styled.section`
         border-radius: 4px;
         @media only screen and (min-width: 320px) and (max-width: 768px) {
             height: 45%;
+        }
+        @media only screen and (min-width: 768px) and (max-width: 1024px) {
+            height: 25%;
         }
     }
     @media only screen and (min-width: 320px) and (max-width: 768px) {
@@ -87,6 +93,9 @@ const SectionsTitle = styled(Link)`
         font-size: 1.85rem;
         padding: 0 2rem;
         text-align: center;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    @media only screen and (min-width: 768px) and (max-width: 1024px) {
         background-color: rgba(0, 0, 0, 0.5);
     }
 `;

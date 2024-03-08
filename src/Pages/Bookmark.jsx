@@ -10,6 +10,8 @@ import BookmarkButtons from '../Components/Bookmark/BookmarkButtons';
 // import state data
 import { bookmarkState } from '../data/bookmark';
 import { isSignedState } from '../data/signIn';
+// import swal custom class
+import { swalCustomStyle } from '../helper/swalcustom';
 
 export default function Bookmark() {
     const [bookmark, setBookmark] = useRecoilState(bookmarkState);
@@ -24,7 +26,9 @@ export default function Bookmark() {
                 title: '로그인이 필요합니다',
                 showDenyButton: true,
                 confirmButtonText: '로그인 페이지로',
+                confirmButtonColor: '#6db96d',
                 denyButtonText: `뒤로가기`,
+                customClass: swalCustomStyle,
             }).then((result) => {
                 /* Read more about isConfirmed, isDenied below */
                 if (result.isConfirmed) {

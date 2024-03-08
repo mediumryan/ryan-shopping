@@ -10,6 +10,8 @@ import CartTotal from '../Components/Cart/CartTotal';
 import CartDelete from '../Components/Cart/CartDelete';
 import { isSignedState, userId } from '../data/signIn';
 import { useNavigate } from 'react-router-dom';
+// import swal custom class
+import { swalCustomStyle } from '../helper/swalcustom';
 
 export const CartInner = styled.div`
     width: 100%;
@@ -172,9 +174,10 @@ export default function Cart() {
                 title: '로그인이 필요합니다',
                 showDenyButton: true,
                 confirmButtonText: '로그인 페이지로',
+                confirmButtonColor: '#6db96d',
                 denyButtonText: `뒤로가기`,
+                customClass: swalCustomStyle,
             }).then((result) => {
-                /* Read more about isConfirmed, isDenied below */
                 if (result.isConfirmed) {
                     navigate('/sign-in');
                 } else if (result.isDenied) {

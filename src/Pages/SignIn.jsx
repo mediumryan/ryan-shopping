@@ -7,6 +7,8 @@ import { PageTitle, PageWrapper } from './Mans';
 import { isSignedState, userId, userPw } from '../data/signIn';
 import { userInfoState } from '../data/userInfo';
 import { useNavigate } from 'react-router-dom';
+// import swal custom class
+import { swalCustomStyle } from '../helper/swalcustom';
 
 const SignInInner = styled.div`
     display: flex;
@@ -110,8 +112,10 @@ export default function SignIn() {
             if (isUser[0].password === data.pw) {
                 Swal.fire({
                     icon: 'success',
-                    title: '환영합니다!',
-                    text: `안녕하세요, ${data.id}님`,
+                    title: `환영합니다! ${data.id}님`,
+                    confirmButtonText: '<i class="fa-solid fa-check"></i>',
+                    confirmButtonColor: '#6db96d',
+                    customClass: swalCustomStyle,
                 });
                 setId(data.id);
                 setPw(data.pw);
@@ -121,16 +125,22 @@ export default function SignIn() {
                 navigate('/');
             } else {
                 Swal.fire({
-                    icon: 'error',
+                    icon: 'warning',
                     title: 'Oops...',
                     text: '비밀번호가 일치하지 않습니다.',
+                    confirmButtonText: 'X',
+                    confirmButtonColor: '#6db96d',
+                    customClass: swalCustomStyle,
                 });
             }
         } else {
             Swal.fire({
-                icon: 'error',
+                icon: 'warning',
                 title: 'Oops...',
                 text: '일치하는 아이디 정보가 없습니다.',
+                confirmButtonText: 'X',
+                confirmButtonColor: '#6db96d',
+                customClass: swalCustomStyle,
             });
         }
     };

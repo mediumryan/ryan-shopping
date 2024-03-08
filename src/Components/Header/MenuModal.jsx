@@ -7,9 +7,11 @@ import Swal from 'sweetalert2';
 import { isMenuModal } from '../../data/atom';
 import { isSignedState, userId, userPw } from '../../data/signIn';
 // import icons
-import { FaTimes } from 'react-icons/fa';
+import { FaTimes, FaCheck } from 'react-icons/fa';
 // import components
 import SearchBar from './SearchBar';
+// import swal custom class
+import { swalCustomStyle } from '../../helper/swalcustom';
 
 const MenuModalWrapper = styled(motion.div)`
     position: fixed;
@@ -38,7 +40,7 @@ const MenuModalWrapper = styled(motion.div)`
                 cursor: pointer;
                 transition: 300ms color;
                 &:hover {
-                    color: var(--accent-300);
+                    color: var(--accent-200);
                 }
             }
         }
@@ -121,10 +123,18 @@ export default function MenuModal() {
             title: '정말로 로그아웃 하시겠어요?',
             showDenyButton: true,
             confirmButtonText: '예',
+            confirmButtonColor: '#6db96d',
             denyButtonText: `아뇨`,
+            customClass: swalCustomStyle,
         }).then((result) => {
             if (result.isConfirmed) {
-                Swal.fire('로그아웃 되었습니다', '', 'success');
+                Swal.fire({
+                    title: '로그아웃 되었습니다.',
+                    icon: 'success',
+                    confirmButtonText: '<i class="fa-solid fa-check"></i>',
+                    confirmButtonColor: '#6db96d',
+                    customClass: swalCustomStyle,
+                });
                 setIsSigned(false);
                 setId('');
                 setPw('');
@@ -154,7 +164,9 @@ export default function MenuModal() {
                 )}
                 {!isSigned && (
                     <li>
-                        <Link to="/sign-up">JOIN-US</Link>
+                        <Link to="/sign-up" style={{ color: '#6db96d' }}>
+                            JOIN-US
+                        </Link>
                     </li>
                 )}
                 <li>

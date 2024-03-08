@@ -8,6 +8,7 @@ import { PageTitle, PageWrapper } from './Mans';
 // import state data
 import { userInfoState } from '../data/userInfo';
 import { useNavigate } from 'react-router-dom';
+import { swalCustomStyle } from '../helper/swalcustom';
 
 const SignUpForm = styled.form`
     display: flex;
@@ -106,6 +107,7 @@ export default function SignUp() {
                 icon: 'warning',
                 title: 'ID error',
                 text: '이미 존재하는 ID 입니다.',
+                customClass: swalCustomStyle,
             }).then(() => {
                 setValue('id', '');
             });
@@ -115,6 +117,7 @@ export default function SignUp() {
                     icon: 'warning',
                     title: 'Password error',
                     text: '비밀번호가 일치하지 않습니다.',
+                    customClass: swalCustomStyle,
                 }).then(() => {
                     setValue('passwordCheck', '');
                 });
@@ -127,6 +130,7 @@ export default function SignUp() {
                     showDenyButton: true,
                     confirmButtonText: '홈으로',
                     denyButtonText: `로그인`,
+                    customClass: swalCustomStyle,
                 }).then((result) => {
                     if (result.isConfirmed) {
                         reset();

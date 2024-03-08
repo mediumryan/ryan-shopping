@@ -7,6 +7,8 @@ import { FaGripLines, FaSignOutAlt, FaRegUser } from 'react-icons/fa';
 // import state data
 import { isMenuModal } from '../../data/atom';
 import { isSignedState, userId, userPw } from '../../data/signIn';
+// import swal custom class
+import { swalCustomStyle } from '../../helper/swalcustom';
 
 const HeaderLogoWrapper = styled.div`
     display: flex;
@@ -55,7 +57,12 @@ export default function HeaderLogo() {
     };
 
     const handleLogOut = () => {
-        Swal.fire('로그아웃 되었습니다', '', 'success');
+        Swal.fire({
+            title: '로그아웃 되었습니다.',
+            confirmButtonText: '<i class="fa-solid fa-check"></i>',
+            confirmButtonColor: '#6db96d',
+            customClass: swalCustomStyle,
+        });
         setIsSign(false);
         setId('');
         setPw('');

@@ -28,6 +28,29 @@ button {
     user-select: none;
 }
 
+/* Swal2 custom-style */
+.swal2-success-circular-line-left,
+.swal2-success-fix,
+.swal2-success-circular-line-right {
+    background-color: transparent !important;
+}
+.swal2-success-line-tip,
+.swal2-success-line-long {
+    background-color: var(--accent-100) !important;
+}
+.custom-title {
+    font-size: 1.5rem;
+    color: rgb(90, 111, 98);
+}
+
+.custom-popup {
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 20px;
+    box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px,
+        rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+    padding: 2rem 0;
+}
+
 /* Media query --- tablet */
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
     html {
@@ -39,5 +62,8 @@ button {
 @media only screen and (min-width: 320px) and (max-width: 768px) {
     html {
         font-size: 14px;
+    }
+    .custom-popup {
+        padding: 1rem 0;
     }
 }

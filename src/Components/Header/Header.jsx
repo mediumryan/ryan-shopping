@@ -49,7 +49,7 @@ export default function Header() {
         if (header) {
             setHeaderHeight(header.offsetHeight);
         }
-    }, []);
+    }, [prevScrollPos, visible, handleScroll]);
 
     return (
         <HeaderWrapper scrolled={!visible} height={headerHeight}>

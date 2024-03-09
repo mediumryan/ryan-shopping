@@ -15,6 +15,8 @@ import {
 import { bookmarkState } from '../../../data/bookmark';
 // import icons
 import { FaStar } from 'react-icons/fa';
+// import swal custom class
+import { swalCustomStyle } from '../../../helper/swalcustom';
 
 const Buttons = styled.div`
     display: flex;
@@ -101,7 +103,9 @@ export default function DetailButtons({ item, discountedPrice }) {
                 title: `${item.name}이(가) 장바구니에 추가되었습니다.`,
                 showDenyButton: true,
                 confirmButtonText: '장바구니',
+                confirmButtonColor: '#6db96d',
                 denyButtonText: `계속 쇼핑하기`,
+                customClass: swalCustomStyle,
             }).then((result) => {
                 if (result.isConfirmed) {
                     navigate('/cart');
@@ -110,7 +114,13 @@ export default function DetailButtons({ item, discountedPrice }) {
                 }
             });
         } else if (itemCount < 1 || !color || !size) {
-            Swal.fire('상품의 색상,사이즈,개수를 확인해주세요.', '', 'warning');
+            Swal.fire({
+                icon: 'warning',
+                title: '상품의 색상,사이즈,개수를 확인해주세요.',
+                confirmButtonText: '<i class="fa-solid fa-check"></i>',
+                confirmButtonColor: '#6db96d',
+                customClass: swalCustomStyle,
+            });
         } else {
             return;
         }
@@ -147,6 +157,20 @@ export default function DetailButtons({ item, discountedPrice }) {
                     newBookmark.push(newItem);
                     return newBookmark;
                 });
+                Swal.fire({
+                    title: `${item.name}이(가) 즐겨찾기에 추가되었습니다.`,
+                    showDenyButton: true,
+                    confirmButtonText: 'Bookmark',
+                    confirmButtonColor: '#6db96d',
+                    denyButtonText: `계속 쇼핑하기`,
+                    customClass: swalCustomStyle,
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        navigate('/bookmark');
+                    } else if (result.isDenied) {
+                        return;
+                    }
+                });
             } else {
                 setBookmark((prev) => {
                     const unBookmark = prev.filter((a) => a.name !== item.name);
@@ -154,7 +178,13 @@ export default function DetailButtons({ item, discountedPrice }) {
                 });
             }
         } else if (itemCount < 1 || !color || !size) {
-            alert('상품의 색상 혹은 구매할 상품의 개수 다시 확인해 주세요.');
+            Swal.fire({
+                icon: 'warning',
+                title: '상품의 색상,사이즈,개수를 확인해주세요.',
+                confirmButtonText: '<i class="fa-solid fa-check"></i>',
+                confirmButtonColor: '#6db96d',
+                customClass: swalCustomStyle,
+            });
             return;
         } else {
             return;

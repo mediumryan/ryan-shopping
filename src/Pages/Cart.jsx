@@ -220,7 +220,7 @@ export default function Cart() {
 
     return (
         <PageWrapper>
-            <PageTitle>{id}'s Cart</PageTitle>
+            <PageTitle>{id ? id : 'guest'}'s Cart</PageTitle>
             <CartInner>
                 <table>
                     <colgroup>

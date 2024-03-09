@@ -9,7 +9,7 @@ import BookmarkItem from '../Components/Bookmark/BookmarkItem';
 import BookmarkButtons from '../Components/Bookmark/BookmarkButtons';
 // import state data
 import { bookmarkState } from '../data/bookmark';
-import { isSignedState } from '../data/signIn';
+import { isSignedState, userId } from '../data/signIn';
 // import swal custom class
 import { swalCustomStyle } from '../helper/swalcustom';
 
@@ -17,6 +17,7 @@ export default function Bookmark() {
     const [bookmark, setBookmark] = useRecoilState(bookmarkState);
     const [allCheckState, setAllCheckState] = useState(false);
     const isSigned = useRecoilValue(isSignedState);
+    const id = useRecoilValue(userId);
 
     // check user log in
     const navigate = useNavigate();
@@ -73,7 +74,7 @@ export default function Bookmark() {
 
     return (
         <PageWrapper style={{ position: 'relative' }}>
-            <PageTitle>Bookmark</PageTitle>
+            <PageTitle>{id ? id : 'guest'}'s Bookmark</PageTitle>
             <CartInner>
                 <table>
                     <colgroup>

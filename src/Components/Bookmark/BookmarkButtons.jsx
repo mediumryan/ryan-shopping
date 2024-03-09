@@ -7,6 +7,8 @@ import { bookmarkState } from '../../data/bookmark';
 import { cartState } from '../../data/cart';
 import { useNavigate } from 'react-router-dom';
 import { FaShoppingCart } from 'react-icons/fa';
+import { swalCustomStyle } from '../../helper/swalcustom';
+// import swal custom class
 
 const BookmarkButtonsWrapper = styled.div`
     bottom: 1rem;
@@ -52,17 +54,31 @@ export default function BookmarkButtons() {
                 title: '모든 항목을 제거합니다.',
                 showDenyButton: true,
                 confirmButtonText: '예',
+                confirmButtonColor: '#6db96d',
                 denyButtonText: `아뇨`,
+                customClass: swalCustomStyle,
             }).then((result) => {
                 if (result.isConfirmed) {
                     setBookmark([]);
-                    Swal.fire('모든 항목이 제거되었습니다.', '', 'success');
+                    Swal.fire({
+                        icon: 'success',
+                        title: '모든 항목이 제거되었습니다.',
+                        confirmButtonText: '<i class="fa-solid fa-check"></i>',
+                        confirmButtonColor: '#6db96d',
+                        customClass: swalCustomStyle,
+                    });
                 } else if (result.isDenied) {
                     return;
                 }
             });
         } else {
-            Swal.fire('상품이 존재하지 않습니다.', '', 'warning');
+            Swal.fire({
+                icon: 'warning',
+                title: '선택된 항목이 존재하지 않습니다.',
+                confirmButtonText: '<i class="fa-solid fa-check"></i>',
+                confirmButtonColor: '#6db96d',
+                customClass: swalCustomStyle,
+            });
         }
     };
 
@@ -75,7 +91,9 @@ export default function BookmarkButtons() {
                 title: '선택된 항목을 제거합니다.',
                 showDenyButton: true,
                 confirmButtonText: '예',
+                confirmButtonColor: '#6db96d',
                 denyButtonText: `아뇨`,
+                customClass: swalCustomStyle,
             }).then((result) => {
                 if (result.isConfirmed) {
                     setBookmark((prev) => {
@@ -94,7 +112,13 @@ export default function BookmarkButtons() {
     const moveToCart = () => {
         const checkedItem = bookmark.filter((a) => a.checked);
         if (checkedItem.length === 0) {
-            Swal.fire('선택된 항목이 없습니다.', '', 'OK');
+            Swal.fire({
+                icon: 'warning',
+                title: '선택된 항목이 존재하지 않습니다.',
+                confirmButtonText: '<i class="fa-solid fa-check"></i>',
+                confirmButtonColor: '#6db96d',
+                customClass: swalCustomStyle,
+            });
             return;
         }
         checkedItem.forEach((a) => {

@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/ryan-shopping/static/css/main.d51e8db7.css",
-    "main.js": "/ryan-shopping/static/js/main.91f45805.js",
+    "main.js": "/ryan-shopping/static/js/main.8696681b.js",
     "static/media/detail_detail_graph.png": "/ryan-shopping/static/media/detail_detail_graph.78347e6343a578953691.png",
     "static/media/detail_size_graph.png": "/ryan-shopping/static/media/detail_size_graph.008a5f7ab5bc39b536f3.png",
     "static/media/detail_sub_detail_graph.png": "/ryan-shopping/static/media/detail_sub_detail_graph.6a23c1efbd6696655998.png",
     "index.html": "/ryan-shopping/index.html",
     "main.d51e8db7.css.map": "/ryan-shopping/static/css/main.d51e8db7.css.map",
-    "main.91f45805.js.map": "/ryan-shopping/static/js/main.91f45805.js.map"
+    "main.8696681b.js.map": "/ryan-shopping/static/js/main.8696681b.js.map"
   },
   "entrypoints": [
     "static/css/main.d51e8db7.css",
-    "static/js/main.91f45805.js"
+    "static/js/main.8696681b.js"
   ]
 }

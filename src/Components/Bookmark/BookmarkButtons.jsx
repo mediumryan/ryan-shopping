@@ -7,8 +7,8 @@ import { bookmarkState } from '../../data/bookmark';
 import { cartState } from '../../data/cart';
 import { useNavigate } from 'react-router-dom';
 import { FaShoppingCart } from 'react-icons/fa';
-import { swalCustomStyle } from '../../helper/swalcustom';
 // import swal custom class
+import { swalCustomStyle } from '../../helper/swalcustom';
 
 const BookmarkButtonsWrapper = styled.div`
     bottom: 1rem;
@@ -84,7 +84,13 @@ export default function BookmarkButtons() {
 
     const deleteSelected = () => {
         if (bookmark.filter((a) => a.checked).length === 0) {
-            Swal.fire('상품을 선택해주세요.', '', 'warning');
+            Swal.fire({
+                icon: 'warning',
+                title: '상품을 선택해주세요.',
+                confirmButtonText: '<i class="fa-solid fa-check"></i>',
+                confirmButtonColor: '#6db96d',
+                customClass: swalCustomStyle,
+            });
             return;
         } else {
             Swal.fire({
@@ -100,7 +106,13 @@ export default function BookmarkButtons() {
                         const newBookmark = prev.filter((a) => !a.checked);
                         return newBookmark;
                     });
-                    Swal.fire('선택된 항목이 제거되었습니다.', '', 'success');
+                    Swal.fire({
+                        icon: 'success',
+                        title: '선택된 항목이 제거되었습니다.',
+                        confirmButtonText: '<i class="fa-solid fa-check"></i>',
+                        confirmButtonColor: '#6db96d',
+                        customClass: swalCustomStyle,
+                    });
                 } else if (result.isDenied) {
                     return;
                 }

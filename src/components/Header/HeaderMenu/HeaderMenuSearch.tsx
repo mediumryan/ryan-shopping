@@ -1,5 +1,3 @@
-'use client';
-
 import { searchAction } from '@/actions/searchAction';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';

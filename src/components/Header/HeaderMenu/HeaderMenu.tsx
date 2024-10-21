@@ -29,7 +29,7 @@ export default function HeaderMenu({ isSigned }: { isSigned: any }) {
         </SheetHeader>
         <div className="relative">
           <HeaderMenuSearch setOpen={setOpen} />
-          <HeaderMenuLink />
+          <HeaderMenuLink setOpen={setOpen} />
         </div>
         <SheetFooter>
           <SheetClose asChild>

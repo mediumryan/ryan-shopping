@@ -1,4 +1,5 @@
 import { Diphylleia } from 'next/font/google';
+import Link from 'next/link';
 
 const Diphylleia_fonts = Diphylleia({
   subsets: ['latin'],
@@ -8,12 +9,14 @@ const Diphylleia_fonts = Diphylleia({
 export default function HeaderLogo() {
   return (
     <div>
-      <h3
-        className={`${Diphylleia_fonts.className} text-3xl`}
-        style={{ fontWeight: '700' }}
-      >
-        Ryan Mall
-      </h3>
+      <Link href="/">
+        <h3
+          className={`${Diphylleia_fonts.className} text-2xl md:text-3xl`}
+          style={{ fontWeight: '700' }}
+        >
+          Ryan Mall
+        </h3>
+      </Link>
     </div>
   );
 }

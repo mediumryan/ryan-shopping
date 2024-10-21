@@ -3,6 +3,8 @@ import localFont from 'next/font/local';
 import './globals.css';
 import Header from '@/components/Header/Header';
 import GoToTop from '@/components/GoToTop';
+import RecoilProvider from './recoilProvider';
+import { cookies } from 'next/headers';
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -25,14 +27,19 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const cookieStore = cookies();
+  const isSigned = cookieStore.get('isSigned');
+
   return (
     <html lang="en">
       <body
         className={`relative ${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Header />
-        {children}
-        <GoToTop />
+        <RecoilProvider>
+          <Header isSigned={isSigned} />
+          {children}
+          <GoToTop />
+        </RecoilProvider>
       </body>
     </html>
   );

@@ -24,7 +24,7 @@ export default function ProductWrapper({ productId }: { productId: string }) {
       {/* 제품 구매 정보 */}
       <ProductPurchaseInfo data={data} />
       {/* 제품 구매 탭 - 5개 화면 */}
-      <ProductTabs />
+      <ProductTabs data={data} />
     </div>
   );
 }

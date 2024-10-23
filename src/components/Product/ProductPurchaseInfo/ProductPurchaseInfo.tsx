@@ -1,11 +1,9 @@
 'use client';
 
 import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
 import { ProductType } from '@/data/product';
 import Image from 'next/image';
 import React, { useState } from 'react';
-import { PiStarThin } from 'react-icons/pi';
 import { ColorToggle } from './ColorToggle';
 import { SizeToggle } from './SizeToggle';
 import ProductCounter from './ProductCounter';

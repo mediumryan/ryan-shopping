@@ -1,6 +1,7 @@
 'use client';
 
 import { productsAtom, ProductType } from '@/data/product';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
@@ -32,8 +33,13 @@ export default function HomeCard({ filter, title }: IHomeCardProps) {
     <div className="group relative grid grid-cols-2 grid-rows-2 items-center p-2 h-[360px] md:min-h-[720px] rounded-md overflow-hidden">
       {data.map((item) => {
         return (
-          <div key={`home-${title}-${item.id}`} className="h-[75%]">
-            <img src={item.image_path} alt={item.name} className="h-full" />
+          <div key={`home-${title}-${item.id}`} className="relative h-[75%]">
+            <Image
+              src={item.image_path}
+              alt={item.name}
+              fill={true}
+              sizes="100%"
+            />
           </div>
         );
       })}

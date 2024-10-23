@@ -7,8 +7,8 @@ import { productsAtom, ProductType } from '@/data/product';
 import React, { useEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
 
-export default function OuterPage() {
-  const page_category = 'outer';
+export default function OnePiecePage() {
+  const page_category = 'one-piece';
   const productsData = useRecoilValue(productsAtom);
   const [data, setData] = useState<ProductType[]>([]);
 

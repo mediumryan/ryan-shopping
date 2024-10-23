@@ -25,3 +25,34 @@ export const linksData = [
     value: 'CART',
   },
 ];
+
+export const navigationData = [
+  {
+    id: 0,
+    value: 'mans',
+  },
+  {
+    id: 1,
+    value: 'ladies',
+  },
+  {
+    id: 2,
+    value: 'outer',
+  },
+  {
+    id: 3,
+    value: 'top',
+  },
+  {
+    id: 4,
+    value: 'bottom',
+  },
+  {
+    id: 5,
+    value: 'one-piece',
+  },
+  {
+    id: 6,
+    value: 'accessory',
+  },
+];

@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import HeaderMenu from '@/components/Header/HeaderMenu/HeaderMenu';
 import HeaderLogo from '@/components/Header/HeaderLogo';
 import HeaderSign from '@/components/Header/HeaderSign';
+import HeaderNavigation from './HeaderNavigation';
 
 export default function Header({ isSigned }: { isSigned: any }) {
   const [isVisible, setIsVisible] = useState(true);
@@ -31,16 +32,19 @@ export default function Header({ isSigned }: { isSigned: any }) {
 
   return (
     <div
-      className={`flex items-center justify-between py-4 px-4 md:px-48 text-gray-400 bg-white sticky top-0 w-full z-40 transition-transform duration-300 ${
+      className={`flex flex-col items-start gap-8 pt-4 px-4 md:px-48 text-gray-400 bg-white sticky top-0 w-full z-40 transition-transform duration-300 ${
         isVisible ? 'translate-y-0' : '-translate-y-full'
       }`}
     >
-      {/* menu */}
-      <HeaderMenu isSigned={isSigned} />
-      {/* logo */}
-      <HeaderLogo />
-      {/* sign */}
-      <HeaderSign isSigned={isSigned} />
+      <div className="w-full flex justify-between items-center">
+        {/* menu */}
+        <HeaderMenu isSigned={isSigned} />
+        {/* logo */}
+        <HeaderLogo />
+        {/* sign */}
+        <HeaderSign isSigned={isSigned} />
+      </div>
+      <HeaderNavigation />
     </div>
   );
 }

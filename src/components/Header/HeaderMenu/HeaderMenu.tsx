@@ -21,19 +21,19 @@ export default function HeaderMenu({ isSigned }: { isSigned: any }) {
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
-        <IoMenu />
+        <IoMenu className="cursor-pointer" />
       </SheetTrigger>
       <SheetContent>
         <SheetHeader>
           <SheetTitle>Hello, Ryan!</SheetTitle>
         </SheetHeader>
         <div className="relative">
-          <HeaderMenuSearch setOpen={setOpen} />
+          <HeaderMenuSearch />
           <HeaderMenuLink setOpen={setOpen} />
         </div>
         <SheetFooter>
           <SheetClose asChild>
-            <div className="flex items-center text-gray-400">
+            <div className="flex items-center text-gray-400 cursor-pointer">
               {isSigned ? <span>Sign in</span> : <PiSignOutBold />}
             </div>
           </SheetClose>

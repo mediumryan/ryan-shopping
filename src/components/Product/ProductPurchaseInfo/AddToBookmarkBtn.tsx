@@ -10,17 +10,18 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog';
 import { HorizontalLine } from './ProductPurchaseInfo';
-import { useRecoilState } from 'recoil';
-import { cartAtom } from '@/data/cart';
+import { useRecoilState, useSetRecoilState } from 'recoil';
 import { ProductType } from '@/data/product';
 import { bookmarkAtom } from '@/data/bookmark';
 import { IoStar } from 'react-icons/io5';
+import { moveToPageOpenAtom } from '@/data/common';
 
 interface IAddToBookmarkBtnProps {
   data: ProductType;
   color: string;
   size: string;
   count: number;
+  setSubmitStatus: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export const submitButtonStyle = 'w-32';
@@ -30,10 +31,14 @@ export default function AddToBookmarkBtn({
   color,
   size,
   count,
+  setSubmitStatus,
 }: IAddToBookmarkBtnProps) {
   const [bookmark, setBookmark] = useRecoilState(bookmarkAtom);
+  const setOpen = useSetRecoilState(moveToPageOpenAtom);
 
   const addToCart = () => {
+    setSubmitStatus('bookmark');
+    setOpen(true);
     setBookmark((preBookmark) => {
       const newBookmark = [...preBookmark];
       // 이미 해당 아이템이 존재한다면 카운트만 증가
@@ -51,17 +56,18 @@ export default function AddToBookmarkBtn({
       // 존재하지 않는다면 새롭게 추가
       else {
         const newItem = {
-          id: data.id,
+          id: Number(new Date()),
           name: data.name,
           price: data.price,
-          discounted: (1 - data.discounted).toFixed(),
           size: size,
           color: color,
           image_path: data.image_path,
           count: count,
+          isChecked: false,
         };
         return [...newBookmark, newItem];
       }
+
       return newBookmark;
     });
   };

@@ -9,6 +9,7 @@ import { SizeToggle } from './SizeToggle';
 import ProductCounter from './ProductCounter';
 import AddToCartBtn from './AddToCartBtn';
 import AddToBookmarkBtn from './AddToBookmarkBtn';
+import MoveToPage from './MoveToPage';
 
 const subItemWrapperStyle = 'grid grid-cols-12 items-center';
 
@@ -21,10 +22,12 @@ function ProductPurchaseInfo({ data }: { data: ProductType }) {
   const [size, setSize] = useState('');
   const [count, setCount] = useState(0);
 
+  const [submitStatus, setSubmitStatus] = useState('');
+
   return (
     <>
       {data && (
-        <div className="flex flex-col items-center md:flex-row md:w-4/5 md:mx-auto gap-4 md:space-x-12 px-8 md:px-24">
+        <div className="relative flex flex-col items-center md:flex-row md:w-4/5 md:mx-auto gap-4 md:space-x-12 px-8 md:px-24">
           {/* 이미지 */}
           <div className="relative w-full md:min-w-[500px] md:max-w-[500px] h-96 md:h-[500px] rounded-md overflow-hidden">
             <Image
@@ -110,16 +113,19 @@ function ProductPurchaseInfo({ data }: { data: ProductType }) {
                   color={color}
                   size={size}
                   count={count}
+                  setSubmitStatus={setSubmitStatus}
                 />
                 <AddToBookmarkBtn
                   data={data}
                   color={color}
                   size={size}
                   count={count}
+                  setSubmitStatus={setSubmitStatus}
                 />
               </div>
             </div>
           </div>
+          <MoveToPage submitStatus={submitStatus} />
         </div>
       )}
     </>

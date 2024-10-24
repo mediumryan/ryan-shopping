@@ -8,28 +8,28 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import { cartAtom } from '@/data/cart';
 import { useRecoilState } from 'recoil';
-import CartImagePopOver from './CartImagePopOver';
-import CartItemCounter from './CartItemCounter';
-import CartCheckBox from './CartCheckBox';
-import { Checkbox } from '../ui/checkbox';
+import { Checkbox } from '@/components/ui/checkbox';
+import { bookmarkAtom } from '@/data/bookmark';
+import BookmarkCheckBox from './BookmarkCheckBox';
 import { useState } from 'react';
+import BookmarkImagePopOver from './BookmarkImagePopOver';
+import BookmarkItemCounter from './BookmarkItemCounter';
 
-export default function CartTable() {
-  const [cart, setCart] = useRecoilState(cartAtom);
+export default function BookmarkTable() {
+  const [bookmark, setBookmark] = useRecoilState(bookmarkAtom);
   const [allStatus, setAllStatus] = useState(false);
 
-  const selectAllCart = () => {
+  const selectAllBookmark = () => {
     if (!allStatus) {
-      setCart((prev) => {
+      setBookmark((prev) => {
         return prev.map((item) => ({
           ...item,
           isChecked: true,
         }));
       });
     } else {
-      setCart((prev) => {
+      setBookmark((prev) => {
         return prev.map((item) => ({
           ...item,
           isChecked: false,
@@ -44,7 +44,7 @@ export default function CartTable() {
         <TableRow>
           <TableHead>
             <Checkbox
-              onClick={selectAllCart}
+              onClick={selectAllBookmark}
               onCheckedChange={() => {
                 setAllStatus((prev) => !prev);
               }}
@@ -58,20 +58,20 @@ export default function CartTable() {
         </TableRow>
       </TableHeader>
       <TableBody>
-        {cart.length > 0 ? (
-          cart.map((item, index) => (
-            <TableRow key={`cart-${item.id}-${index}`}>
+        {bookmark.length > 0 ? (
+          bookmark.map((item, index) => (
+            <TableRow key={`bookmark-${item.id}-${index}`}>
               <TableCell>
-                <CartCheckBox item={item} />
+                <BookmarkCheckBox item={item} />
               </TableCell>
               <TableCell className="min-w-[100px]">
-                <CartImagePopOver item={item} />
+                <BookmarkImagePopOver item={item} />
               </TableCell>
               <TableCell className="min-w-[100px] text-right">
                 <p>{item.price.toLocaleString()} KWR</p>
               </TableCell>
               <TableCell className="min-w-[100px] text-center">
-                <CartItemCounter item={item} />
+                <BookmarkItemCounter item={item} />
               </TableCell>
               <TableCell>FREE</TableCell>
               <TableCell className="min-w-[100px] text-right">
@@ -81,7 +81,7 @@ export default function CartTable() {
           ))
         ) : (
           <TableRow>
-            <TableCell colSpan={6}>장바구니가 비어있어요.</TableCell>
+            <TableCell colSpan={6}>즐겨찾기가 비어있어요.</TableCell>
           </TableRow>
         )}
       </TableBody>

@@ -10,15 +10,17 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog';
 import { HorizontalLine } from './ProductPurchaseInfo';
-import { useRecoilState } from 'recoil';
+import { useSetRecoilState } from 'recoil';
 import { cartAtom } from '@/data/cart';
 import { ProductType } from '@/data/product';
+import { moveToPageOpenAtom } from '@/data/common';
 
 interface IAddToCartBtnProps {
   data: ProductType;
   color: string;
   size: string;
   count: number;
+  setSubmitStatus: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export const submitButtonStyle = 'w-32';
@@ -28,10 +30,14 @@ export default function AddToCartBtn({
   color,
   size,
   count,
+  setSubmitStatus,
 }: IAddToCartBtnProps) {
-  const [cart, setCart] = useRecoilState(cartAtom);
+  const setCart = useSetRecoilState(cartAtom);
+  const setOpen = useSetRecoilState(moveToPageOpenAtom);
 
   const addToCart = () => {
+    setSubmitStatus('cart');
+    setOpen(true);
     setCart((preCart) => {
       const newCart = [...preCart];
       // 이미 해당 아이템이 존재한다면 카운트만 증가
@@ -49,7 +55,7 @@ export default function AddToCartBtn({
       // 존재하지 않는다면 새롭게 추가
       else {
         const newItem = {
-          id: data.id,
+          id: Number(new Date()),
           name: data.name,
           price: data.price,
           discounted: (1 - data.discounted).toFixed(),

@@ -1,6 +1,5 @@
 'use client';
 
-import ItemCard from '@/components/common/ItemCard';
 import PageTitle from '@/components/common/PageTitle';
 import PageWrapper from '@/components/common/PageWrapper';
 import { productsAtom, ProductType } from '@/data/product';

@@ -57,6 +57,7 @@ export default function AddToCartBtn({
           color: color,
           image_path: data.image_path,
           count: count,
+          isChecked: false,
         };
         return [...newCart, newItem];
       }

@@ -3,15 +3,15 @@
 import Link from 'next/link';
 import { Button } from '../ui/button';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { useRouter } from 'next/navigation';
 import Swal from 'sweetalert2';
 import { Noto_Sans_JP } from 'next/font/google';
+import { useRouter } from 'next/navigation';
 
 const notoSansJP = Noto_Sans_JP({ subsets: ['latin'] });
 
 type IFormInput = {
   id: string;
-  pw: string;
+  pw_key: string;
 };
 
 const signInInputStyle = 'border-b-2 p-2 focus:outline-green-700';
@@ -21,7 +21,7 @@ export const swalCustomSubmitBtnStyle = {
   popup: `w-[320px] ${notoSansJP.className}`,
 };
 
-export default function SignInForm() {
+export default function FindPwForm() {
   const router = useRouter();
 
   const {
@@ -31,40 +31,47 @@ export default function SignInForm() {
     formState: { errors },
   } = useForm<IFormInput>();
 
-  const signIn = async (params: IFormInput) => {
-    const res = await fetch('/api/signIn', {
+  const findPw = async (params: IFormInput) => {
+    const res = await fetch('/api/findPw', {
       method: 'POST',
-      body: JSON.stringify({
-        id: params.id,
-        pw: params.pw,
-      }),
+      body: JSON.stringify(params),
     });
+
     if (res.ok) {
       const result = await res.json();
-
-      console.log(result);
-
-      if (result.status === 'ng') {
-        setValue('pw', '');
+      if (result.status === 'ok') {
+        setValue('id', '');
+        setValue('pw_key', '');
+        Swal.fire({
+          text: result.message,
+          icon: 'success',
+          customClass: swalCustomSubmitBtnStyle,
+          confirmButtonText: '로그인',
+          cancelButtonText: 'OK',
+          showCancelButton: true,
+        }).then((result) => {
+          if (result.isConfirmed) {
+            router.push('/sign-in');
+            router.refresh();
+          }
+        });
+      } else if (result.status === 'id') {
+        setValue('id', '');
+        setValue('pw_key', '');
         Swal.fire({
           text: result.message,
           icon: 'warning',
           customClass: swalCustomSubmitBtnStyle,
         });
       } else {
+        setValue('pw_key', '');
         Swal.fire({
           text: result.message,
-          icon: 'success',
+          icon: 'warning',
           customClass: swalCustomSubmitBtnStyle,
         });
-        setValue('id', '');
-        setValue('pw', '');
-        router.push('/');
-        router.refresh();
       }
     } else {
-      setValue('id', '');
-      setValue('pw', '');
       const error = await res.json();
       Swal.fire({
         text: error.message,
@@ -77,9 +84,9 @@ export default function SignInForm() {
   const onSubmit: SubmitHandler<IFormInput> = (data) => {
     const params = {
       id: data.id,
-      pw: data.pw,
+      pw_key: data.pw_key,
     };
-    signIn(params);
+    findPw(params);
   };
 
   return (
@@ -95,16 +102,16 @@ export default function SignInForm() {
         {...register('id', { required: true })}
       />
       {errors.id && <span>This field is required</span>}
-      {/* pw */}
+      {/* pw key */}
       <input
-        type="password"
-        placeholder="PW"
+        type="text"
+        placeholder="PW Key"
         className={signInInputStyle}
-        {...register('pw', { required: true })}
+        {...register('pw_key', { required: true })}
       />
-      {errors.pw && <span>This field is required</span>}
+      {errors.pw_key && <span>This field is required</span>}
       {/* submit button */}
-      <Button type="submit">Sign in</Button>
+      <Button type="submit">Find</Button>
       {/* footer ( sign-up / find pw ) */}
       <div className="flex items-center justify-between">
         <Link
@@ -114,10 +121,10 @@ export default function SignInForm() {
           Sign up
         </Link>
         <Link
-          href="find-pw"
+          href="sign-in"
           className="text-xs text-gray-400 underline hover:text-green-700 duration-300"
         >
-          forget your password?
+          Sign in
         </Link>
       </div>
     </form>

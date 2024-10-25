@@ -6,7 +6,7 @@ export type UsersType = {
   user_id: string;
   password: string;
   created_at: string;
-  pw_find_hint: string;
+  find_pw_hint: string;
 };
 
 type AddUserProps = {

@@ -31,6 +31,7 @@ export default function SignUpForm() {
     register,
     handleSubmit,
     reset,
+    setValue,
     watch,
     formState: { errors },
   } = useForm<IFormInput>();
@@ -42,13 +43,23 @@ export default function SignUpForm() {
     });
     if (res.ok) {
       const result = await res.json();
-      Swal.fire({
-        text: result.message,
-        icon: 'success',
-        customClass: swalCustomSubmitBtnStyle,
-      });
-      router.push('/');
-      router.refresh();
+      if (result.status === 'ok') {
+        Swal.fire({
+          text: result.message,
+          icon: 'success',
+          customClass: swalCustomSubmitBtnStyle,
+        });
+        reset();
+        router.push('/');
+        router.refresh();
+      } else {
+        Swal.fire({
+          text: result.message,
+          icon: 'warning',
+          customClass: swalCustomSubmitBtnStyle,
+        });
+        setValue('id', '');
+      }
     } else {
       const error = await res.json();
       Swal.fire({
@@ -57,7 +68,6 @@ export default function SignUpForm() {
         customClass: swalCustomSubmitBtnStyle,
       });
     }
-    reset();
   };
 
   const onSubmit: SubmitHandler<IFormInput> = (data) => {

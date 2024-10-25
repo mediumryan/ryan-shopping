@@ -30,15 +30,12 @@ export async function POST(req: Request) {
 
       return response;
     } else {
-      return NextResponse.json(
-        { status: 'ng', message: '비밀번호가 일치하지 않습니다' },
-        { status: 401 }
-      );
+      return NextResponse.json({
+        status: 'ng',
+        message: '비밀번호가 일치하지 않습니다',
+      });
     }
   } catch (err: any) {
-    return NextResponse.json(
-      { message: '잘못된 아이디 혹은 비밀번호입니다.' },
-      { status: 500 }
-    );
+    throw new Error('로그인에 실패했습니다. 다시 한번 시도해주세요.');
   }
 }

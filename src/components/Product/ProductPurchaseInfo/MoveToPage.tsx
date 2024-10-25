@@ -32,8 +32,8 @@ export default function MoveToPage({ submitStatus }: IMoveToPageProps) {
         <DialogHeader>
           <DialogTitle>
             {submitStatus === 'cart'
-              ? '장바구니 페이지로 이동'
-              : '즐겨찾기 페이지로 이동'}
+              ? '상품이 장바구니에 추가되었습니다.'
+              : '상품이 즐겨찾기 추가되었습니다.'}
           </DialogTitle>
           <DialogDescription>
             {submitStatus === 'cart'

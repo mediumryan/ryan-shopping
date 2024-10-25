@@ -6,6 +6,11 @@ import GoToTop from '@/components/GoToTop';
 import RecoilProvider from './recoilProvider';
 import { cookies } from 'next/headers';
 
+export type UserType = {
+  id: string;
+  name: string;
+};
+
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
   variable: '--font-geist-sans',
@@ -28,7 +33,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const cookieStore = cookies();
-  const isSigned = cookieStore.get('isSigned');
+  const user = cookieStore.get('user')?.value;
+  const isSigned = user ? (JSON.parse(user as string) as UserType) : undefined;
 
   return (
     <html lang="en">

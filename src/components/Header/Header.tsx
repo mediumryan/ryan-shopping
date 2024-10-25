@@ -5,8 +5,13 @@ import HeaderMenu from '@/components/Header/HeaderMenu/HeaderMenu';
 import HeaderLogo from '@/components/Header/HeaderLogo';
 import HeaderSign from '@/components/Header/HeaderSign';
 import HeaderNavigation from './HeaderNavigation';
+import { UserType } from '@/app/layout';
 
-export default function Header({ isSigned }: { isSigned: any }) {
+export default function Header({
+  isSigned,
+}: {
+  isSigned: UserType | undefined;
+}) {
   const [isVisible, setIsVisible] = useState(true);
   const prevScrollY = useRef(0);
 

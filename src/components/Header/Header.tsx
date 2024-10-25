@@ -7,11 +7,7 @@ import HeaderSign from '@/components/Header/HeaderSign';
 import HeaderNavigation from './HeaderNavigation';
 import { UserType } from '@/app/layout';
 
-export default function Header({
-  isSigned,
-}: {
-  isSigned: UserType | undefined;
-}) {
+function Header({ isSigned }: { isSigned: UserType | undefined }) {
   const [isVisible, setIsVisible] = useState(true);
   const prevScrollY = useRef(0);
 
@@ -53,3 +49,5 @@ export default function Header({
     </div>
   );
 }
+
+export default React.memo(Header);

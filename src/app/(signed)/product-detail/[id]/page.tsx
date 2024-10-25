@@ -1,5 +1,9 @@
 import ProductWrapper from '@/components/Product/ProductWrapper';
 
+export const metadata = {
+  title: 'Product Detail',
+};
+
 interface IProductDetailPageProps {
   params: {
     id: string;

@@ -1,11 +1,13 @@
-'use client';
-
 import BookmarkDeleteBtn from '@/components/Bookmark/BookmarkDeleteBtn';
 import BookmarkMoveToCartBtn from '@/components/Bookmark/BookmarkMoveToCartBtn';
 import BookmarkTable from '@/components/Bookmark/BookmarkTable';
 import BookmarkTotal from '@/components/Bookmark/BookmarkTotal';
 import MoveToCart from '@/components/Bookmark/MoveToCart';
 import PageTitle from '@/components/common/PageTitle';
+
+export const metadata = {
+  title: 'Bookmark',
+};
 
 export default function BookmarkPage() {
   return (

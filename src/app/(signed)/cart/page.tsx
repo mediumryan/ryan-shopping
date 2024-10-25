@@ -4,6 +4,10 @@ import CartTable from '@/components/Cart/CartTable';
 import CartTotal from '@/components/Cart/CartTotal';
 import PageTitle from '@/components/common/PageTitle';
 
+export const metadata = {
+  title: 'Cart',
+};
+
 export default function CartPage() {
   return (
     <div className="flex flex-col items-center gap-2 px-2 py-12 md:w-3/4 md:mx-auto">

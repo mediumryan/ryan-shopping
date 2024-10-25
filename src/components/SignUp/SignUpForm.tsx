@@ -132,22 +132,7 @@ export default function SignUpForm() {
       />
       {errors.pw_key && <ErrorMessage message={errors.pw_key.message} />}
       {/* submit button */}
-      <Button type="submit">Sign in</Button>
-      {/* footer ( sign-up / find pw ) */}
-      <div className="flex items-center justify-between">
-        <Link
-          href="sign-up"
-          className="text-xs text-gray-400 underline hover:text-green-700 duration-300"
-        >
-          Sign up
-        </Link>
-        <Link
-          href="find-pw"
-          className="text-xs text-gray-400 underline hover:text-green-700 duration-300"
-        >
-          forget your password?
-        </Link>
-      </div>
+      <Button type="submit">Sign Up</Button>
     </form>
   );
 }

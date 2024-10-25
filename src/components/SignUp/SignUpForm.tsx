@@ -6,6 +6,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { useRouter } from 'next/navigation';
 import Swal from 'sweetalert2';
 import { Noto_Sans_JP } from 'next/font/google';
+import ErrorMessage from '../ErrorMessage';
 
 const notoSansJP = Noto_Sans_JP({ subsets: ['latin'] });
 
@@ -148,13 +149,5 @@ export default function SignUpForm() {
         </Link>
       </div>
     </form>
-  );
-}
-
-function ErrorMessage({ message }: { message: string | undefined }) {
-  return (
-    <span className="text-red-500 text-xs">
-      {message ? message : '필수 항목입니다.'}
-    </span>
   );
 }

@@ -6,6 +6,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { useRouter } from 'next/navigation';
 import Swal from 'sweetalert2';
 import { Noto_Sans_JP } from 'next/font/google';
+import ErrorMessage from '../ErrorMessage';
 
 const notoSansJP = Noto_Sans_JP({ subsets: ['latin'] });
 
@@ -94,7 +95,7 @@ export default function SignInForm() {
         className={signInInputStyle}
         {...register('id', { required: true })}
       />
-      {errors.id && <span>This field is required</span>}
+      {errors.id && <ErrorMessage message={errors.id.message} />}
       {/* pw */}
       <input
         type="password"
@@ -102,7 +103,7 @@ export default function SignInForm() {
         className={signInInputStyle}
         {...register('pw', { required: true })}
       />
-      {errors.pw && <span>This field is required</span>}
+      {errors.pw && <ErrorMessage message={errors.pw.message} />}
       {/* submit button */}
       <Button type="submit">Sign in</Button>
       {/* footer ( sign-up / find pw ) */}

@@ -1,3 +1,5 @@
+<img width="1456" alt="스크린샷 2024-10-28 11 27 19" src="https://github.com/user-attachments/assets/442a7c8f-f4d5-44d5-9660-a82e916b0d82">
+
 기존 React.js 코드를 Next.js + TypeScript 코드로 변경하였습니다.
 추가로 약간의 디자인 변경이 있습니다.
 

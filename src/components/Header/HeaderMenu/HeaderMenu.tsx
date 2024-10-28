@@ -48,7 +48,7 @@ export default function HeaderMenu({
           <SheetTitle>{isSigned ? isSigned.id : 'Guest'}</SheetTitle>
         </SheetHeader>
         <div className="relative">
-          <HeaderMenuSearch />
+          <HeaderMenuSearch setOpen={setOpen} />
           <HeaderMenuLink setOpen={setOpen} />
         </div>
         <SheetFooter>

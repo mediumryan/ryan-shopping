@@ -7,6 +7,7 @@ import { useRouter } from 'next/navigation';
 import Swal from 'sweetalert2';
 import { Noto_Sans_JP } from 'next/font/google';
 import ErrorMessage from '../ErrorMessage';
+import { useEffect } from 'react';
 
 const notoSansJP = Noto_Sans_JP({ subsets: ['latin'] });
 
@@ -29,6 +30,7 @@ export default function SignInForm() {
     register,
     handleSubmit,
     setValue,
+    setFocus,
     formState: { errors },
   } = useForm<IFormInput>();
 
@@ -42,9 +44,6 @@ export default function SignInForm() {
     });
     if (res.ok) {
       const result = await res.json();
-
-      console.log(result);
-
       if (result.status === 'ng') {
         setValue('pw', '');
         Swal.fire({
@@ -82,6 +81,10 @@ export default function SignInForm() {
     };
     signIn(params);
   };
+
+  useEffect(() => {
+    setFocus('id');
+  }, []);
 
   return (
     <form

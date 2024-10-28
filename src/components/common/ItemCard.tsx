@@ -7,7 +7,7 @@ import Link from 'next/link';
 export default function ItemCard({ item }: { item: ProductType }) {
   return (
     <Link
-      href={`product-detail/${item.id}`}
+      href={`/product-detail/${item.id}`}
       className="bg-gray-50 flex flex-col justify-center items-center gap-2 rounded-md overflow-hidden shadow-md hover:-translate-y-4 hover:opacity-90 duration-300"
     >
       <div className="relative w-full h-48">

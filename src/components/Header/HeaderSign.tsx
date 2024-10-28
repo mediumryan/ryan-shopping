@@ -31,7 +31,7 @@ export default function HeaderSign({
   return (
     <div className="flex items-center gap-4 cursor-pointer">
       {!isSigned ? (
-        <Link href="sign-in">Sign in</Link>
+        <Link href="/sign-in">Sign in</Link>
       ) : (
         <PiSignOutBold onClick={signOut} />
       )}

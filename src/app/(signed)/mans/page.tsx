@@ -5,7 +5,7 @@ export const metadata = {
   title: 'Mans',
 };
 
-export default function MansPage() {
+export default async function MansPage() {
   const page_category = 'mans';
 
   return (

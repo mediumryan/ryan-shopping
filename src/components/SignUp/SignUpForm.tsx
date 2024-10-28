@@ -7,6 +7,7 @@ import { useRouter } from 'next/navigation';
 import Swal from 'sweetalert2';
 import { Noto_Sans_JP } from 'next/font/google';
 import ErrorMessage from '../ErrorMessage';
+import { useEffect } from 'react';
 
 const notoSansJP = Noto_Sans_JP({ subsets: ['latin'] });
 
@@ -34,6 +35,7 @@ export default function SignUpForm() {
     reset,
     setValue,
     watch,
+    setFocus,
     formState: { errors },
   } = useForm<IFormInput>();
 
@@ -81,6 +83,10 @@ export default function SignUpForm() {
     };
     signUp(params);
   };
+
+  useEffect(() => {
+    setFocus('name');
+  }, []);
 
   return (
     <form

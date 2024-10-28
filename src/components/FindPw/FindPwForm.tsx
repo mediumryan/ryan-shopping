@@ -7,6 +7,7 @@ import Swal from 'sweetalert2';
 import { Noto_Sans_JP } from 'next/font/google';
 import { useRouter } from 'next/navigation';
 import ErrorMessage from '../ErrorMessage';
+import { useEffect } from 'react';
 
 const notoSansJP = Noto_Sans_JP({ subsets: ['latin'] });
 
@@ -29,6 +30,7 @@ export default function FindPwForm() {
     register,
     handleSubmit,
     setValue,
+    setFocus,
     formState: { errors },
   } = useForm<IFormInput>();
 
@@ -89,6 +91,10 @@ export default function FindPwForm() {
     };
     findPw(params);
   };
+
+  useEffect(() => {
+    setFocus('id');
+  }, []);
 
   return (
     <form

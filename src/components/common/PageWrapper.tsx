@@ -7,18 +7,29 @@ import { useRecoilValue } from 'recoil';
 
 interface IPageWrapperProps {
   page_category: string;
+  isSearch?: boolean;
 }
 
-export default function PageWrapper({ page_category }: IPageWrapperProps) {
+export default function PageWrapper({
+  page_category,
+  isSearch,
+}: IPageWrapperProps) {
   const productsData = useRecoilValue(productsAtom);
   const [data, setData] = useState<ProductType[]>([]);
 
   useEffect(() => {
     setData(() => {
-      const topData = productsData.filter((a) =>
-        a.category.includes(page_category)
-      );
-      return topData;
+      if (isSearch) {
+        const filteredData = productsData.filter((a) =>
+          a.name.includes(page_category)
+        );
+        return filteredData;
+      } else {
+        const filteredData = productsData.filter((a) =>
+          a.category.includes(page_category)
+        );
+        return filteredData;
+      }
     });
   }, []);
 

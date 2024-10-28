@@ -47,6 +47,7 @@ export default function SignUpForm() {
     if (res.ok) {
       const result = await res.json();
       if (result.status === 'ok') {
+        setTimeout(() => {}, 1000);
         Swal.fire({
           text: result.message,
           icon: 'success',

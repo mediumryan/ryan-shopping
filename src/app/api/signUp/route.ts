@@ -35,6 +35,9 @@ export async function POST(req: Request) {
       return response;
     }
   } catch (err: any) {
-    throw new Error('회원가입에 실패했습니다.');
+    return NextResponse.json({
+      status: 'ng',
+      message: '회원가입에 실패했습니다.',
+    });
   }
 }

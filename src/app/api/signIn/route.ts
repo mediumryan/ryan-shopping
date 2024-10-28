@@ -36,6 +36,9 @@ export async function POST(req: Request) {
       });
     }
   } catch (err: any) {
-    throw new Error('로그인에 실패했습니다. 다시 한번 시도해주세요.');
+    return NextResponse.json({
+      status: 'ng',
+      message: '로그인에 실패했습니다. 다시 한번 시도해주세요.',
+    });
   }
 }

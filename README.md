@@ -1,6 +1,6 @@
 <img width="1456" alt="스크린샷 2024-10-28 11 27 19" src="https://github.com/user-attachments/assets/442a7c8f-f4d5-44d5-9660-a82e916b0d82">
 
-<a href="https://ryan-shopping.vercel.app/">바로가기</a>
+<a target="blank" href="https://ryan-shopping.vercel.app/">바로가기</a>
 
 기존 React.js 코드를 Next.js + TypeScript 코드로 변경하였습니다.
 추가로 약간의 디자인 변경이 있습니다.
@@ -21,6 +21,8 @@ middleware 기능을 사용하여, 사용자가 로그인을 하지 않는다면
 - 상품 즐겨찾기에 등록
 - 즐겨찾기 상품 장바구니로 옮기기
 - 장바구니 내 상품 집계 (결제기능 없음)
+
+---------------------------------
 
 - Last Modified
 - 2024.10.28

@@ -14,7 +14,7 @@ import CartImagePopOver from './CartImagePopOver';
 import CartItemCounter from './CartItemCounter';
 import CartCheckBox from './CartCheckBox';
 import { Checkbox } from '../ui/checkbox';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function CartTable() {
   const [cart, setCart] = useRecoilState(cartAtom);
@@ -38,6 +38,15 @@ export default function CartTable() {
     }
   };
 
+  useEffect(() => {
+    if (cart.length > 0) {
+      const allChecked = cart.every((item) => item.isChecked);
+      setAllStatus(allChecked);
+    } else {
+      setAllStatus(false);
+    }
+  }, [cart]);
+
   return (
     <Table className="text-[10px] md:text-base">
       <TableHeader>
@@ -48,6 +57,7 @@ export default function CartTable() {
               onCheckedChange={() => {
                 setAllStatus((prev) => !prev);
               }}
+              checked={allStatus}
             />
           </TableHead>
           <TableHead className="text-center">상품명</TableHead>

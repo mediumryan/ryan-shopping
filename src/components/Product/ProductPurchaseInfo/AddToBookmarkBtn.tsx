@@ -15,6 +15,7 @@ import { ProductType } from '@/data/product';
 import { bookmarkAtom } from '@/data/bookmark';
 import { IoStar } from 'react-icons/io5';
 import { moveToPageOpenAtom } from '@/data/common';
+import { useEffect, useState } from 'react';
 
 interface IAddToBookmarkBtnProps {
   data: ProductType;
@@ -35,6 +36,7 @@ export default function AddToBookmarkBtn({
 }: IAddToBookmarkBtnProps) {
   const [bookmark, setBookmark] = useRecoilState(bookmarkAtom);
   const setOpen = useSetRecoilState(moveToPageOpenAtom);
+  let [iconColor, setIconColor] = useState('text-gray-400');
 
   const addToCart = () => {
     setSubmitStatus('bookmark');
@@ -71,11 +73,26 @@ export default function AddToBookmarkBtn({
       return newBookmark;
     });
   };
+
+  useEffect(() => {
+    if (bookmark.length > 0) {
+      const alreadyExistItem = bookmark.findIndex((b) => b.name === data.name);
+
+      console.log('bookmark', bookmark);
+      console.log('data', data);
+      if (alreadyExistItem !== -1) {
+        setIconColor('text-green-400');
+      } else {
+        setIconColor('text-gray-400');
+      }
+    }
+  }, [bookmark]);
+
   return (
     <Dialog>
       <DialogTrigger asChild>
         <Button className={submitButtonStyle}>
-          <IoStar />
+          <IoStar className={iconColor} />
         </Button>
       </DialogTrigger>
       <DialogContent className="w-[320px] rounded-md">

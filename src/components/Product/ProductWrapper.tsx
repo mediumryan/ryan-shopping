@@ -8,16 +8,7 @@ import { useRecoilValue } from 'recoil';
 
 export default function ProductWrapper({ productId }: { productId: string }) {
   const productList = useRecoilValue(productsAtom);
-  const [data, setData] = useState<ProductType>(productList[0]);
-
-  useEffect(() => {
-    setData((prev) => {
-      const product = productList.find((p) => p.id === Number(productId));
-      if (product) {
-        return product;
-      } else return prev;
-    });
-  }, []);
+  const data = productList[Number(productId)];
 
   return (
     <div>

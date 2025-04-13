@@ -12,7 +12,7 @@ import { useRecoilState } from 'recoil';
 import { Checkbox } from '@/components/ui/checkbox';
 import { bookmarkAtom } from '@/data/bookmark';
 import BookmarkCheckBox from './BookmarkCheckBox';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import BookmarkImagePopOver from './BookmarkImagePopOver';
 import BookmarkItemCounter from './BookmarkItemCounter';
 
@@ -38,6 +38,15 @@ export default function BookmarkTable() {
     }
   };
 
+  useEffect(() => {
+    if (bookmark.length > 0) {
+      const allChecked = bookmark.every((item) => item.isChecked);
+      setAllStatus(allChecked);
+    } else {
+      setAllStatus(false);
+    }
+  }, [bookmark]);
+
   return (
     <Table className="text-[10px] md:text-base">
       <TableHeader>
@@ -48,6 +57,7 @@ export default function BookmarkTable() {
               onCheckedChange={() => {
                 setAllStatus((prev) => !prev);
               }}
+              checked={allStatus}
             />
           </TableHead>
           <TableHead className="text-center">상품명</TableHead>

@@ -1,22 +1,40 @@
+import { UserType } from '@/app/layout';
 import { Button } from '@/components/ui/button';
-import { linksData } from '@/data/header';
+import { linksData, LinkType } from '@/data/header';
 import Link from 'next/link';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const btnStyle = 'w-full';
 
 interface IHeaderMenuLinkProps {
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  isSigned: UserType | undefined;
 }
 
-export default function HeaderMenuLink({ setOpen }: IHeaderMenuLinkProps) {
+export default function HeaderMenuLink({
+  setOpen,
+  isSigned,
+}: IHeaderMenuLinkProps) {
   const closeMenu = () => {
     setOpen(false);
   };
 
+  const [links, setLinks] = useState<LinkType[] | null>(null);
+
+  useEffect(() => {
+    if (isSigned) {
+      const newLinks = linksData.filter(
+        (item) => item.id !== 1 && item.id !== 2
+      );
+      setLinks(newLinks);
+    } else {
+      setLinks(linksData);
+    }
+  }, []);
+
   return (
     <div className="flex flex-col justify-center items-center gap-2 text-gray-400">
-      {linksData.map((item) => {
+      {links?.map((item) => {
         return (
           <Button
             key={`header-links-${item.id}`}

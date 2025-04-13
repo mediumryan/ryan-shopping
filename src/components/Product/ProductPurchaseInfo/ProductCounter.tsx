@@ -26,7 +26,7 @@ export default function ProductCounter({
       <Button type="button" className="font-bold" onClick={minusCount}>
         -
       </Button>
-      <Input type="text" className="w-12 text-center" value={count} />
+      <Input type="text" className="w-12 text-center" value={count} readOnly />
       <Button type="button" className="font-bold" onClick={plusCount}>
         +
       </Button>

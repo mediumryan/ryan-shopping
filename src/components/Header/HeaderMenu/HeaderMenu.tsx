@@ -49,7 +49,7 @@ export default function HeaderMenu({
         </SheetHeader>
         <div className="relative">
           <HeaderMenuSearch setOpen={setOpen} />
-          <HeaderMenuLink setOpen={setOpen} />
+          <HeaderMenuLink setOpen={setOpen} isSigned={isSigned} />
         </div>
         <SheetFooter>
           <SheetClose asChild>

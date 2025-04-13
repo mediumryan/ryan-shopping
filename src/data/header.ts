@@ -1,3 +1,9 @@
+export type LinkType = {
+  id: number;
+  link: string;
+  value: string;
+};
+
 export const linksData = [
   {
     id: 0,

@@ -7,7 +7,6 @@ import { useRouter } from 'next/navigation';
 import Swal from 'sweetalert2';
 import { Noto_Sans_JP } from 'next/font/google';
 import ErrorMessage from '../ErrorMessage';
-import { useEffect } from 'react';
 
 const notoSansJP = Noto_Sans_JP({ subsets: ['latin'] });
 
@@ -23,7 +22,7 @@ export const swalCustomSubmitBtnStyle = {
   popup: `w-[320px] ${notoSansJP.className}`,
 };
 
-export default function SignInForm() {
+export default function SignInForm({ user }: { user: string | undefined }) {
   const router = useRouter();
 
   const {
@@ -81,10 +80,6 @@ export default function SignInForm() {
     };
     signIn(params);
   };
-
-  useEffect(() => {
-    setFocus('id');
-  }, []);
 
   return (
     <form

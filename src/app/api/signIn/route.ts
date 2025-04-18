@@ -25,7 +25,7 @@ export async function POST(req: Request) {
         `user=${JSON.stringify({
           id: isValidUser.user_id,
           name: isValidUser.name,
-        })}; Path=/; HttpOnly; Max-Age=3600`
+        })}; Path=/; HttpOnly; Max-Age=3600; SameSite=lax; Secure`
       );
 
       return response;

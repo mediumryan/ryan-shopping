@@ -7,6 +7,7 @@ import { useRouter } from 'next/navigation';
 import Swal from 'sweetalert2';
 import { Noto_Sans_JP } from 'next/font/google';
 import ErrorMessage from '../ErrorMessage';
+import { useEffect } from 'react';
 
 const notoSansJP = Noto_Sans_JP({ subsets: ['latin'] });
 
@@ -36,6 +37,10 @@ export default function SignInForm({ user }: { user: string | undefined }) {
   const signIn = async (params: IFormInput) => {
     const res = await fetch('/api/signIn', {
       method: 'POST',
+      credentials: 'same-origin',
+      headers: {
+        'Content-Type': 'application/json',
+      },
       body: JSON.stringify({
         id: params.id,
         pw: params.pw,
@@ -80,6 +85,10 @@ export default function SignInForm({ user }: { user: string | undefined }) {
     };
     signIn(params);
   };
+
+  useEffect(() => {
+    setFocus('id');
+  }, []);
 
   return (
     <form

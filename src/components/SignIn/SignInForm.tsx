@@ -7,6 +7,7 @@ import { useRouter } from 'next/navigation';
 import Swal from 'sweetalert2';
 import { Noto_Sans_JP } from 'next/font/google';
 import ErrorMessage from '../ErrorMessage';
+import { useEffect } from 'react';
 
 const notoSansJP = Noto_Sans_JP({ subsets: ['latin'] });
 
@@ -54,25 +55,18 @@ export default function SignInForm({ user }: { user: string | undefined }) {
           icon: 'warning',
           customClass: swalCustomSubmitBtnStyle,
         });
-        return;
+      } else {
+        Swal.fire({
+          text: result.message,
+          icon: 'success',
+          customClass: swalCustomSubmitBtnStyle,
+        });
+        setValue('id', '');
+        setValue('pw', '');
+
+        router.push('/');
+        router.refresh();
       }
-      setValue('id', '');
-      setValue('pw', '');
-
-      router.push('/');
-      router.refresh();
-      // else {
-      //   Swal.fire({
-      //     text: result.message,
-      //     icon: 'success',
-      //     customClass: swalCustomSubmitBtnStyle,
-      //   });
-      //   setValue('id', '');
-      //   setValue('pw', '');
-
-      //   router.push('/');
-      //   router.refresh();
-      // }
     } else {
       setValue('id', '');
       setValue('pw', '');
@@ -92,6 +86,12 @@ export default function SignInForm({ user }: { user: string | undefined }) {
     };
     signIn(params);
   };
+
+  useEffect(() => {
+    if (user) {
+      router.push('/');
+    }
+  }, []);
 
   return (
     <form

@@ -8,12 +8,13 @@ export async function middleware(req: NextRequest) {
 
   if (!user) {
     return NextResponse.redirect(new URL('/sign-in', req.url));
+  } else {
+    return NextResponse.next();
   }
-  return res;
 }
 
 export const config = {
   matcher: [
-    '/((?!api|_next/static|_next/image|favicon.ico|sign-in|sign-up|find-pw|).*)',
+    '/((?!api|_next/static|_next/image|favicon.ico|sign-in|sign-up|find-pw).*)',
   ],
 };

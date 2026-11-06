@@ -11,6 +11,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
+import { imageBlurDataUrl } from '@/lib/utils';
 
 export default function TabsRelatedItems({ category }: { category: string[] }) {
   const productList = useRecoilValue(productsAtom);
@@ -41,12 +42,18 @@ export default function TabsRelatedItems({ category }: { category: string[] }) {
             <div className="p-1">
               <Card className="hover:opacity-85 duration-300">
                 <CardContent className="flex aspect-square items-center justify-center p-6">
-                  <Link href={`/product-detail/${item.id}`}>
+                  <Link
+                    href={`/product-detail/${item.id}`}
+                    className="relative block w-full h-full"
+                  >
                     <Image
                       src={item.image_path}
                       alt={item.name}
-                      fill={true}
-                      sizes="100%"
+                      fill
+                      sizes="(min-width: 768px) 23vw, 90vw"
+                      placeholder="blur"
+                      blurDataURL={imageBlurDataUrl}
+                      className="object-contain"
                     />
                   </Link>
                 </CardContent>

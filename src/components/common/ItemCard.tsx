@@ -3,6 +3,7 @@ import React from 'react';
 import { Badge } from '../ui/badge';
 import { ProductType } from '@/data/product';
 import Link from 'next/link';
+import { imageBlurDataUrl } from '@/lib/utils';
 
 export default function ItemCard({ item }: { item: ProductType }) {
   return (
@@ -11,8 +12,17 @@ export default function ItemCard({ item }: { item: ProductType }) {
       className="bg-gray-50 flex flex-col justify-center items-center gap-2 rounded-md overflow-hidden shadow-md hover:-translate-y-4 hover:opacity-90 duration-300"
     >
       <div className="relative w-full h-48">
-        <Image src={item.image_path} alt={item.name} fill={true} sizes="100%" />
-        {item.discounted && (
+        <Image
+          className="object-contain"
+          src={item.image_path}
+          alt={item.name}
+          fill
+          sizes="(min-width: 768px) 18.75vw, 50vw"
+          placeholder="blur"
+          blurDataURL={imageBlurDataUrl}
+          loader={({ src }) => src}
+        />
+        {item.discounted > 0 && (
           <Badge className="absolute top-2 right-2 opacity-50">
             {(item.discounted * 100).toFixed()}%
           </Badge>

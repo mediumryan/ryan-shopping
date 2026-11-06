@@ -4,12 +4,6 @@ import './globals.css';
 import Header from '@/components/Header/Header';
 import GoToTop from '@/components/GoToTop';
 import RecoilProvider from './recoilProvider';
-import { cookies } from 'next/headers';
-
-export type UserType = {
-  id: string;
-  name: string;
-};
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -35,17 +29,13 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const cookieStore = cookies();
-  const user = cookieStore.get('user')?.value;
-  const isSigned = user ? (JSON.parse(user as string) as UserType) : undefined;
-
   return (
     <html lang="en">
       <body
         className={`relative ${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <RecoilProvider>
-          <Header isSigned={isSigned} />
+          <Header />
           {children}
           <GoToTop />
         </RecoilProvider>

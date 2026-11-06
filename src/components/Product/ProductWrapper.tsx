@@ -1,14 +1,13 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import ProductPurchaseInfo from './ProductPurchaseInfo/ProductPurchaseInfo';
 import ProductTabs from './ProductTabs/ProductTabs';
-import { productsAtom, ProductType } from '@/data/product';
+import { productsAtom } from '@/data/product';
 import { useRecoilValue } from 'recoil';
 
 export default function ProductWrapper({ productId }: { productId: string }) {
   const productList = useRecoilValue(productsAtom);
-  const data = productList[Number(productId)];
+  const data = productList.find((product) => product.id === Number(productId));
 
   return (
     <div>

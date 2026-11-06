@@ -23,75 +23,22 @@ export const swalCustomSubmitBtnStyle = {
   popup: `w-[320px] ${notoSansJP.className}`,
 };
 
-export default function SignInForm({ user }: { user: string | undefined }) {
+export default function SignInForm() {
   const router = useRouter();
 
   const {
     register,
     handleSubmit,
-    setValue,
-    setFocus,
     formState: { errors },
   } = useForm<IFormInput>();
 
-  const signIn = async (params: IFormInput) => {
-    const res = await fetch('/api/signIn', {
-      method: 'POST',
-      credentials: 'same-origin',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        id: params.id,
-        pw: params.pw,
-      }),
-    });
-    if (res.ok) {
-      const result = await res.json();
-      if (result.status === 'ng') {
-        setValue('pw', '');
-        Swal.fire({
-          text: result.message,
-          icon: 'warning',
-          customClass: swalCustomSubmitBtnStyle,
-        });
-      } else {
-        Swal.fire({
-          text: result.message,
-          icon: 'success',
-          customClass: swalCustomSubmitBtnStyle,
-        });
-        setValue('id', '');
-        setValue('pw', '');
-
-        router.push('/');
-        router.refresh();
-      }
-    } else {
-      setValue('id', '');
-      setValue('pw', '');
-      const error = await res.json();
-      Swal.fire({
-        text: error.message,
-        icon: 'warning',
-        customClass: swalCustomSubmitBtnStyle,
-      });
-    }
-  };
-
   const onSubmit: SubmitHandler<IFormInput> = (data) => {
-    const params = {
-      id: data.id,
-      pw: data.pw,
-    };
-    signIn(params);
+    Swal.fire({
+      text: `Welcome, ${data.id}! This portfolio demo does not require authentication.`,
+      icon: 'success',
+      customClass: swalCustomSubmitBtnStyle,
+    }).then(() => router.push('/'));
   };
-
-  useEffect(() => {
-    if (user) {
-      router.push('/');
-    }
-  }, []);
 
   return (
     <form

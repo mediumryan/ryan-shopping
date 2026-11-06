@@ -4,6 +4,7 @@ import { Badge } from '@/components/ui/badge';
 import { ProductType } from '@/data/product';
 import Image from 'next/image';
 import React, { useState } from 'react';
+import { imageBlurDataUrl } from '@/lib/utils';
 import { ColorToggle } from './ColorToggle';
 import { SizeToggle } from './SizeToggle';
 import ProductCounter from './ProductCounter';
@@ -33,8 +34,12 @@ function ProductPurchaseInfo({ data }: { data: ProductType }) {
             <Image
               src={data.image_path}
               alt={data.name}
-              fill={true}
-              sizes="100%"
+              fill
+              priority
+              sizes="(min-width: 768px) 500px, 100vw"
+              placeholder="blur"
+              blurDataURL={imageBlurDataUrl}
+              className="object-contain"
             />
           </div>
           <div className="flex flex-col items-center gap-4">

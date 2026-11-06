@@ -34,62 +34,14 @@ export default function FindPwForm() {
     formState: { errors },
   } = useForm<IFormInput>();
 
-  const findPw = async (params: IFormInput) => {
-    const res = await fetch('/api/findPw', {
-      method: 'POST',
-      body: JSON.stringify(params),
-    });
-
-    if (res.ok) {
-      const result = await res.json();
-      if (result.status === 'ok') {
-        setValue('id', '');
-        setValue('pw_key', '');
-        Swal.fire({
-          text: result.message,
-          icon: 'success',
-          customClass: swalCustomSubmitBtnStyle,
-          confirmButtonText: '로그인',
-          cancelButtonText: 'OK',
-          showCancelButton: true,
-        }).then((result) => {
-          if (result.isConfirmed) {
-            router.push('/sign-in');
-            router.refresh();
-          }
-        });
-      } else if (result.status === 'id') {
-        setValue('id', '');
-        setValue('pw_key', '');
-        Swal.fire({
-          text: result.message,
-          icon: 'warning',
-          customClass: swalCustomSubmitBtnStyle,
-        });
-      } else {
-        setValue('pw_key', '');
-        Swal.fire({
-          text: result.message,
-          icon: 'warning',
-          customClass: swalCustomSubmitBtnStyle,
-        });
-      }
-    } else {
-      const error = await res.json();
-      Swal.fire({
-        text: error.message,
-        icon: 'warning',
-        customClass: swalCustomSubmitBtnStyle,
-      });
-    }
-  };
-
   const onSubmit: SubmitHandler<IFormInput> = (data) => {
-    const params = {
-      id: data.id,
-      pw_key: data.pw_key,
-    };
-    findPw(params);
+    setValue('id', '');
+    setValue('pw_key', '');
+    Swal.fire({
+      text: `This portfolio demo does not store password data for ${data.id}.`,
+      icon: 'info',
+      customClass: swalCustomSubmitBtnStyle,
+    });
   };
 
   useEffect(() => {

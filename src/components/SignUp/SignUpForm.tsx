@@ -33,56 +33,18 @@ export default function SignUpForm() {
     register,
     handleSubmit,
     reset,
-    setValue,
     watch,
     setFocus,
     formState: { errors },
   } = useForm<IFormInput>();
 
-  const signUp = async (params: IFormInput) => {
-    const res = await fetch('/api/signUp', {
-      method: 'POST',
-      body: JSON.stringify(params),
-    });
-    if (res.ok) {
-      const result = await res.json();
-      if (result.status === 'ok') {
-        setTimeout(() => {}, 1000);
-        Swal.fire({
-          text: result.message,
-          icon: 'success',
-          customClass: swalCustomSubmitBtnStyle,
-        });
-        reset();
-        router.push('/');
-        router.refresh();
-      } else {
-        Swal.fire({
-          text: result.message,
-          icon: 'warning',
-          customClass: swalCustomSubmitBtnStyle,
-        });
-        setValue('id', '');
-      }
-    } else {
-      const error = await res.json();
-      Swal.fire({
-        text: error.message,
-        icon: 'warning',
-        customClass: swalCustomSubmitBtnStyle,
-      });
-    }
-  };
-
   const onSubmit: SubmitHandler<IFormInput> = (data) => {
-    const params = {
-      name: data.name,
-      id: data.id,
-      pw: data.pw,
-      pw_check: data.pw_check,
-      pw_key: data.pw_key,
-    };
-    signUp(params);
+    reset();
+    Swal.fire({
+      text: `Thanks, ${data.name}! This portfolio demo does not store accounts.`,
+      icon: 'success',
+      customClass: swalCustomSubmitBtnStyle,
+    }).then(() => router.push('/'));
   };
 
   useEffect(() => {

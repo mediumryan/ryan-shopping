@@ -5,9 +5,8 @@ import HeaderMenu from '@/components/Header/HeaderMenu/HeaderMenu';
 import HeaderLogo from '@/components/Header/HeaderLogo';
 import HeaderSign from '@/components/Header/HeaderSign';
 import HeaderNavigation from './HeaderNavigation';
-import { UserType } from '@/app/layout';
 
-function Header({ isSigned }: { isSigned: UserType | undefined }) {
+function Header() {
   const [isVisible, setIsVisible] = useState(true);
   const prevScrollY = useRef(0);
 
@@ -39,11 +38,11 @@ function Header({ isSigned }: { isSigned: UserType | undefined }) {
     >
       <div className="w-full flex justify-between items-center">
         {/* menu */}
-        <HeaderMenu isSigned={isSigned} />
+        <HeaderMenu />
         {/* logo */}
         <HeaderLogo />
         {/* sign */}
-        <HeaderSign isSigned={isSigned} />
+        <HeaderSign />
       </div>
       <HeaderNavigation />
     </div>

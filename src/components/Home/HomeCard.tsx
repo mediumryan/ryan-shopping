@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
+import { imageBlurDataUrl } from '@/lib/utils';
 
 interface IHomeCardProps {
   filter: string;
@@ -37,8 +38,11 @@ export default function HomeCard({ filter, title }: IHomeCardProps) {
             <Image
               src={item.image_path}
               alt={item.name}
-              fill={true}
-              sizes="100%"
+              fill
+              sizes="(min-width: 768px) 25vw, 50vw"
+              placeholder="blur"
+              blurDataURL={imageBlurDataUrl}
+              className="object-contain"
             />
           </div>
         );

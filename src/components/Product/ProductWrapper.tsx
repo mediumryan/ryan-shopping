@@ -9,6 +9,8 @@ export default function ProductWrapper({ productId }: { productId: string }) {
   const productList = useRecoilValue(productsAtom);
   const data = productList.find((product) => product.id === Number(productId));
 
+  if (!data) return;
+
   return (
     <div>
       {/* 제품 구매 정보 */}
